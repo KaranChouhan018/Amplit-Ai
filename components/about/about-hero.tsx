@@ -29,14 +29,12 @@ export default function AboutHero() {
 
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black leading-tight mb-6 tracking-tight">
-            Care First.{' '} <br />
-            <span className="text-brand">Intelligence Always.</span>
+            Amplifying{' '} <br />
+            <span className="text-brand">Healthcare Intelligence.</span>
           </h1>
 
           <p className="text-base sm:text-lg text-black/60 max-w-2xl mx-auto leading-relaxed">
-            We envision a world where every clinic runs like a well-oiled machine —
-            AI doing the heavy lifting behind the scenes, so healthcare providers
-            can focus on what they do best: caring for patients.
+            Amplit AI is a healthcare-focused AI company building intelligent solutions that reduce operational burden and improve patient engagement — starting with dental practices.
           </p>
         </motion.div>
       </div>

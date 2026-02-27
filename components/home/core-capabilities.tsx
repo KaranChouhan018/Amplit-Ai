@@ -9,31 +9,32 @@ import { BorderBeam } from '@/components/ui/border-beam';
 const capabilities = [
   {
     icon: Brain,
-    title: 'Data Intelligence & Analysis',
-    description: 'Understand, interact with, and protect your data dynamically',
+    title: 'Dental Workflow Intelligence',
+    description: 'Unlike generic call systems, Amplit AI understands dental workflows',
     features: [
-      'Clinical Data Analysis',
-      'Conversational Access to Databases',
-      'Automated Data Masking for Privacy & Security',
+      'Knows dental procedures & patient queries',
+      'Handles insurance-related questions',
+      'Customizable for your clinic operations',
     ],
   },
   {
     icon: ScanText,
-    title: 'Visual Parsing & OCR Intelligence',
-    description: 'Extract structured insights from unstructured visual content',
+    title: 'Revenue Intelligence Dashboard',
+    description: 'Full visibility into how calls impact your revenue',
     features: [
-      'Smart Invoice & Inventory Parsing',
-      'Tabular Data Recognition & Extraction',
-      'Automated PDF Form Population',
+      'Total & missed call tracking',
+      'Estimated revenue captured vs. lost',
+      'Call-to-booking conversion rate',
     ],
   },
   {
     icon: Users,
-    title: 'Adaptive User Interaction',
-    description: 'Make business processes conversational, real-time, and contextual',
+    title: 'Real-Time Metrics & Insights',
+    description: 'See exactly what your front desk might be missing',
     features: [
-      'Live Lead Enrichment via External Data Sources',
-      'Custom Dynamic User Conversations & Automation Triggers',
+      'Peak call times analysis',
+      'Appointments booked automatically',
+      'Designed with healthcare privacy in mind',
     ],
   },
 ];
@@ -126,26 +127,24 @@ export default function CoreCapabilities() {
 
           <div className="relative flex flex-col lg:flex-row">
             {/* ── Left: Animated Visualization ── */}
-            <div className="lg:w-5/12 flex flex-col justify-between p-10 lg:p-14">
+            <div className="lg:w-5/12 flex flex-col justify-between p-6 sm:p-10 lg:p-14">
               <AnimatedViz />
               <div className="mt-8">
                 <motion.h2
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-4xl md:text-5xl font-bold text-black leading-tight mb-4"
+                  className="text-2xl sm:text-3xl md:text-4xl font-bold text-black leading-tight mb-4"
                 >
-                  Core Agentic<br />Capabilities
+                  What Sets Us Apart
                 </motion.h2>
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.35 }}
-                  className="text-black/80 text-sm leading-relaxed font-medium max-w-xs"
+                  className="text-black/80 text-base leading-relaxed font-medium max-w-xs"
                 >
-                  Build smarter, faster: Core intelligent agents designed to accelerate
-                  complex automations and workflows — boosting delivery speed and simplifying
-                  AI adoption in your business.
+                  Amplit AI doesn&apos;t just answer calls — it shows you exactly how those calls impact your revenue. You get full visibility into what your front desk might be missing.
                 </motion.p>
               </div>
             </div>
@@ -154,7 +153,7 @@ export default function CoreCapabilities() {
             <div className="hidden lg:block w-px bg-[#6594B1]/30 my-10" />
 
             {/* ── Right: Capabilities List ── */}
-            <div className="lg:w-7/12 flex flex-col justify-between p-10 lg:p-14">
+            <div className="lg:w-7/12 flex flex-col justify-between p-6 sm:p-10 lg:p-14">
               <div className="divide-y divide-[#6594B1]/20">
                 {capabilities.map((cap, index) => (
                   <motion.div
@@ -165,16 +164,16 @@ export default function CoreCapabilities() {
                     className="py-7 first:pt-0 last:pb-0"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-xl bg-[#6594B1]/15 border border-[#6594B1]/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-10 h-10 rounded-xl bg-[#6594B1]/15 border border-[#6594B1]/30 flex items-center justify-center shrink-0 mt-0.5">
                         <cap.icon className="w-5 h-5 text-black" strokeWidth={1.8} />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-black mb-1">{cap.title}</h3>
-                        <p className="text-black/80 text-sm mb-3">{cap.description}</p>
+                        <h3 className="text-xl font-semibold text-black mb-1">{cap.title}</h3>
+                        <p className="text-black/80 text-[15px] mb-3">{cap.description}</p>
                         <ul className="space-y-1.5">
                           {cap.features.map((feature) => (
                             <li key={feature} className="flex items-start text-sm text-black/80">
-                              <span className="mr-2 mt-2 w-1 h-1 rounded-full bg-[#6594B1] flex-shrink-0" />
+                              <span className="mr-2 mt-2 w-1 h-1 rounded-full bg-[#6594B1] shrink-0" />
                               {feature}
                             </li>
                           ))}

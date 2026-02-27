@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { MapPin, ArrowRight } from 'lucide-react';
 import { CONTACT_INFO } from '@/lib/constants';
+import { BorderBeam } from '../ui/border-beam';
 
 export default function AboutCTA() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -26,14 +27,15 @@ export default function AboutCTA() {
             className="absolute inset-0 pointer-events-none bg-ambient-glow"
           />
 
+          <BorderBeam size={250} duration={12} colorFrom="#6594B1" colorTo="#a8c8de" borderWidth={1.5} />
           {/* Content */}
           <div className="relative z-10 max-w-xl">
 
             <h2 className="text-3xl md:text-4xl font-bold text-black leading-tight mb-5">
-              Ready to Transform Your Practice?
+              Stop Losing Revenue to Missed Calls
             </h2>
             <p className="text-black/80 text-base md:text-lg mb-10 leading-relaxed">
-              Join healthcare practices across the country that are leveraging AI to deliver better patient care while running more efficient operations.
+              Your AI-powered dental front desk answers every call, books appointments, and works 24/7 — so you never miss revenue again. See how Amplit AI can transform your practice.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link

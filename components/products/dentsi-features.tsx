@@ -233,11 +233,10 @@ export default function DentsiFeatures() {
           {steps.map((step) => (
             <div
               key={step.step}
-              className="feature-card w-full mb-8 md:mb-24 last:mb-0"
+              className="feature-card relative overflow-hidden rounded-[30px] md:rounded-[40px] w-full mb-8 md:mb-24 last:mb-0"
             >
+              <BorderBeam size={250} duration={12} colorFrom="#6594B1" colorTo="#a8c8de" borderWidth={1.5} />
               <div className="grid md:grid-cols-2 gap-8 items-center bg-white border border-gray-100 rounded-[30px] md:rounded-[40px] p-6 md:p-16 min-h-fit md:min-h-[500px] shadow-sm">
-
-                <BorderBeam size={250} duration={12} colorFrom="#6594B1" colorTo="#a8c8de" borderWidth={1.5} />
 
                 {/* Text Content */}
                 <div className={`order-1 ${step.reverse ? 'md:order-2' : 'md:order-1'}`}>

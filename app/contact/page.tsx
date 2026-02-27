@@ -6,6 +6,7 @@ import { useInView } from 'react-intersection-observer';
 import Link from 'next/link';
 import { Mail, Phone, MapPin, Calendar, Send, CheckCircle, Clock, ArrowRight } from 'lucide-react';
 import { CONTACT_INFO } from '@/lib/constants';
+import { BorderBeam } from '@/components/ui/border-beam';
 
 // Reusable Input Component for cleaner JSX
 const FormInput = ({ label, id, ...props }: any) => (
@@ -206,7 +207,7 @@ export default function ContactPage() {
                     >
                       {isSubmitting ? 'Processing...' : (
                         <>
-                          <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 transition-colors">
+                          <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0 transition-colors">
                             <Send className="w-3.5 h-3.5 text-white ml-0.5 group-hover:translate-x-1 transition-transform" />
                           </span>
                           Send Message
@@ -266,6 +267,8 @@ export default function ContactPage() {
                   className="absolute inset-0 pointer-events-none bg-ambient-glow"
 
                 />
+
+                <BorderBeam size={200} duration={10} colorFrom="#6594B1" colorTo="#a8c8de" borderWidth={1.5} />
 
                 <div className="relative z-10 w-full mb-2">
                   <div className="w-14 h-14 bg-brand/20 backdrop-blur-sm rounded-3xl flex items-center justify-center mb-6">

@@ -7,57 +7,39 @@ import { motion } from 'framer-motion';
 const faqItems = [
   {
     id: 'item-1',
-    question: 'How quickly does Amplit AI answer patient calls?',
+    question: 'Will this replace my front desk staff?',
     answer:
-      'Amplit AI answers every call in under 2 seconds — 24 hours a day, 7 days a week. There is no hold music, no voicemail, and no missed calls, even during peak hours or after-hours.',
+      'No — it supports your team by handling calls, so they can focus on in-clinic patients. Think of it as an always-on assistant that takes care of the phones while your staff delivers great in-person care.',
   },
   {
     id: 'item-2',
-    question: 'Which practice management systems does it integrate with?',
+    question: 'Can it work after hours?',
     answer:
-      'Amplit AI integrates directly with leading dental practice management software including Dentrix, Eaglesoft, Open Dental, and Curve Dental. Appointments are booked and synced in real time with zero manual entry required.',
+      'Yes, Amplit AI works 24/7 — even when your clinic is closed. Nights, weekends, and holidays are all covered so you never miss a patient call or appointment opportunity.',
   },
   {
     id: 'item-3',
-    question: 'Can the AI understand different accents and dental terminology?',
+    question: 'Is it hard to set up?',
     answer:
-      'Yes. Amplit AI is trained specifically on dental workflows and medical terminology. It handles a wide range of accents reliably and understands procedures, insurance terms, and common patient requests out of the box.',
+      'No, setup is simple and customized to your clinic. Most practices are fully live within a few days. Our onboarding team configures the AI to your custom scripts, protocols, and practice management system.',
   },
   {
     id: 'item-4',
-    question: 'Does it verify insurance during the call?',
+    question: 'Is patient data secure?',
     answer:
-      'Amplit AI can perform real-time insurance verification during the conversation, confirming coverage details before the appointment is booked — saving your front desk significant time and reducing billing surprises.',
+      'Yes, Amplit AI is built with healthcare privacy in mind. All patient interactions are encrypted in transit and at rest, with strict HIPAA-compliant data access controls.',
   },
   {
     id: 'item-5',
-    question: 'How long does it take to set up?',
+    question: 'Which practice management systems does it integrate with?',
     answer:
-      'Most practices are fully live within a few days. Our onboarding team configures the AI to your custom scripts, protocols, and practice management system. No technical expertise is required on your end.',
+      'Amplit AI integrates directly with leading dental PMS including Dentrix, Eaglesoft, Open Dental, and Curve Dental. Appointments are booked and synced in real time with zero manual entry.',
   },
   {
     id: 'item-6',
-    question: 'Is patient data secure and HIPAA compliant?',
+    question: 'Does it handle insurance-related questions?',
     answer:
-      'Absolutely. Amplit AI is built with HIPAA compliance at its core. All patient interactions are encrypted in transit and at rest, and we maintain strict data access controls to protect sensitive health information.',
-  },
-  {
-    id: 'item-7',
-    question: 'Is patient data secure and HIPAA compliant?',
-    answer:
-      'Absolutely. Amplit AI is built with HIPAA compliance at its core. All patient interactions are encrypted in transit and at rest, and we maintain strict data access controls to protect sensitive health information.',
-  },
-  {
-    id: 'item-8',
-    question: 'Is patient data secure and HIPAA compliant?',
-    answer:
-      'Absolutely. Amplit AI is built with HIPAA compliance at its core. All patient interactions are encrypted in transit and at rest, and we maintain strict data access controls to protect sensitive health information.',
-  },
-  {
-    id: 'item-9',
-    question: 'Is patient data secure and HIPAA compliant?',
-    answer:
-      'Absolutely. Amplit AI is built with HIPAA compliance at its core. All patient interactions are encrypted in transit and at rest, and we maintain strict data access controls to protect sensitive health information.',
+      'Yes. Amplit AI can handle basic insurance-related questions and perform real-time insurance verification during the call, confirming coverage details before the appointment is booked.',
   },
 ];
 
@@ -89,7 +71,7 @@ export default function FAQSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl font-bold text-black md:text-4xl lg:text-5xl leading-tight"
+            className="text-3xl font-bold text-black sm:text-4xl lg:text-5xl leading-tight"
           >
             Frequently Asked Questions
           </motion.h2>
@@ -115,11 +97,11 @@ export default function FAQSection() {
           <Accordion
             type="single"
             collapsible
-            className="w-full rounded-3xl border border-brand/15 bg-white px-8 py-3 shadow-sm"
+            className="w-full rounded-3xl border border-brand/15 bg-white px-4 sm:px-8 py-3 shadow-sm"
           >
             {faqItems.map((item) => (
               <AccordionItem key={item.id} value={item.id} className="border-brand/15 border-dashed last:border-0">
-                <AccordionTrigger className="cursor-pointer text-left text-base font-semibold text-black hover:text-brand hover:no-underline transition-colors">
+                <AccordionTrigger className="cursor-pointer text-left text-[17px] font-semibold text-black hover:text-brand hover:no-underline transition-colors">
                   {item.question}
                 </AccordionTrigger>
                 <AccordionContent>
@@ -129,7 +111,7 @@ export default function FAQSection() {
             ))}
           </Accordion>
 
-          <p className="text-black/80 mt-6 px-8 text-sm">
+          <p className="text-black/80 mt-6 px-4 sm:px-8 text-sm">
             Still have questions?{' '}
             <Link href="/contact" className="text-brand font-medium hover:underline">
               Contact our team

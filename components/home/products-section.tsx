@@ -16,9 +16,9 @@ function ScribeMockup() {
   ];
 
   return (
-    <div className="w-full rounded-2xl overflow-hidden bg-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-brand/15 ring-1 ring-black/[0.02]">
+    <div className="w-full rounded-2xl overflow-hidden bg-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-brand/15 ring-1 ring-black/2">
       {/* Header bar */}
-      <div className="bg-gradient-to-r from-brand to-[#7AA8C4] px-4 py-3.5 flex items-center justify-between">
+      <div className="bg-linear-to-r from-brand to-[#7AA8C4] px-4 py-3.5 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm shadow-inner">
             <Mic className="w-4 h-4 text-white" />
@@ -39,7 +39,7 @@ function ScribeMockup() {
         {[0.4, 0.7, 1, 0.85, 0.6, 0.9, 1, 0.5, 0.75, 0.95, 0.6, 0.8, 1, 0.55, 0.7, 0.9, 0.65, 0.8, 0.5, 0.4].map((h, i) => (
           <motion.div
             key={i}
-            className="w-[3px] rounded-full bg-gradient-to-t from-brand to-[#8ABEDD]"
+            className="w-[3px] rounded-full bg-linear-to-t from-brand to-[#8ABEDD]"
             animate={{ scaleY: [h * 0.4, h, h * 0.4] }}
             transition={{ duration: 1.2 + i * 0.05, repeat: Infinity, ease: 'easeInOut', delay: i * 0.04 }}
             style={{ height: 24, transformOrigin: 'center' }}
@@ -56,7 +56,7 @@ function ScribeMockup() {
         </div>
         <div className="space-y-2.5">
           {lines.map((l, i) => (
-            <div key={i} className={`${l.w} h-2.5 rounded-full bg-gradient-to-r from-brand/15 to-brand/5 ${l.opacity}`} />
+            <div key={i} className={`${l.w} h-2.5 rounded-full bg-linear-to-r from-brand/15 to-brand/5 ${l.opacity}`} />
           ))}
         </div>
         <div className="flex items-center gap-2 pt-3 mt-2 border-t border-gray-50">
@@ -71,9 +71,9 @@ function ScribeMockup() {
 /* ─── Dentsi Mockup ─────────────────────────────────────────── */
 function DentsiMockup() {
   return (
-    <div className="w-full rounded-2xl overflow-hidden bg-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-brand/15 ring-1 ring-black/[0.02]">
+    <div className="w-full rounded-2xl overflow-hidden bg-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-brand/15 ring-1 ring-black/2">
       {/* Header */}
-      <div className="bg-gradient-to-r from-brand to-[#7AA8C4] px-4 py-3.5 flex items-center justify-between">
+      <div className="bg-linear-to-r from-brand to-[#7AA8C4] px-4 py-3.5 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm shadow-inner relative">
             <Phone className="w-4 h-4 text-white" />
@@ -94,7 +94,7 @@ function DentsiMockup() {
         {[0.5, 0.8, 0.6, 1, 0.7, 0.9, 0.5, 0.85, 1, 0.6, 0.75, 0.9, 0.55, 0.8, 0.65, 0.95, 0.5, 0.7, 0.85, 0.4].map((h, i) => (
           <motion.div
             key={i}
-            className="w-[3px] rounded-full bg-gradient-to-t from-brand to-[#8ABEDD]"
+            className="w-[3px] rounded-full bg-linear-to-t from-brand to-[#8ABEDD]"
             animate={{ scaleY: [h * 0.4, h, h * 0.4] }}
             transition={{ duration: 1.2 + i * 0.04, repeat: Infinity, ease: 'easeInOut', delay: i * 0.05 }}
             style={{ height: 24, transformOrigin: 'center' }}
@@ -109,7 +109,7 @@ function DentsiMockup() {
         </p>
         
         <div className="flex items-start gap-3 bg-white border border-brand/20 shadow-[0_2px_10px_rgba(101,148,177,0.06)] rounded-xl p-3.5 transition-all hover:border-brand/40">
-          <div className="w-9 h-9 rounded-lg bg-brand-bg1 flex items-center justify-center flex-shrink-0 text-brand">
+          <div className="w-9 h-9 rounded-lg bg-brand-bg1 flex items-center justify-center shrink-0 text-brand">
             <CalendarCheck className="w-4 h-4" />
           </div>
           <div>
@@ -146,7 +146,7 @@ const products = [
     title: 'Dentsi',
     subtitle: 'AI Voice Agent for Dental Practices',
     description:
-      '24/7 automated call handling with natural voice powered by ElevenLabs. Intelligent appointment booking, PMS sync, and a real-time practice dashboard.',
+      '24/7 automated call handling that answers every incoming call, schedules appointments in real time, handles common patient questions, works after hours and weekends, and escalates urgent cases when needed.',
     href: '/dentsi',
     Mockup: DentsiMockup,
   },
@@ -168,11 +168,11 @@ export default function ProductsSection() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-20"
         >
-          <h2 className="sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black/80 tracking-tight leading-tight mb-6">
-            Purpose-built <span className="text-brand ">Healthcare AI</span>
+          <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black/80 tracking-tight leading-tight mb-6">
+            Amplifying <span className="text-brand">Healthcare Intelligence</span>
           </h2>
-          <p className="text-black/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            Two focused products. One mission — let clinicians and front-desk staff focus on patients, not admin work.
+            <p className="text-black/80 text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            Intelligent solutions that reduce operational burden and improve patient engagement — starting with dental practices.
           </p>
         </motion.div>
 
@@ -182,15 +182,15 @@ export default function ProductsSection() {
             <motion.div
               key={title}
               transition={{ duration: 0.7, delay: 0.2 + index * 0.15, ease: "easeOut" }}
-              className="group relative bg-white rounded-[2rem] border border-brand/15 overflow-hidden  transition-all duration-500 flex flex-col"
+              className="group relative bg-white rounded-4xl border border-brand/15 overflow-hidden  transition-all duration-500 flex flex-col"
             >
           
               {/* Illustration area with Soft Backdrop */}
-              <div className="relative px-8 pt-10 pb-6 bg-gradient-to-b from-brand-bg1/80 to-transparent flex justify-center">
+              <div className="relative px-8 pt-10 pb-6 bg-linear-to-b from-brand-bg1/80 to-transparent flex justify-center">
                 <div className="w-full max-w-[400px]  rounded-2xl">
                   <Mockup />
                                     {/* Subtle bottom fade */}
-                  <div className="absolute inset-x-0 bottom-0 h-80 bg-gradient-to-t from-white/80 to-transparent pointer-events-none" />
+                  <div className="absolute inset-x-0 bottom-0 h-80 bg-linear-to-t from-white/80 to-transparent pointer-events-none" />
                 </div>
               </div>
 
@@ -201,9 +201,9 @@ export default function ProductsSection() {
                     {badge}
                   </span>
                 </div>
-                <h3 className="text-3xl font-bold text-black/80 mb-2 tracking-tight">{title}</h3>
+                <h3 className="text-2xl sm:text-3xl font-bold text-black/80 mb-2 tracking-tight">{title}</h3>
                 <p className="text-brand text-base font-semibold mb-4">{subtitle}</p>
-                <p className="text-black/80 text-sm leading-relaxed mb-8 flex-1">{description}</p>
+                <p className="text-black/80 text-[15px] leading-relaxed mb-8 flex-1">{description}</p>
                 
                 <div>
                    <Link

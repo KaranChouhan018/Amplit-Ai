@@ -55,7 +55,7 @@ export default function AcuCognBenefits() {
                   transition={{ duration: 0.5, delay: 0.2 + (index * 0.1) }}
                   className="flex items-start group"
                 >
-                  <div className="mt-1 mr-4 w-6 h-6 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand/20 transition-colors">
+                  <div className="mt-1 mr-4 w-6 h-6 rounded-full bg-brand/10 flex items-center justify-center shrink-0 group-hover:bg-brand/20 transition-colors">
                     <CheckCircle className="w-4 h-4 text-brand" />
                   </div>
                   <span className="text-black text-lg font-medium">{benefit}</span>
@@ -152,7 +152,7 @@ export default function AcuCognBenefits() {
               </div>
 
               {/* Bottom fading edge mask */}
-              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white via-white/90 to-transparent z-10 pointer-events-none rounded-b-3xl" />
+              <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-white via-white/90 to-transparent z-10 pointer-events-none rounded-b-3xl" />
 
             </div>
           </motion.div>

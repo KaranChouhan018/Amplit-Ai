@@ -1,16 +1,34 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { PhoneCall } from "lucide-react";
+import { PhoneCall, CalendarCheck, HelpCircle, Moon, ArrowUpDown } from "lucide-react";
 import { BorderBeam } from "@/components/ui/border-beam";
 
-const pmsLogos = [
-  { name: "Dentrix", color: "#2563eb" },
-  { name: "Eaglesoft", color: "#16a34a" },
-  { name: "Open Dental", color: "#dc2626" },
-  { name: "Curve", color: "#9333ea" },
-  { name: "Carestream", color: "#ea580c" },
-  { name: "Dentimax", color: "#0891b2" },
+const capabilities = [
+  { icon: PhoneCall, label: "Answers every incoming call" },
+  { icon: CalendarCheck, label: "Schedules appointments in real time" },
+  { icon: HelpCircle, label: "Handles common patient questions" },
+  { icon: Moon, label: "Works after hours and weekends" },
+  { icon: ArrowUpDown, label: "Escalates urgent cases when needed" },
+];
+
+const stats = [
+  {
+    emoji: "📉",
+    value: "40%",
+    label: "Fewer no-shows",
+    description: "Automated reminders & instant rebooking cut missed appointments significantly.",
+    gradient: "from-[#eef4f8] to-white",
+    valueColor: "text-brand",
+  },
+  {
+    emoji: "⚡",
+    value: "24/7",
+    label: "Always available",
+    description: "Nights, weekends, holidays — every call answered, every appointment booked.",
+    gradient: "from-brand/10 to-white",
+    valueColor: "text-brand",
+  },
 ];
 
 function CallMockup() {
@@ -78,7 +96,7 @@ function CallMockup() {
         {/* Footer */}
         <div className="border-t border-gray-100 px-5 py-3.5 flex items-center gap-2 bg-gray-50/50">
           <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-          <span className="text-[11px] text-black/80 font-medium uppercase tracking-wider">
+          <span className="text-[11px] text-black/60 font-medium uppercase tracking-wider">
             AI handling call — 0 staff needed
           </span>
         </div>
@@ -113,20 +131,18 @@ export default function WhyAmplit() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-[32px] sm:text-[40px] md:text-[52px] font-bold text-gray-900 tracking-normal leading-none"
+            className="text-3xl sm:text-[36px] md:text-[44px] lg:text-[52px] font-bold text-gray-900 tracking-normal leading-none"
           >
-            Why Amplit?
+            Why Amplit AI?
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="text-black/60 text-[15px] leading-relaxed max-w-[420px] md:pt-2"
+            className="text-black/60 text-base leading-relaxed max-w-[420px] md:pt-2"
           >
-            With Amplit AI, you can 10x your patient intake without compromising
-            on quality. Capture every call fully automated, 24/7—holidays
-            included. Don't waste energy on manual scheduling.
+            Missed calls = missed appointments. Missed appointments = lost revenue. Lost revenue = slow growth. Amplit AI solves this — fully automated, 24/7.
           </motion.p>
         </div>
 
@@ -148,116 +164,92 @@ export default function WhyAmplit() {
             </div>
 
             <div>
-              <h3 className="text-[24px] sm:text-[32px] md:text-[38px] font-medium text-gray-900 leading-[1.1] mb-3">
+              <h1 className="text-2xl sm:text-[28px] md:text-[32px] lg:text-[38px] font-medium text-gray-900 leading-[1.1] mb-3">
                 Intelligent call handler
-              </h3>
-              <p className="text-black/80 text-[14px] sm:text-[15px] leading-relaxed max-w-md">
-                With our intuitive AI and powerful features, you can
-                effortlessly collect patient info, verify insurance, and book
-                appointments seamlessly without staff.
+              </h1>
+              <p className="text-black/60 text-[15px] sm:text-base leading-relaxed max-w-md">
+                Dentsi answers every call instantly, understands patient needs, and books appointments — just like a trained front desk staff member.
               </p>
             </div>
           </motion.div>
 
           {/* Right Column — Sub Grid */}
           <div className="flex flex-col gap-5">
-            {/* Top right — Multi-PMS */}
+            {/* Top right — Key Capabilities */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="relative overflow-hidden rounded-[24px] sm:rounded-[32px] bg-white p-6 sm:p-10 flex-1 flex flex-col justify-center"
+              className="relative overflow-hidden rounded-[24px] sm:rounded-[32px] border border-black/5     bg-white p-6 sm:p-10 flex-1 flex flex-col justify-center"
             >
               <BorderBeam size={200} duration={10} colorFrom="#6594B1" colorTo="#a8c8de" borderWidth={1.5} />
-              <h3 className="text-[24px] sm:text-[32px] md:text-[38px] font-medium text-gray-900 leading-[1.1] mb-3">
-                Multi-PMS
-              </h3>
-              <p className="text-black/80 text-[14px] sm:text-[15px] mb-6 sm:mb-8 max-w-sm">
-                Ability to understand and sync natively with leading dental
-                practice management systems in real-time.
+              <h1 className="text-2xl sm:text-[28px] md:text-[32px] lg:text-[38px] font-medium text-gray-900 leading-[1.1] mb-3">
+                Key Capabilities
+              </h1>
+              <p className="text-black/60 text-[15px] sm:text-base mb-6 sm:mb-8 max-w-sm">
+                Everything your front desk does — automated, instant, and available around the clock.
               </p>
-              <div className="flex flex-wrap gap-3">
-                {pmsLogos.map((pms) => (
-                  <span
-                    key={pms.name}
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white shadow-sm border border-gray-100/50 text-[13px] font-medium text-gray-700"
-                  >
-                    <span
-                      className="w-3.5 h-3.5 rounded-full flex-shrink-0"
-                      style={{ background: pms.color }}
-                    />
-                    {pms.name}
-                  </span>
-                ))}
+              <div
+                className="overflow-hidden relative"
+                style={{
+                  height: "192px",
+                  maskImage: "linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)",
+                  WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)",
+                }}>
+                <motion.div
+                  animate={{ y: ["0%", "-50%"] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+                  className="flex flex-col gap-3"
+                >
+                  {[...capabilities, ...capabilities].map((cap, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center gap-3 px-4 py-3 rounded-xl bg-brand/5 border border-brand/10"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-brand/10 flex items-center justify-center shrink-0">
+                        <cap.icon className="w-4 h-4 text-brand" />
+                      </div>
+                      <span className="text-[14px] font-medium text-gray-800">
+                        {cap.label}
+                      </span>
+                    </div>
+                  ))}
+                </motion.div>
               </div>
             </motion.div>
 
-            {/* Bottom right — 2 Square Cards */}
+            {/* Bottom right — Stat Cards */}
             <div className="grid grid-cols-2 gap-5">
-              {/* Stat Card */}
-              <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                // Added relative and overflow-hidden
-                className="relative overflow-hidden rounded-[24px] sm:rounded-[32px] bg-gradient-to-b from-brand to-[#F4F8FF] p-5 sm:p-8 aspect-square flex flex-col justify-between"
-              >
-                {/* Glowing Gradient Circle */}
-                <div
-                  className="absolute -top-10 -right-10 w-32 h-32 rounded-full blur-3xl opacity-60 z-0"
-                  style={{
-                    background:
-                      "radial-gradient(circle, #6594B1 0%, rgba(101, 148, 177, 0) 70%)",
-                  }}
-                />
-
-                <div className="relative z-10">
-                  <span className="text-[28px]">📉</span>
-                </div>
-
-                <div className="relative z-10">
-                  <p className="text-[32px] sm:text-[44px] md:text-[52px] font-medium text-gray-900 mb-1 leading-none">
-                    40%
-                  </p>
-                  <p className="text-black/80 text-[12px] sm:text-[14px]">
-                    Reduction in no-shows
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Rating Card */}
-              <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.25 }}
-                className="rounded-[24px] sm:rounded-[32px] bg-gradient-to-b from-brand to-[#ffffff] p-5 sm:p-8 aspect-square flex flex-col justify-between"
-              >
-                <p className="text-[32px] sm:text-[44px] md:text-[52px] font-medium text-white mb-2 leading-none">
-                  4.9
-                </p>
-                <div>
-                  {/* Avatar Mockups matching the image */}
-                  <div className="flex -space-x-2.5 mb-3.5 mt-1">
-                    {[
-                      "bg-purple-300",
-                      "bg-emerald-300",
-                      "bg-amber-300",
-                      "bg-pink-300",
-                    ].map((color, i) => (
-                      <div
-                        key={i}
-                        className={`w-8 h-8 rounded-full border-2 border-brand ${color}`}
-                      />
-                    ))}
+              {stats.map((stat, i) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 + i * 0.05 }}
+                  className={`relative overflow-hidden rounded-[24px] sm:rounded-[32px] bg-linear-to-b ${stat.gradient} border border-brand/10 p-5 sm:p-6 aspect-square flex flex-col justify-between`}
+                >
+                  {/* Glowing accent */}
+                  <div
+                    className="absolute -bottom-8 -right-8 w-28 h-28 rounded-full blur-2xl opacity-40 z-0 bg-brand"
+                  />
+                  {/* Top: emoji badge */}
+                  <div className="relative z-10 w-10 h-10 rounded-xl bg-brand/10 border border-brand/15 flex items-center justify-center text-lg">
+                    {stat.emoji}
                   </div>
-                  <p className="text-black/80 text-[11px] sm:text-[13px] leading-snug">
-                    Rated by top practices globally
-                  </p>
-                </div>
-              </motion.div>
+                  {/* Bottom: value + label + desc */}
+                  <div className="relative z-10">
+                    <p className={`text-[32px] sm:text-[36px] md:text-[40px] font-bold ${stat.valueColor} leading-none mb-1`}>
+                      {stat.value}
+                    </p>
+                    <p className="text-gray-900 text-[13px] font-semibold mb-1">
+                      {stat.label}
+                    </p>
+                   
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>

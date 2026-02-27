@@ -8,22 +8,22 @@ const values = [
   {
     icon: Heart,
     title: 'Care First',
-    description: 'Every feature, every line of code is designed with patient care at its core.',
+    description: 'Every feature we build is designed with patient care at its core. We reduce operational burden so providers can focus on what matters most.',
   },
   {
     icon: Shield,
-    title: 'Trust & Security',
-    description: 'Healthcare-grade security and HIPAA compliance in everything we build.',
+    title: 'Healthcare Privacy',
+    description: 'Built with HIPAA compliance at its core. All data encrypted in transit and at rest — designed with healthcare privacy in mind.',
   },
   {
     icon: Zap,
-    title: 'Innovation',
-    description: 'Pushing the boundaries of what\'s possible with AI in healthcare.',
+    title: 'Seamless Efficiency',
+    description: 'AI that works in the background — improving efficiency without disrupting care. No missed calls, no long waits, no manual entry.',
   },
   {
     icon: Users,
     title: 'Partnership',
-    description: 'We succeed when our clients succeed. Your growth is our mission.',
+    description: 'We succeed when your practice succeeds. From onboarding to daily operations, we\'re your dedicated AI partner.',
   },
 ];
 

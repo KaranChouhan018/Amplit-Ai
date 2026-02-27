@@ -119,8 +119,8 @@ export default function Navigation() {
                   {NAV_LINKS.map((link, i) => (
                     <motion.div
                       key={link.label}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: i * 0.05 + 0.1, duration: 0.3 }}
                     >
                       {link.hasDropdown ? (

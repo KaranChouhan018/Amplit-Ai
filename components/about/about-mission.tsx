@@ -1,13 +1,13 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Shield, CheckCircle2, MapPin, Quote } from 'lucide-react';
 
 export default function AboutMission() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -15,13 +15,13 @@ export default function AboutMission() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
   };
 
   return (
-    <section className="relative overflow-hidden py-16 lg:py-24">
+    <section className="relative bg-white overflow-hidden py-16 lg:py-24">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
@@ -44,18 +44,16 @@ export default function AboutMission() {
               </div>
 
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-6 sm:mb-8 tracking-tight leading-[1.1]">
-                Setting the front desk <br />
-                <span className="text-brand">free to care.</span>
+                AI that works <br />
+                <span className="text-brand">behind the scenes.</span>
               </h2>
 
               <div className="space-y-4 sm:space-y-6 max-w-2xl">
                 <p className="text-base sm:text-lg text-black/60 leading-relaxed">
-                  We take the chaos off your front desk. Missed calls, scheduling headaches,
-                  and repetitive tasks are handled automatically by our specialized healthcare AI.
+                  Starting with dental practices, our mission is to create AI systems that work seamlessly in the background — improving efficiency without disrupting care.
                 </p>
                 <p className="text-base sm:text-lg text-black/60 leading-relaxed">
-                  Our goal isn't to replace the human touch—it's to amplify it. We remove the
-                  noise so your team can focus on the patient sitting right in front of them.
+                  Missed calls mean missed appointments. Missed appointments mean lost revenue. Amplit AI solves this — fully automated, 24/7, so your team can focus on the patient sitting right in front of them.
                 </p>
               </div>
 
@@ -66,15 +64,15 @@ export default function AboutMission() {
 
                 <div className="relative z-10">
                   <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-6">
-                    <div className="bg-gradient-to-br from-brand/20 to-brand/5 p-2.5 sm:p-3 rounded-2xl text-brand shadow-inner">
+                    <div className="bg-linear-to-br from-brand/20 to-brand/5 p-2.5 sm:p-3 rounded-2xl text-brand shadow-inner">
                       <Quote className="w-5 h-5 sm:w-6 sm:h-6 fill-current" />
                     </div>
-                    <div className="h-px bg-gradient-to-r from-brand/20 to-transparent flex-1"></div>
+                    <div className="h-px bg-linear-to-r from-brand/20 to-transparent flex-1"></div>
                   </div>
 
                   <blockquote className="text-xl sm:text-2xl md:text-3xl font-bold text-black leading-tight tracking-tight">
                     &ldquo;We don&apos;t replace your front desk.<br className="hidden xl:block" />
-                    <span className="text-brand sm:ml-2"> We set them free.</span>&rdquo;
+                    <span className="text-brand sm:ml-2"> We amplify them.</span>&rdquo;
                   </blockquote>
                 </div>
               </div>
@@ -90,7 +88,7 @@ export default function AboutMission() {
               {/* Card Glow Effect */}
 
 
-              <div className="relative rounded-[2rem] sm:rounded-[2.5rem] bg-white/60 backdrop-blur-xl border border-brand/12 p-6 sm:p-8 md:p-10">
+              <div className="relative rounded-4xl sm:rounded-[2.5rem] bg-white/60 backdrop-blur-xl border border-brand/12 p-6 sm:p-8 md:p-10">
 
 
                 <div
@@ -103,17 +101,17 @@ export default function AboutMission() {
                   <span className="font-semibold uppercase tracking-widest text-[10px] sm:text-xs">Based in Plano, Texas</span>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-6">Who We Are</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-6">What Sets Us Apart</h3>
                 <p className="text-black/80 mb-6 sm:mb-8 text-base sm:text-lg">
-                  A healthcare-first AI partner dedicated to operational excellence:
+                  Unlike generic call systems, Amplit AI understands dental workflows:
                 </p>
 
                 <ul className="space-y-4 sm:space-y-5">
                   {[
-                    'Answers every call instantly',
-                    'Real-time appointment booking',
-                    'HIPAA-compliant task handling',
-                    '24/7/365 Schedule Management',
+                    'Knows dental procedures & patient queries',
+                    'Handles insurance-related questions',
+                    'Customizable for your clinic operations',
+                    'Designed with healthcare privacy in mind',
                   ].map((item) => (
                     <li key={item} className="flex items-start text-black/60 font-medium group">
                       <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-brand mr-3 shrink-0" />

@@ -14,10 +14,10 @@ export default function AboutQuote() {
                     transition={{ duration: 0.6 }}
                 >
                     <p className="text-2xl md:text-3xl text-black font-bold leading-relaxed mb-4 sm:mb-6">
-                        &ldquo;Patients don&apos;t remember your hold music. They remember how you made them feel.&rdquo;
+                        &ldquo;Amplit AI doesn&apos;t just answer calls — it shows you exactly how those calls impact your revenue.&rdquo;
                     </p>
                     <p className="text-brand font-medium">
-                        AI handles the grind. Your team handles the moments that matter.
+                        Full visibility into what your front desk might be missing.
                     </p>
                 </motion.div>
             </div>

@@ -66,7 +66,7 @@ export default function DentsiHero() {
                 target="_blank"
                 className="inline-flex items-center gap-3 px-6 py-3 bg-brand border border-black/15 text-white font-medium rounded-full shadow-sm hover:shadow-md hover:border-brand/40 transition-all group"
               >
-                <span className="w-8 h-8 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                <span className="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0">
                   <AudioLines className="w-3.5 h-3.5 text-brand fill-brand ml-0.5" />
                 </span>
                 See In Action
@@ -76,7 +76,7 @@ export default function DentsiHero() {
                 href="#video"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-transparent border border-black/15 text-black/70 font-medium rounded-full hover:shadow-md hover:border-brand/40 hover:text-black transition-all group"
               >
-                <span className="w-8 h-8 rounded-full bg-black/5 flex items-center justify-center flex-shrink-0 group-hover:bg-brand/10 transition-colors">
+                <span className="w-8 h-8 rounded-full bg-black/5 flex items-center justify-center shrink-0 group-hover:bg-brand/10 transition-colors">
                   <Play className="w-3.5 h-3.5 text-black/50 fill-black/50 ml-0.5 group-hover:text-brand group-hover:fill-brand transition-colors" />
                 </span>
                 Watch Demo

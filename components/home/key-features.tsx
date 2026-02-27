@@ -7,43 +7,43 @@ import { Puzzle, Shield, Cpu, Target, Scaling, Zap } from "lucide-react";
 const features = [
   {
     icon: Puzzle,
-    title: "Plug-&-Play Integrations",
+    title: "Increase Revenue",
     description:
-      "Seamlessly connect with Dentrix, Eaglesoft, Open Dental and more — zero manual configuration, live in days.",
+      "Capture every missed opportunity. Every answered call is a chance to book — Amplit AI ensures none slip through the cracks.",
     featured: true,
   },
   {
-    icon: Shield,
-    title: "Centralized & Secure AI",
-    description:
-      "Deploy with confidence. All data is encrypted in transit and at rest, with strict HIPAA controls.",
-    featured: false,
-  },
-  {
-    icon: Cpu,
-    title: "Proprietary AI Models",
-    description:
-      "Models trained on dental workflows and your practice's unique protocols.",
-    featured: false,
-  },
-  {
     icon: Target,
-    title: "Precision & Accuracy",
-    description: "Enterprise-grade accuracy with complete data privacy.",
-    featured: false,
-  },
-  {
-    icon: Scaling,
-    title: "Infinite Scalability",
+    title: "More Appointments",
     description:
-      "From single practice to DSO — scale without changing a line of code.",
+      "Convert more calls into bookings automatically with intelligent scheduling and real-time PMS sync.",
     featured: false,
   },
   {
     icon: Zap,
+    title: "Save Staff Time",
+    description:
+      "Reduce front desk overload by automating call handling, so your team can focus on in-clinic patients.",
+    featured: false,
+  },
+  {
+    icon: Shield,
+    title: "Better Patient Experience",
+    description: "No missed calls, no long waits — patients get immediate, professional responses every time.",
+    featured: false,
+  },
+  {
+    icon: Scaling,
     title: "24/7 Availability",
     description:
-      "Always-on AI that never sleeps, ensuring zero missed calls or opportunities.",
+      "Even when your clinic is closed — nights, weekends, holidays — Amplit AI is always on.",
+    featured: false,
+  },
+  {
+    icon: Cpu,
+    title: "Healthcare Privacy Built-In",
+    description:
+      "Built with HIPAA compliance at its core. All data encrypted in transit and at rest.",
     featured: false,
   },
 ];
@@ -71,15 +71,14 @@ export default function KeyFeatures() {
           className="text-center mb-12 md:mb-16"
         >
           <p className="text-sm font-semibold text-brand uppercase tracking-widest mb-3">
-            Platform Capabilities
+            Benefits
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black leading-tight mb-4">
-            Everything your practice needs,
-            <br className="hidden sm:block" /> built in.
+            What This Means for
+            <br className="hidden sm:block" /> Your Practice
           </h2>
           <p className="text-black/80 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Domain-specific AI with complete privacy and compliance —
-            purpose-built for healthcare.
+            Stop losing revenue to missed calls. Amplit AI transforms every patient interaction into an opportunity.
           </p>
         </motion.div>
 
@@ -116,7 +115,7 @@ export default function KeyFeatures() {
                 {features[0].title}
               </h3>
 
-              <p className="text-neutral-600 text-sm sm:text-base leading-relaxed max-w-md">
+              <p className="text-neutral-600 text-base sm:text-lg leading-relaxed max-w-md">
                 {features[0].description}
               </p>
             </div>
@@ -134,10 +133,10 @@ export default function KeyFeatures() {
                 <f.icon className="w-5 h-5 text-brand" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-black mb-1.5">
+                <h3 className="text-lg font-bold text-black mb-1.5">
                   {f.title}
                 </h3>
-                <p className="text-sm text-black/80 leading-relaxed">
+                <p className="text-[15px] text-black/80 leading-relaxed">
                   {f.description}
                 </p>
               </div>
@@ -157,10 +156,10 @@ export default function KeyFeatures() {
                 <f.icon className="w-5 h-5 text-brand" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-black mb-1.5">
+                <h3 className="text-lg font-bold text-black mb-1.5">
                   {f.title}
                 </h3>
-                <p className="text-sm text-black/80 leading-relaxed">
+                <p className="text-[15px] text-black/80 leading-relaxed">
                   {f.description}
                 </p>
               </div>

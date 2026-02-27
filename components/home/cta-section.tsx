@@ -20,7 +20,7 @@ export default function CTASection() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="relative overflow-hidden rounded-3xl  px-12 py-16 md:py-20"
+          className="relative overflow-hidden rounded-3xl px-6 sm:px-12 py-12 sm:py-16 md:py-20"
         >
           <BorderBeam size={250} duration={12} colorFrom="#6594B1" colorTo="#a8c8de" borderWidth={1.5} />
 
@@ -31,13 +31,11 @@ export default function CTASection() {
 
           {/* Content */}
           <div className="relative z-10 max-w-xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-black leading-tight mb-5">
-              We&apos;re the leading AI Front Desk in dental.
+            <h2 className="text-3xl sm:text-3xl md:text-4xl font-bold text-black leading-tight mb-5">
+              Meet Your 24/7 AI Front Desk Assistant
             </h2>
-            <p className="text-black/80 text-base md:text-lg mb-10 leading-relaxed">
-              Embark on a transformation journey into the future of healthcare AI as you
-              kickstart your exploration of Amplit AI, where limitless possibilities await
-              at every click and command.
+            <p className="text-black/80 text-base sm:text-base md:text-lg mb-8 sm:mb-10 leading-relaxed">
+              Dentsi answers every call instantly, understands patient needs, and books appointments — just like a trained front desk staff member. Start capturing every opportunity today.
             </p>
             <Link
               href={CONTACT_INFO.calendly}
