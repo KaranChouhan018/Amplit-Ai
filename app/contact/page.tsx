@@ -274,7 +274,7 @@ export default function ContactPage() {
                   <div className="w-14 h-14 bg-brand/20 backdrop-blur-sm rounded-3xl flex items-center justify-center mb-6">
                     <Calendar className="w-7 h-7 text-brand" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-3 tracking-tight">Prefer a live demo?</h3>
+                  <h3 className="text-2xl font-bold mb-3 text-black tracking-tight">Prefer a live demo?</h3>
                   <p className="text-black/80 text-sm leading-relaxed mb-8 max-w-[280px]">
                     Schedule a 15-minute discovery call to see how Amplit AI handles live dental calls in real-time.
                   </p>
