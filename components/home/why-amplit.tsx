@@ -118,7 +118,7 @@ function CallMockup() {
           className="border-t border-gray-100 px-5 py-3.5 flex items-center gap-2 bg-gray-50/50"
         >
           <iframe
-            src="https://lottie.host/embed/cb59e15c-2dcc-44ef-8a72-bbc6f2fd03d1/migjrXMPIb.lottie"
+            src="https://lottie.host/embed/d8d2afef-94f1-4615-abba-90b55c17428f/TTw61O9fqd.lottie"
             className="w-10 h-10 shrink-0 border-0 pointer-events-none block"
             title="AI handling call"
           />
@@ -133,15 +133,9 @@ function CallMockup() {
 
 export default function WhyAmplit() {
   return (
-    <section className="bg-white py-16 md:py-24 relative overflow-hidden">
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          background:
-            "radial-gradient(125% 125% at 50% 90%, #ffffff 40%, #6594B1 100%)",
-        }}
-      />
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-10 md:py-16">
+    <section className=" py-10 md:py-14 relative overflow-hidden">
+   
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-10 md:py-10">
         {/* Header Row */}
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-10 md:mb-16">
           <motion.h2

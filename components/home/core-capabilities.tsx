@@ -104,7 +104,7 @@ export default function CoreCapabilities() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-10 md:py-14 ">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           ref={ref}
@@ -125,7 +125,7 @@ export default function CoreCapabilities() {
             }}
           />
 
-          <div className="relative flex flex-col lg:flex-row">
+          <div className="relative flex flex-col lg:flex-row bg-brand2/30">
             {/* ── Left: Animated Visualization ── */}
             <div className="lg:w-5/12 flex flex-col justify-between p-6 sm:p-10 lg:p-14">
               <AnimatedViz />

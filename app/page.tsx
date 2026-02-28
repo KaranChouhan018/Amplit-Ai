@@ -7,19 +7,20 @@ import ProductsSection from '@/components/home/products-section';
 import KeyFeatures from '@/components/home/key-features';
 import FAQSection from '@/components/home/faq-section';
 import CTASection from '@/components/home/cta-section';
+import BackgroundGradient from '@/components/layout/background-gradient';
 
 export default function Home() {
   return (
-    <>
+    <BackgroundGradient>
       <HeroSection />
       {/* <VideoSection /> */}
-           <WhyAmplit />
+      <WhyAmplit />
       <HowItWorks />
       <CoreCapabilities />
       {/* <ProductsSection /> */}
       <KeyFeatures />
       <FAQSection />
       <CTASection />
-    </>
+    </BackgroundGradient>
   );
 }

@@ -41,7 +41,7 @@ export default function ProductsSection() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section className="bg-white py-16 md:py-24 relative overflow-hidden">
+    <section className="bg-white py-10 md:py-14 relative overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <motion.div

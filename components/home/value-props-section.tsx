@@ -42,7 +42,7 @@ export default function ValuePropsSection() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section ref={ref} className="py-20 md:py-28 bg-white">
+    <section ref={ref} className="py-14 md:py-28 bg-white">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

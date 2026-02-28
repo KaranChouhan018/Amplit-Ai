@@ -26,11 +26,12 @@ export const CONTACT_INFO = {
 
 export const NAV_LINKS = [
   { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
   { label: 'Product', href: '#', hasDropdown: true, children: [
     { label: 'Dentsi', href: '/dentsi' },
   ]},
-  { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
+
+  // { label: 'Contact', href: '/contact' },
 ];
 
 export const IMAGES = {

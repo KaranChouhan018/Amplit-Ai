@@ -14,14 +14,14 @@ export default function AboutCTA() {
   const stripes = Array.from({ length: 18 }, (_, i) => i);
 
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-white py-10 md:py-14">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="relative overflow-hidden rounded-3xl  px-8 sm:px-12 py-16 md:py-20"
+          className="relative overflow-hidden rounded-3xl  px-8 sm:px-12 py-10 md:py-14"
         >
            <div
             className="absolute inset-0 pointer-events-none bg-ambient-glow"

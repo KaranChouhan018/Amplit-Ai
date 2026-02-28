@@ -55,7 +55,7 @@ export default function KeyFeatures() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section className="bg-white py-16 md:py-24 relative overflow-hidden">
+    <section className=" py-10 md:py-14 relative overflow-hidden">
       {/* Radial bg tint */}
       <div
         className="absolute inset-0 pointer-events-none bg-ambient-tint"

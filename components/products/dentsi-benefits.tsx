@@ -14,7 +14,7 @@ export default function DentsiBenefits() {
   const benefitsInView = useInView(benefitsRef, { once: true });
 
   return (
-    <section className="bg-white py-16 md:py-24 relative overflow-hidden">
+    <section className="bg-white py-10 md:py-14 relative overflow-hidden">
       {/* Subtle Background Pattern / Gradient */}
       <div
         className="absolute inset-0 pointer-events-none"

@@ -196,7 +196,7 @@ export default function DentsiFeatures() {
   }, []);
 
   return (
-    <section ref={containerRef} className="py-16 md:py-24 bg-white">
+    <section ref={containerRef} className="py-10 md:py-14 bg-white">
       <div className="max-w-6xl mx-auto px-6">
 
         <div className="text-center mb-12 md:mb-24">

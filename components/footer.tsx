@@ -7,8 +7,8 @@ import { CONTACT_INFO } from "@/lib/constants";
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-brand/15">
-      <div className="max-w-7xl mx-auto px-6 py-16">
+    <footer className=" border-t border-brand/15">
+      <div className="max-w-7xl mx-auto px-6 py-10">
         <div className="grid md:grid-cols-4 gap-12">
           {/* Logo & Description */}
           <div className="md:col-span-2">

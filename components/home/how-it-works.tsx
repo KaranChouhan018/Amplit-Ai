@@ -1,14 +1,10 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
-import { PhoneCall, CalendarCheck, MessageSquareText, BrainCircuit, Bell } from 'lucide-react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import React, { useState } from 'react';
+import { PhoneCall, CalendarCheck, MessageSquareText, BrainCircuit, Bell, ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { BorderBeam } from '@/components/ui/border-beam';
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 const steps = [
   {
@@ -84,8 +80,8 @@ function PhoneVisual() {
 
 function ChatVisual() {
   const bubbles = [
-    { text: 'Hi! I\'d like to book a cleaning.', from: 'user' },
-    { text: 'Of course! Are you existing?', from: 'ai' },
+    { text: 'Hi! I\'d like to book an appointment.', from: 'user' },
+    { text: 'Of course! I can help you with that.', from: 'ai' },
     { text: 'Yes, I am Sarah.', from: 'user' },
   ];
   return (
@@ -168,94 +164,68 @@ const visuals: Record<string, React.ReactNode> = {
 };
 
 export default function HowItWorks() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [activeItem, setActiveItem] = useState('01');
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const cards = gsap.utils.toArray<HTMLElement>('.step-card');
-
-      // Only run pinning animation on screens larger than 768px
-      ScrollTrigger.matchMedia({
-        "(min-width: 768px)": function () {
-          cards.forEach((card, i) => {
-            ScrollTrigger.create({
-              trigger: card,
-              start: "top 10%",
-              endTrigger: containerRef.current,
-              end: "bottom 80%",
-              pin: true,
-              pinSpacing: false,
-              scrub: true,
-            });
-
-            if (i < cards.length - 1) {
-              gsap.to(card, {
-                scrollTrigger: {
-                  trigger: cards[i + 1],
-                  start: "top 80%",
-                  end: "top 10%",
-                  scrub: true,
-                },
-                scale: 0.9,
-              });
-            }
-          });
-        }
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
+  const activeStepContext = steps.find(s => s.step === activeItem) || steps[0];
 
   return (
-    <section ref={containerRef} className="py-16 md:py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-10 md:py-14 lg:py-32">
+      <div className="bg-linear-to-b absolute inset-0 -z-10 sm:inset-6 sm:rounded-b-3xl "></div>
 
+      <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16 lg:space-y-20 dark:[--color-border:color-mix(in_oklab,var(--color-white)_10%,transparent)]">
 
-        <div className="text-center mb-12 md:mb-24">
-          <p className="text-sm font-semibold text-brand uppercase tracking-widest mb-3">How it Works</p>
-          <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold text-black tracking-tight">Simple for You. Seamless for Patients.</h2>
+        <div className="relative z-10 mx-auto max-w-2xl space-y-6 text-center">
+          <p className="text-sm font-semibold text-brand uppercase tracking-widest mb-3">How it works</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold  text-black">Simple for You. Seamless for Patients.</h2>
         </div>
 
-        <div className="relative">
-          {steps.map((step) => (
-            <div
-              key={step.step}
-              className="step-card relative overflow-hidden rounded-[30px] md:rounded-[40px] w-full mb-8 md:mb-24 last:mb-0"
-            >
-              <BorderBeam size={250} duration={12} colorFrom="#6594B1" colorTo="#a8c8de" borderWidth={1.5} />
-              <div className="grid md:grid-cols-2 gap-8 items-center bg-white border border-black/5 rounded-[30px] md:rounded-[40px] p-6 md:p-16 min-h-fit md:min-h-[500px] shadow-sm">
-
-                {/* Text Content: Always top on mobile, alternates on desktop */}
-                <div className={`order-1 ${step.reverse ? 'md:order-2' : 'md:order-1'}`}>
-                  <span className="text-3xl sm:text-4xl md:text-6xl font-black text-brand/20 mb-2 md:mb-4 block">
-                    {step.step}
-                  </span>
-                  <h3 className="text-2xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-600 mb-6 md:mb-8 text-base sm:text-base md:text-lg leading-relaxed">
+        <div className="grid gap-12 sm:px-12 md:grid-cols-2 lg:gap-20 lg:px-0">
+          <Accordion
+            type="single"
+            value={activeItem}
+            onValueChange={(value) => setActiveItem(value)}
+            className="w-full">
+            {steps.map((step) => {
+              const Icon = step.icon;
+              return (
+                <AccordionItem key={step.step} value={step.step} className="border-brand/15 border-dashed last:border-0">
+                  <AccordionTrigger className='cursor-pointer text-left text-[17px] font-semibold text-black hover:text-brand hover:no-underline transition-colors'>
+                    <div className="flex items-center gap-2 text-base text-black font-bold">
+                      <Icon className="size-4" />
+                      {step.title}
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-black/60">
                     {step.description}
-                  </p>
-                  <ul className="space-y-3">
-                    {step.bullets.map((bullet) => (
-                      <li key={bullet} className="flex items-center gap-3 text-sm font-medium text-gray-700">
-                        <div className="shrink-0 w-1.5 h-1.5 rounded-full bg-brand" />
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                  </AccordionContent>
+                </AccordionItem>
+              );
+            })}
+          </Accordion>
 
-                {/* Visual Content: Bottom on mobile, alternates on desktop */}
-                <div className={`order-2 h-[250px] md:h-[350px] bg-brand-bg2 rounded-2xl md:rounded-3xl flex items-center justify-center relative overflow-hidden ${step.reverse ? 'md:order-1' : 'md:order-2'
-                  }`}>
-                  {visuals[step.visual]}
-                </div>
-
-              </div>
+          <div className="bg-background relative flex overflow-hidden rounded-3xl border p-2">
+            <div className="w-15 absolute inset-0 right-0 ml-auto border-l bg-[repeating-linear-gradient(-45deg,var(--color-border),var(--color-border)_1px,transparent_1px,transparent_8px)] text-black/5 dark:text-white/5 opacity-10"></div>
+            <div className="aspect-76/59 bg-brand-bg2 relative w-[calc(3/4*100%+3rem)] rounded-2xl">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`${activeItem}-id`}
+                  initial={{ opacity: 0, y: 6, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                  transition={{ duration: 0.2 }}
+                  className="size-full overflow-hidden rounded-2xl border bg-white shadow-md flex items-center justify-center relative p-4">
+                  {visuals[activeStepContext.visual]}
+                </motion.div>
+              </AnimatePresence>
             </div>
-          ))}
+            <BorderBeam
+              duration={12}
+              size={250}
+              colorFrom="#6594B1"
+              colorTo="#a8c8de"
+              borderWidth={1.5}
+            />
+          </div>
         </div>
       </div>
     </section>

@@ -32,7 +32,7 @@ export default function SectionWrapper({
     <section
       id={id}
       ref={ref}
-      className={`py-16 md:py-24 ${bgClasses[bgColor] ?? bgClasses.white} ${className}`}
+      className={`py-10 md:py-14 ${bgClasses[bgColor] ?? bgClasses.white} ${className}`}
     >
       <motion.div
         initial={{ opacity: 0, y: 30 }}

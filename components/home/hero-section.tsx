@@ -1,24 +1,61 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { Play, AudioLines } from 'lucide-react';
-import { CONTACT_INFO } from '@/lib/constants';
+import { Play, AudioLines, Pause } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 
 const VIDEO_URL = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1';
+const AUDIO_URL = 'https://a.tmp.audio/39w62q5.mp3'; // Changed to a more reliable sample audio of people talking/testing
+
+const CAPTIONS = [
+  { start: 0, end: 4, text: "🎵 (Upbeat hold music playing...)" },
+  { start: 4, end: 8, text: "Hello! Thank you for calling Amplit Dental." },
+  { start: 8, end: 12, text: "I am your AI receptionist. How can I help you today?" },
+  { start: 12, end: 16, text: "I can check your records, book a new appointment," },
+  { start: 16, end: 20, text: "or help you with billing questions directly." },
+  { start: 20, end: 30, text: "Feel free to tell me what you need! I'm here 24/7." },
+];
 
 export default function HeroSection() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const togglePlay = async () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        try {
+          // Play returns a promise that can be rejected by the browser
+          await audioRef.current.play();
+          setIsPlaying(true);
+        } catch (error) {
+          console.error("Audio playback failed:", error);
+          // If browser blocked it, we could show an error, but let's just make sure it doesn't crash
+        }
+      }
+    }
+  };
+
+  const handleTimeUpdate = () => {
+    if (audioRef.current) {
+      setCurrentTime(audioRef.current.currentTime);
+    }
+  };
+
+  const handleAudioEnded = () => {
+    setIsPlaying(false);
+    setCurrentTime(0);
+  };
+
+  const currentCaption = CAPTIONS.find(c => currentTime >= c.start && currentTime <= c.end)?.text || "🎵 ...";
+
   return (
     <section className="relative h-screen overflow-hidden flex flex-col">
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          background: "radial-gradient(125% 125% at 50% 10%, #ffffff 40%, #6594B1 100%)",
-        }}
-      />
-
       <div className="relative z-10 max-w-7xl mx-auto px-6 flex items-center flex-1">
         {/* Two-column layout */}
         <div className="flex flex-col md:flex-row items-center w-full gap-8">
@@ -33,7 +70,7 @@ export default function HeroSection() {
               className="text-[2.5rem] sm:text-3xl md:text-5xl font-bold text-black leading-[1.1] mb-5 sm:mb-6"
             >
               Amplifying <br />
- <span className="text-brand"> Healthcare Intelligence</span>
+              <span className="text-brand"> Healthcare Intelligence</span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -54,16 +91,19 @@ export default function HeroSection() {
               className="flex flex-wrap items-center justify-center md:justify-start gap-3"
             >
               {/* See In Action button */}
-              <Link
-                href={CONTACT_INFO.calendly}
-                target="_blank"
-                className="inline-flex items-center gap-3 px-6 py-3 bg-brand border border-black/15 text-white font-medium rounded-full shadow-sm hover:shadow-md hover:border-brand/40 transition-all group"
+              <button
+                onClick={togglePlay}
+                className="relative z-50 inline-flex items-center gap-3 px-6 py-3 bg-brand border border-black/15 text-white font-medium rounded-full shadow-sm hover:shadow-md hover:border-brand/40 transition-all group cursor-pointer"
               >
                 <span className="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0">
-                  <AudioLines className="w-3.5 h-3.5 text-brand fill-brand ml-0.5" />
+                  {isPlaying ? (
+                    <Pause className="w-3.5 h-3.5 text-brand fill-brand ml-0.5" />
+                  ) : (
+                    <AudioLines className="w-3.5 h-3.5 text-brand fill-brand ml-0.5" />
+                  )}
                 </span>
-                See In Action
-              </Link>
+                {isPlaying ? 'Pause Demo' : 'See In Action'}
+              </button>
 
               <Dialog>
                 <DialogTrigger asChild>
@@ -142,7 +182,41 @@ export default function HeroSection() {
         </div>
       </div>
 
+      {/* Audio Element */}
+      <audio
+        ref={audioRef}
+        src={AUDIO_URL}
+        preload="auto"
+        onTimeUpdate={handleTimeUpdate}
+        onEnded={handleAudioEnded}
+        onError={(e) => console.error("Audio generated an error:", e)}
+      />
 
+      {/* Floating Caption Bar */}
+      <AnimatePresence>
+        {isPlaying && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 50, scale: 0.95 }}
+            className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-2xl bg-white/95 backdrop-blur-xl shadow-2xl rounded-2xl border border-black/10 p-5 flex items-center gap-6"
+          >
+            <div className="flex-1">
+              <p className="text-xs font-semibold text-brand uppercase tracking-wider mb-1">Amplit AI is speaking...</p>
+              <p className="text-lg md:text-xl font-medium text-black leading-snug">
+                {currentCaption}
+              </p>
+            </div>
+
+            <button
+              onClick={togglePlay}
+              className="w-12 h-12 rounded-full bg-black/5 hover:bg-black/10 flex items-center justify-center shrink-0 transition-colors"
+            >
+              <Pause className="w-5 h-5 text-black" />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

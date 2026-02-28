@@ -21,7 +21,7 @@ export default function AboutMission() {
   };
 
   return (
-    <section className="relative bg-white overflow-hidden py-16 lg:py-24">
+    <section className="relative bg-white overflow-hidden py-10 lg:py-14">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <motion.div

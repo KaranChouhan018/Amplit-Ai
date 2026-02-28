@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function ContentSection() {
     return (
-        <section className="py-16 md:py-32 bg-white">
+        <section className="py-10 md:py-32 bg-white">
             <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16">
                 {/* Badge */}
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand/10 border border-brand/20">
