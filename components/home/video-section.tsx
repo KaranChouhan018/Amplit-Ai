@@ -11,13 +11,8 @@ const VIDEO_URL = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1';
 export default function VideoSection() {
   return (
     <section className="min-h-screen w-full relative overflow-hidden">
-      {/* Radial Gradient Background from Bottom */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          background: "radial-gradient(125% 125% at 50% 90%, #fff 40%, #6594B1 100%)",
-        }}
-      />
+      {/* Clean Background */}
+      <div className="absolute inset-0 z-0 bg-white" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
 
@@ -30,7 +25,7 @@ export default function VideoSection() {
           className="relative overflow-hidden"
         >
 
-          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-2xl border border-black/10 bg-white p-4 shadow-lg shadow-zinc-950/15 ring-1 ring-black/5">
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-2xl border border-black/5 bg-white p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
 
             <div
               className="relative w-full overflow-hidden rounded-xl"
@@ -52,7 +47,7 @@ export default function VideoSection() {
                     />
 
                     {/* Play button */}
-                    <span className="relative w-16 h-16 rounded-full bg-brand flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-brand-dark transition-all duration-200">
+                    <span className="relative w-16 h-16 rounded-full bg-brand flex items-center justify-center shadow-[0_4px_14px_rgba(var(--brand-rgb),0.2)] group-hover:scale-105 group-hover:bg-brand/90 transition-all duration-300">
                       <Play className="w-6 h-6 text-white fill-white ml-1" />
                     </span>
                   </button>

@@ -34,14 +34,8 @@ const faqItems = [
 
 export default function FAQSection() {
   return (
-    <section className="py-10 md:py-14  relative overflow-hidden">
-      {/* Subtle background tint */}
-      <div
-        className="absolute inset-0 z-0 pointer-events-none"
-        style={{
-          background: 'radial-gradient(120% 60% at 50% 50%, rgba(101,148,177,0.07) 0%, transparent 70%)',
-        }}
-      />
+    <section className="py-10 relative overflow-hidden ">
+      {/* Background tint removed for calm aesthetic */}
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-6">
         {/* Header */}
@@ -59,8 +53,8 @@ export default function FAQSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl font-bold text-black sm:text-4xl lg:text-5xl leading-tight"
+            transition={{ duration: 1.0, delay: 0.1, ease: "easeOut" }}
+            className="text-3xl font-medium text-black/80 sm:text-4xl lg:text-5xl leading-tight tracking-tight"
           >
             Frequently Asked Questions
           </motion.h2>
@@ -80,21 +74,21 @@ export default function FAQSection() {
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 1.0, delay: 0.2, ease: "easeOut" }}
           className="mx-auto max-w-3xl"
         >
           <Accordion
             type="single"
             collapsible
-            className="w-full rounded-3xl border border-brand/15 bg-white px-4 sm:px-8 py-3 shadow-sm"
+            className="w-full bg-transparent px-2"
           >
             {faqItems.map((item) => (
-              <AccordionItem key={item.id} value={item.id} className="border-brand/15 border-dashed last:border-0">
-                <AccordionTrigger className="cursor-pointer text-left text-[17px] font-semibold text-black hover:text-brand hover:no-underline transition-colors">
+              <AccordionItem key={item.id} value={item.id} className="border-b border-black/5 last:border-0 py-2">
+                <AccordionTrigger className="cursor-pointer text-left text-lg font-medium text-black/80 hover:text-brand hover:no-underline transition-colors py-4">
                   {item.question}
                 </AccordionTrigger>
                 <AccordionContent>
-                  <p className="text-base text-black/60 leading-relaxed">{item.answer}</p>
+                  <p className="text-[15px] text-black/60 leading-relaxed pb-4 pr-8">{item.answer}</p>
                 </AccordionContent>
               </AccordionItem>
             ))}

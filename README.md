@@ -348,3 +348,53 @@ yarn start
 ---
 
 *Built with ❤️ by Amplit AI — Following the Arina AI Design System*
+
+
+      <motion.div
+            variants={itemVariants}
+            className="lg:col-span-5 lg:sticky lg:top-24 mt-4 lg:mt-0"
+          >
+            <div className="relative group">
+              {/* Card Glow Effect */}
+
+              <div className="relative rounded-4xl sm:rounded-[2.5rem] bg-white/60 backdrop-blur-xl border border-brand/12 p-6 sm:p-8 md:p-10">
+
+                <div
+                  className="absolute inset-0 pointer-events-none bg-ambient-glow"
+                />
+                <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8 text-black/60">
+                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-brand" />
+                  <span className="font-semibold uppercase tracking-widest text-[10px] sm:text-xs">Based in Dallas, Texas</span>
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-6">What Sets Us Apart</h3>
+                <p className="text-black/60 mb-6 sm:mb-8 text-base sm:text-lg">
+                  Unlike generic call systems, Amplit AI understands dental workflows:
+                </p>
+
+                <ul className="space-y-4 sm:space-y-5">
+                  {[
+                    'Knows dental procedures & patient queries',
+                    'Handles insurance-related questions',
+                    'Customizable for your clinic operations',
+                    'Designed with healthcare privacy in mind',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start text-black/60 font-medium group">
+                      <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-brand mr-3 shrink-0" />
+                      <span className="text-base sm:text-lg">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-gray-100">
+                  <div className="flex items-center p-3 sm:p-4 bg-brand/5 rounded-xl border border-brand/10 transition-colors hover:bg-brand/10">
+                    <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-brand mr-3 shrink-0" />
+                    <div>
+                      <p className="text-xs sm:text-sm font-bold text-black">Enterprise Security</p>
+                      <p className="text-[10px] sm:text-xs text-brand font-semibold uppercase tracking-wider mt-0.5 sm:mt-0">HIPAA Compliant • Encrypted</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>

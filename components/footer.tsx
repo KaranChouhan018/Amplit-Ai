@@ -46,7 +46,7 @@ export default function Footer() {
                   href="/dentsi"
                   className="text-black/60 text-sm hover:text-brand transition-colors"
                 >
-                  Dentsi
+                  Product
                 </Link>
               </li>
               <li>
@@ -57,14 +57,7 @@ export default function Footer() {
                   About Us
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-black/60 text-sm hover:text-brand transition-colors"
-                >
-                  Contact
-                </Link>
-              </li>
+          
             </ul>
           </div>
 
@@ -107,7 +100,7 @@ export default function Footer() {
               © {new Date().getFullYear()} Amplit AI. All rights reserved.
             </p>
             <p className="text-black/60 text-sm">
-              Healthcare AI Solutions | Plano, Texas
+              Healthcare AI Solutions | Dallas, Texas
             </p>
           </div>
         </div>

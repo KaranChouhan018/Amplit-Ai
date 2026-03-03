@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
 import LenisProvider from '@/components/lenis-provider';
+import BackgroundGradient from '@/components/layout/background-gradient';
 
 export const dynamic = 'force-dynamic';
 
@@ -42,15 +43,17 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={`${inter.className} bg-white text-[#000000] antialiased`}>
-        <LenisProvider>
-          <Navigation />
-          <main className="min-h-screen">
-            {children}
-          </main>
-          <Footer />
-        </LenisProvider>
-      </body>
+        <body className={`${inter.className}  text-[#000000] antialiased`}>
+          <LenisProvider>
+            <Navigation />
+                    <BackgroundGradient>
+            <main className="min-h-screen">
+                {children}
+            </main>
+                        </BackgroundGradient>
+            <Footer />
+          </LenisProvider>
+        </body>
     </html>
   );
 }

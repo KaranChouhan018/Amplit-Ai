@@ -41,17 +41,17 @@ export default function ProductsSection() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section className="bg-white py-10 md:py-14 relative overflow-hidden">
+    <section className="bg-white py-10  relative overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 1.0, ease: "easeOut" }}
           className="text-center mb-16 md:mb-20"
         >
-          <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black/60 tracking-tight leading-tight mb-6">
+          <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-black/80 tracking-tight leading-tight mb-6">
             Your AI-Powered{" "}
             <span className="text-brand">Dental Front Desk</span>
           </h2>
@@ -66,7 +66,7 @@ export default function ProductsSection() {
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 1.0, delay: 0.2, ease: "easeOut" }}
             className="relative flex justify-center"
           >
             <div className="relative w-full max-w-xl">
@@ -87,16 +87,16 @@ export default function ProductsSection() {
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.35, ease: "easeOut" }}
+            transition={{ duration: 1.0, delay: 0.35, ease: "easeOut" }}
             className="flex flex-col"
           >
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black/60 tracking-tight mb-3">
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-black/80 tracking-tight mb-3">
               Dentsi
             </h3>
-            <p className="text-brand text-lg font-semibold mb-4">
+            <p className="text-brand text-lg font-medium mb-4">
               AI Voice Agent for Dental Practices
             </p>
-            <p className="text-black/60 text-base leading-relaxed mb-8 max-w-lg">
+            <p className="text-black/60 text-base leading-relaxed mb-8 max-w-lg font-light">
               Dentsi answers every call instantly, understands patient needs,
               and books appointments - just like a trained front desk staff
               member.
@@ -110,17 +110,17 @@ export default function ProductsSection() {
                   initial={{ opacity: 0, y: 16 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{
-                    duration: 0.5,
+                    duration: 0.8,
                     delay: 0.45 + i * 0.1,
                     ease: "easeOut",
                   }}
-                  className="flex items-center gap-3 p-3.5 rounded-xl bg-brand-bg1/60 border border-brand/10"
+                  className="flex items-center gap-4 p-4 rounded-xl bg-gray-50/50 border border-black/5"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center shrink-0 text-brand shadow-sm">
-                    <Icon className="w-4 h-4" />
+                  <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shrink-0 border border-black/5">
+                    <Icon className="w-4 h-4 text-brand" />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-black/60 leading-tight">
+                    <p className="text-[14px] font-medium text-black/80 leading-tight">
                       {label}
                     </p>
                     {/* <p className="text-xs text-black/50 mt-0.5 leading-snug">
@@ -134,7 +134,7 @@ export default function ProductsSection() {
             <div>
               <Link
                 href="/dentsi"
-                className="inline-flex items-center gap-2 text-white font-semibold text-sm bg-brand border border-brand rounded-full px-6 py-3 hover:bg-brand/90 transition-all duration-200 group"
+                className="inline-flex items-center gap-2 text-white font-medium text-sm bg-brand rounded-full px-6 py-3 shadow-[0_4px_14px_rgba(var(--brand-rgb),0.2)] hover:shadow-[0_6px_20px_rgba(var(--brand-rgb),0.25)] transition-all duration-300 group mt-4"
               >
                 Explore Dentsi
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

@@ -5,7 +5,8 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Calendar, ArrowRight } from 'lucide-react';
 import { BorderBeam } from '@/components/ui/border-beam';
-
+import { ContactDialog } from '@/components/contact-dialog';
+import { CONTACT_INFO } from '@/lib/constants';
 interface ProductCTAProps {
   productName?: string;
 }
@@ -15,7 +16,7 @@ export default function ProductCTA({ productName = 'our product' }: ProductCTAPr
   const stripes = Array.from({ length: 18 }, (_, i) => i);
 
   return (
-    <section className="bg-white py-10 md:py-14">
+    <section className=" py-10 ">
       <div className="max-w-7xl mx-auto px-6">
 
 
@@ -24,15 +25,15 @@ export default function ProductCTA({ productName = 'our product' }: ProductCTAPr
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="relative overflow-hidden rounded-3xl px-8 sm:px-12 py-10 md:py-14"
+          className="relative overflow-hidden rounded-4xl px-6 bg-white border border-black/5 sm:px-12 py-10 sm:py-10 md:py-14"
         >
           {/* Ambient glow */}
           <div
             className="absolute inset-0 pointer-events-none bg-ambient-glow"
           />
-          
+
           <BorderBeam size={100} duration={10} colorFrom="#6594B1" colorTo="#a8c8de" borderWidth={1} />
-        
+
           {/* Vertical stripes decoration on the right */}
           <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 flex items-stretch justify-end gap-[6px] pr-2 opacity-20">
             {stripes.map((i) => (
@@ -56,20 +57,23 @@ export default function ProductCTA({ productName = 'our product' }: ProductCTAPr
               Book a personalized demo and see how {productName} can transform your practice. Limitless possibilities await at every click and command.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-brand text-white font-semibold rounded-full hover:bg-brand-dark transition-all"
+                <Link
+              href={CONTACT_INFO.calendly}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center mt-4  gap-2 px-7 py-3.5 bg-brand text-white rounded-full font-semibold hover:opacity-90 transition-opacity whitespace-nowrap"
+            >
+              Book a Demo
+            </Link>
+              <ContactDialog>
+                 <button
+                className="inline-flex items-center justify-center mt-4 md:ml-4 gap-2 px-7 py-3.5 bg-transparent border border-black/5 text-black/70 font-medium text-sm rounded-full hover:bg-black/5 hover:text-black transition-all group whitespace-nowrap"
               >
-                <Calendar size={18} />
-                Book a Demo
-              </Link>
-              <Link
-                href="/about"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-transparent text-black/70 font-semibold rounded-full border border-black/15 hover:border-brand/40 hover:text-black transition-all"
-              >
-                Learn About Us
-                <ArrowRight size={18} />
-              </Link>
+                Enquire Now
+                <ArrowRight size={20} />
+              </button>
+              </ContactDialog>
+             
             </div>
           </div>
         </motion.div>

@@ -41,20 +41,20 @@ const capabilities = [
 
 // Animated floating node positions
 const nodes = [
-  { cx: 160, cy: 80,  r: 22 },
-  { cx: 80,  cy: 200, r: 18 },
+  { cx: 160, cy: 80, r: 22 },
+  { cx: 80, cy: 200, r: 18 },
   { cx: 260, cy: 180, r: 16 },
   { cx: 180, cy: 300, r: 20 },
-  { cx: 60,  cy: 340, r: 14 },
+  { cx: 60, cy: 340, r: 14 },
   { cx: 300, cy: 320, r: 12 },
 ];
 
 const beams = [
-  { x1: 160, y1: 80,  x2: 80,  y2: 200 },
-  { x1: 160, y1: 80,  x2: 260, y2: 180 },
-  { x1: 80,  y1: 200, x2: 180, y2: 300 },
+  { x1: 160, y1: 80, x2: 80, y2: 200 },
+  { x1: 160, y1: 80, x2: 260, y2: 180 },
+  { x1: 80, y1: 200, x2: 180, y2: 300 },
   { x1: 260, y1: 180, x2: 180, y2: 300 },
-  { x1: 180, y1: 300, x2: 60,  y2: 340 },
+  { x1: 180, y1: 300, x2: 60, y2: 340 },
   { x1: 180, y1: 300, x2: 300, y2: 320 },
 ];
 
@@ -104,28 +104,20 @@ export default function CoreCapabilities() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section className="py-10 md:py-14 ">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-10  ">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="relative rounded-3xl overflow-hidden"
+          className="relative  bg-white shadow-sm border border-black/5 rounded-4xl  overflow-hidden"
         >
 
           <BorderBeam size={300} duration={10} colorFrom="#6594B1" colorTo="#a8c8de" borderWidth={2} />
 
-          {/* Ambient glow */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              backgroundImage:
-                'radial-gradient(circle at 15% 50%, rgba(101,148,177,0.18) 0%, transparent 55%), radial-gradient(circle at 85% 20%, rgba(101,148,177,0.12) 0%, transparent 50%)',
-            }}
-          />
 
-          <div className="relative flex flex-col lg:flex-row bg-brand2/30">
+          <div className="relative flex flex-col lg:flex-row  ">
             {/* ── Left: Animated Visualization ── */}
             <div className="lg:w-5/12 flex flex-col justify-between p-6 sm:p-10 lg:p-14">
               <AnimatedViz />

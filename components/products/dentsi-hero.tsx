@@ -10,28 +10,19 @@ export default function DentsiHero() {
   return (
     <section className="relative h-screen overflow-hidden flex flex-col">
       {/* Radial Gradient Background */}
-      <div
+      {/* <div
         className="absolute inset-0 z-0"
         style={{
           background: 'radial-gradient(125% 125% at 50% 10%, #ffffff 40%, #6594B1 100%)',
         }}
-      />
+      /> */}
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 flex items-center flex-1">
         <div className="flex flex-col md:flex-row items-center w-full gap-8">
 
           {/* Left: Text content */}
           <div className="flex-1 max-w-xl text-center md:text-left">
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand/10 border border-brand/20 mb-6"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-brand" />
-              <span className="text-xs font-semibold text-brand tracking-wide">Voice AI · Dental Practices</span>
-            </motion.div>
+       
 
             {/* Headline */}
             <motion.h1
@@ -105,7 +96,7 @@ export default function DentsiHero() {
             className="hidden md:flex flex-1 items-center justify-center relative"
           >
             <Image
-              src="/hero.png"
+              src="/hero-v3.png"
               alt="Dentsi AI Voice Agent"
               width={1200}
               height={1200}

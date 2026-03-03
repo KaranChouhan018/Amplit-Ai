@@ -2,126 +2,94 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Heart, Shield, Zap, Users } from 'lucide-react';
+import {
+  CheckCircle2, Shield, BrainCircuit, CalendarCheck,
+  PhoneCall, HeartPulse, Settings, Globe, Clock
+} from 'lucide-react';
 
-const values = [
+const features = [
   {
-    icon: Heart,
-    title: 'Care First',
-    description: 'Every feature we build is designed with patient care at its core. We reduce operational burden so providers can focus on what matters most.',
+    icon: BrainCircuit,
+    title: "Deep Dental Knowledge",
+    description: "Trained specifically on dental procedures, terminology, and common patient queries."
+  },
+  {
+    icon: CalendarCheck,
+    title: "PMS Integration",
+    description: "Seamlessly syncs with major practice management systems like Dentrix, Eaglesoft, and Open Dental."
   },
   {
     icon: Shield,
-    title: 'Healthcare Privacy',
-    description: 'Built with HIPAA compliance at its core. All data encrypted in transit and at rest — designed with healthcare privacy in mind.',
+    title: "HIPAA Compliant",
+    description: "Enterprise-grade security with end-to-end encryption ensuring complete patient data privacy."
   },
   {
-    icon: Zap,
-    title: 'Seamless Efficiency',
-    description: 'AI that works in the background — improving efficiency without disrupting care. No missed calls, no long waits, no manual entry.',
+    icon: PhoneCall,
+    title: "Natural Voice AI",
+    description: "Human-like conversational AI that patients feel comfortable speaking with."
   },
   {
-    icon: Users,
-    title: 'Partnership',
-    description: 'We succeed when your practice succeeds. From onboarding to daily operations, we\'re your dedicated AI partner.',
+    icon: Clock,
+    title: "24/7 Availability",
+    description: "Never miss a call. Our AI works around the clock, covering nights, weekends, and holidays."
+  },
+  {
+    icon: HeartPulse,
+    title: "Intelligent Escalation",
+    description: "Automatically detects urgent medical or dental emergencies and escalates to on-call staff."
   },
 ];
 
-export default function AboutValues() {
+export default function AboutFeatures() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const FirstIcon = values[0].icon;
 
   return (
-    <section className="bg-white py-10 md:py-14 relative overflow-hidden">
-      {/* Radial bg tint */}
-      <div
-        className="absolute inset-0 pointer-events-none bg-ambient-tint"
-      />
+    <section className="relative py-10 overflow-hidden ">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.55 }}
-          className="text-center mb-12 md:mb-16"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center max-w-3xl mx-auto mb-16 md:mb-20"
         >
-          <p className="text-sm font-semibold text-brand uppercase tracking-widest mb-3">
-            Our Core Values
-          </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black leading-tight mb-4">
-            The foundation of everything
-            <br className="hidden sm:block" /> we build.
+       
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-black tracking-tight leading-tight mb-6">
+            Purpose-built for <br />
+            <span className="text-brand">healthcare operations.</span>
           </h2>
+          <p className="text-[17px] text-black/60 leading-relaxed font-light">
+            We aren&apos;t a generic chatbot company. We are a specialized team building vertical AI infrastructure tailored specifically for the rigorous demands of dental and medical practices.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-          {/* Big Featured Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.55, delay: 0.05 }}
-            className="group relative overflow-hidden rounded-[28px] 
-             bg-white/60 backdrop-blur-xl 
-             border border-brand/12
-             md:col-span-2 lg:col-span-2 lg:row-span-2 
-             p-8 flex flex-col justify-between 
-             min-h-[240px] lg:min-h-[360px]"
-          >
-            {/* Ambient glow */}
-            <div
-              className="absolute inset-0 pointer-events-none bg-ambient-glow"
-            />
-            <div
-              className="w-14 h-14 rounded-2xl 
-                  bg-brand/10 
-                  flex items-center justify-center 
-                  mb-8
-                  group-hover:scale-105
-                  transition duration-300"
+        {/* 3x3 Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+          {features.map((feature, i) => (
+            <motion.div
+              key={feature.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 1.0, delay: 0.1 + i * 0.08, ease: "easeOut" }}
+              className="bg-white p-8 rounded-3xl border border-black/10 shadow-md flex flex-col items-start gap-5 hover:bg-gray-50/50 transition-colors duration-300 group"
             >
-              <FirstIcon className="w-6 h-6 text-brand" />
-            </div>
-
-            <div className="relative z-10">
-              <h3 className="text-2xl sm:text-3xl font-semibold text-neutral-900 mb-4 tracking-tight">
-                {values[0].title}
-              </h3>
-
-              <p className="text-neutral-600 text-sm sm:text-base leading-relaxed max-w-sm">
-                {values[0].description}
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Small Cards */}
-          {values.slice(1).map((f, i) => {
-            const Icon = f.icon;
-            const isLast = i === 2;
-            return (
-              <motion.div
-                key={f.title}
-                initial={{ opacity: 0, y: 28 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.55, delay: 0.1 + i * 0.08 }}
-                className={`group relative rounded-[24px] bg-white border border-brand/12 p-6 flex gap-4 ${isLast ? 'md:col-span-2 lg:col-span-3 flex-col sm:flex-row sm:items-center sm:p-8' : 'flex-col'}`}
-              >
-                <div className={`rounded-xl bg-brand/10 flex items-center justify-center shrink-0 ${isLast ? 'w-12 h-12 sm:w-16 sm:h-16' : 'w-10 h-10'}`}>
-                  <Icon className={`text-brand ${isLast ? 'w-6 h-6 sm:w-8 sm:h-8' : 'w-5 h-5'}`} />
-                </div>
-                <div className="relative z-10">
-                  <h3 className={`font-bold text-black ${isLast ? 'text-lg sm:text-xl mb-1.5 md:mb-2' : 'text-base mb-1.5'}`}>
-                    {f.title}
-                  </h3>
-                  <p className={`text-black/60 leading-relaxed ${isLast ? 'text-sm sm:text-base max-w-2xl' : 'text-sm'}`}>
-                    {f.description}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
+              <div className="w-12 h-12 rounded-xl bg-black/3 border border-black/5 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                <feature.icon className="w-5 h-5 text-brand" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-black/80 mb-3 tracking-tight">
+                  {feature.title}
+                </h3>
+                <p className="text-[15px] sm:text-base text-black/60 leading-relaxed font-light">
+                  {feature.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
+
       </div>
     </section>
   );

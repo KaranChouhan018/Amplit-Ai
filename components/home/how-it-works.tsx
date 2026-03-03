@@ -1,10 +1,14 @@
 'use client';
 
 import React, { useState } from 'react';
-import { PhoneCall, CalendarCheck, MessageSquareText, BrainCircuit, Bell, ArrowRight } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import {
+  PhoneCall, Phone, CalendarCheck, MessageSquareText,
+  BrainCircuit, Bell, CheckCircle2, User
+} from 'lucide-react';
+import { motion, AnimatePresence , useInView} from 'motion/react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { BorderBeam } from '@/components/ui/border-beam';
+
 
 const steps = [
   {
@@ -14,47 +18,42 @@ const steps = [
     description: 'A patient dials your practice number — during office hours, after hours, or on weekends.',
     bullets: ['Works 24/7 including holidays', 'Handles multiple calls simultaneously', 'Zero hold time for patients'],
     visual: 'phone',
-    reverse: false,
   },
   {
     step: '02',
     icon: MessageSquareText,
-    title: 'AI Answers Instantly',
-    description: 'Amplit AI picks up immediately — no hold music, no voicemail. Patients get a response in under 2 seconds.',
-    bullets: ['No hold time or voicemail', 'Answers in under 2 seconds', 'Professional, natural conversation'],
+    title: 'Amplit AI Answers',
+    description: 'Our natural voice AI answers immediately, understanding dental terminology and clinic protocols.',
+    bullets: ['Human-like conversational voice', 'Custom trained on your workflows', 'Can answer FAQs and triage'],
     visual: 'chat',
-    reverse: true,
   },
   {
     step: '03',
     icon: BrainCircuit,
-    title: 'Understands the Request',
-    description: 'The AI naturally understands what the patient needs — whether it\'s booking an appointment, asking a question, or reporting an urgent issue.',
-    bullets: ['Understands accents & dental terminology', 'Detects appointment, query, or urgent intent', 'Handles insurance-related questions'],
+    title: 'Processes the Request',
+    description: 'The AI determines the patient\'s needs — whether scheduling a cleaning, asking about insurance, or an emergency.',
+    bullets: ['Intelligent intent recognition', 'HIPAA compliant data handling', 'Pre-screens for specific procedures'],
     visual: 'brain',
-    reverse: false,
   },
   {
     step: '04',
     icon: CalendarCheck,
-    title: 'Books or Responds Accordingly',
-    description: 'Appointments are booked directly into your practice management system. Common questions are answered on the spot. Urgent cases are escalated.',
-    bullets: ['Syncs with Dentrix, Eaglesoft & more', 'Books appointments in real time', 'Escalates urgent cases when needed'],
+    title: 'Action Taken',
+    description: 'Amplit books the appointment directly into your practice management system, or routes emergencies to staff.',
+    bullets: ['Syncs with Dentrix, Eaglesoft, etc.', 'Updates patient records instantly', 'Sends appointment reminders'],
     visual: 'calendar',
-    reverse: true,
   },
   {
     step: '05',
     icon: Bell,
-    title: 'Updates Your System & Notifies Your Team',
+    title: 'Updates Your System & Notifies Team',
     description: 'Every interaction is logged. Your team gets notified instantly, and your PMS stays up to date — no manual entry required.',
     bullets: ['Auto-updates your practice management system', 'Sends real-time notifications to staff', 'Complete call logs & transcripts available'],
     visual: 'notify',
-    reverse: false,
   },
 ];
 
-/* --- Responsive Visual Components --- */
+/* --- Enhanced Visual Components --- */
 
 function PhoneVisual() {
   return (
@@ -72,7 +71,7 @@ function PhoneVisual() {
         />
       ))}
       <div className="relative z-10 w-16 h-16 md:w-20 md:h-20 rounded-full bg-brand flex items-center justify-center shadow-2xl">
-        <PhoneCall className="w-6 h-6 md:w-8 md:h-8 text-white" />
+        <Phone className="w-6 h-6 md:w-8 md:h-8 text-white" />
       </div>
     </div>
   );
@@ -80,42 +79,61 @@ function PhoneVisual() {
 
 function ChatVisual() {
   const bubbles = [
-    { text: 'Hi! I\'d like to book an appointment.', from: 'user' },
-    { text: 'Of course! I can help you with that.', from: 'ai' },
-    { text: 'Yes, I am Sarah.', from: 'user' },
+    { text: 'Hi! I\'d like to book a cleaning.', from: 'user' },
+    { text: 'I can absolutely help with that! Are you an existing patient?', from: 'ai' },
+    { text: 'Yes, my name is Sarah.', from: 'user' },
   ];
   return (
-    <div className="flex flex-col justify-center gap-3 w-full px-4 md:px-8">
-      {bubbles.map((b, i) => (
-        <div key={i} className={`flex ${b.from === 'user' ? 'justify-end' : 'justify-start'}`}>
-          <div className={`px-4 py-2 rounded-2xl text-xs md:text-sm shadow-sm max-w-[80%] ${b.from === 'user' ? 'bg-brand text-white' : 'bg-white border text-black/60'
-            }`}>
-            {b.text}
-          </div>
+    <div className="flex flex-col items-center justify-center w-full h-full p-4">
+      <div className="w-full max-w-[280px] bg-white/80 backdrop-blur-md border border-black/5 rounded-2xl shadow-xl overflow-hidden">
+        <div className="bg-brand/10 border-b border-brand/10 px-4 py-3 flex items-center gap-2">
+          <BrainCircuit className="w-4 h-4 text-brand" />
+          <span className="text-xs font-semibold text-brand tracking-wide uppercase">Amplit AI</span>
         </div>
-      ))}
+        <div className="p-4 flex flex-col gap-3">
+          {bubbles.map((b, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.3 + 0.2 }}
+              className={`flex items-end gap-2 ${b.from === 'user' ? 'justify-end' : 'justify-start'}`}
+            >
+              {b.from === 'ai' && (
+                <div className="w-6 h-6 rounded-full bg-brand/10 flex items-center justify-center shrink-0 mb-1">
+                  <BrainCircuit className="w-3.5 h-3.5 text-brand" />
+                </div>
+              )}
+              <div className={`px-4 py-2.5 rounded-2xl text-[13px] shadow-sm max-w-[80%] leading-relaxed ${b.from === 'user'
+                ? 'bg-brand text-white rounded-br-sm'
+                : 'bg-gray-100/80 text-gray-700 border border-black/5 rounded-bl-sm'
+                }`}>
+                {b.text}
+              </div>
+              {b.from === 'user' && (
+                <div className="w-6 h-6 rounded-full bg-gray-100 border border-black/5 flex items-center justify-center shrink-0 mb-1">
+                  <User className="w-3.5 h-3.5 text-black/40" />
+                </div>
+              )}
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
 
 function BrainVisual() {
   return (
-    <div className="relative flex items-center justify-center w-full h-full scale-75 md:scale-100">
-      {/* Pulsing rings */}
-      {[1, 2].map((i) => (
-        <div
-          key={i}
-          className="absolute rounded-full border border-brand/20"
-          style={{
-            width: `${100 + i * 50}px`,
-            height: `${100 + i * 50}px`,
-            animation: `ping ${2 + i * 0.5}s cubic-bezier(0,0,0.2,1) infinite`,
-            animationDelay: `${i * 0.4}s`,
-          }}
-        />
-      ))}
-      <div className="relative z-10 w-16 h-16 md:w-20 md:h-20 rounded-full bg-brand flex items-center justify-center shadow-2xl">
-        <BrainCircuit className="w-6 h-6 md:w-8 md:h-8 text-white" />
+    <div className="relative flex items-center justify-center w-full h-full">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(var(--brand-rgb),0.1)_0%,transparent_70%)]" />
+      <div className="grid grid-cols-3 gap-4 absolute opacity-20">
+        {[...Array(9)].map((_, i) => (
+          <div key={i} className="w-2 h-2 rounded-full bg-brand animate-pulse" style={{ animationDelay: `${i * 0.2}s` }} />
+        ))}
+      </div>
+      <div className="relative z-10 w-24 h-24 rounded-2xl bg-white border border-brand/20 flex items-center justify-center shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
+        <BrainCircuit className="w-12 h-12 text-brand" />
       </div>
     </div>
   );
@@ -123,16 +141,26 @@ function BrainVisual() {
 
 function NotifyVisual() {
   return (
-    <div className="flex flex-col items-center justify-center gap-3 w-full px-4 md:px-8 scale-90 md:scale-100">
-      {/* Notification cards */}
+    <div className="flex flex-col items-center justify-center gap-3 w-full h-full p-4">
       {[
-        { label: 'Appointment booked', sub: 'Sarah M. — Thu 10:30 AM', color: 'bg-brand text-white' },
-        { label: 'Team notified', sub: 'Front desk alerted', color: 'bg-white border border-brand/20 text-black/60' },
+        { label: 'New Appointment Booked', sub: 'Sarah M. — Thu 10:30 AM', color: 'bg-brand text-white', icon: CalendarCheck },
+        { label: 'Patient Record Updated', sub: 'Synced with Dentrix', color: 'bg-white border-black/10 text-gray-800', icon: BrainCircuit },
       ].map((n, i) => (
-        <div key={i} className={`w-full max-w-[220px] px-4 py-2.5 rounded-xl text-left shadow-sm ${n.color}`}>
-          <p className="text-xs md:text-sm font-semibold">{n.label}</p>
-          <p className={`text-[10px] md:text-xs mt-0.5 ${i === 0 ? 'text-white/70' : 'text-black/50'}`}>{n.sub}</p>
-        </div>
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: i * 0.2 }}
+          className={`w-full max-w-[260px] flex items-center gap-4 px-4 py-3 rounded-xl shadow-lg border ${n.color}`}
+        >
+          <div className={`p-2 rounded-lg ${i === 0 ? 'bg-white/20' : 'bg-brand/10'}`}>
+            <n.icon className={`w-5 h-5 ${i === 0 ? 'text-white' : 'text-brand'}`} />
+          </div>
+          <div>
+            <p className="text-sm font-semibold">{n.label}</p>
+            <p className={`text-[11px] mt-0.5 ${i === 0 ? 'text-white/80' : 'text-gray-500'}`}>{n.sub}</p>
+          </div>
+        </motion.div>
       ))}
     </div>
   );
@@ -140,11 +168,17 @@ function NotifyVisual() {
 
 function CalendarVisual() {
   return (
-    <div className="flex flex-col items-center justify-center gap-4 w-full scale-90 md:scale-100">
-      <div className="bg-white border border-black/10 rounded-2xl p-4 shadow-md w-56 md:w-64">
-        <div className="grid grid-cols-2 gap-2">
+    <div className="flex flex-col items-center justify-center w-full h-full p-4">
+      <div className="bg-white border border-black/10 rounded-2xl shadow-xl w-full max-w-[260px] overflow-hidden">
+        <div className="bg-gray-50 border-b border-black/5 px-4 py-3 flex justify-between items-center">
+          <span className="text-sm font-semibold text-gray-700">Thu, Oct 24</span>
+          <span className="text-xs bg-brand/10 text-brand px-2 py-1 rounded-md font-medium">3 Openings</span>
+        </div>
+        <div className="p-4 grid grid-cols-2 gap-3">
           {['9:00 AM', '10:30 AM', '2:00 PM', '3:30 PM'].map((slot, i) => (
-            <div key={slot} className={`rounded-lg p-2 text-[10px] md:text-xs font-bold text-center ${i === 1 ? 'bg-brand text-white' : 'bg-gray-100'
+            <div key={slot} className={`rounded-xl p-3 text-xs font-bold text-center border transition-all ${i === 1
+              ? 'bg-brand text-white border-brand shadow-md scale-105'
+              : 'bg-white text-gray-600 border-gray-200 hover:border-brand/30'
               }`}>
               {slot}
             </div>
@@ -166,68 +200,115 @@ const visuals: Record<string, React.ReactNode> = {
 export default function HowItWorks() {
   const [activeItem, setActiveItem] = useState('01');
 
+  const sectionRef = React.useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   const activeStepContext = steps.find(s => s.step === activeItem) || steps[0];
 
   return (
-    <section className="py-10 md:py-14 lg:py-32">
-      <div className="bg-linear-to-b absolute inset-0 -z-10 sm:inset-6 sm:rounded-b-3xl "></div>
+    <motion.section
+  ref={sectionRef}
+  initial={{ opacity: 0, y: 60 }}
+  animate={isInView ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+  className="relative py-10 overflow-hidden"
+>
+      <div className="mx-auto max-w-7xl  px-4 sm:px-6">
 
-      <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16 lg:space-y-20 dark:[--color-border:color-mix(in_oklab,var(--color-white)_10%,transparent)]">
-
-        <div className="relative z-10 mx-auto max-w-2xl space-y-6 text-center">
-          <p className="text-sm font-semibold text-brand uppercase tracking-widest mb-3">How it works</p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold  text-black">Simple for You. Seamless for Patients.</h2>
+        <div
+      
+          className="text-center "
+        >
+           
+          <h2 className="text-2xl font-bold text-black leading-tight mb-4">
+           Free your team from constant interruptions <br/> and create a smoother,  more focused patient experience, <br/> Because your front desk should feel in <br /> control—not overwhelmed.
+          </h2>
+          <p className="text-black/60 text-base max-w-2xl mb-10 mx-auto leading-relaxed">
+          Let Amplit AI handle the front desk—so your team can focus on care
+            
+          </p> 
         </div>
 
-        <div className="grid gap-12 sm:px-12 md:grid-cols-2 lg:gap-20 lg:px-0">
-          <Accordion
-            type="single"
-            value={activeItem}
-            onValueChange={(value) => setActiveItem(value)}
-            className="w-full">
-            {steps.map((step) => {
-              const Icon = step.icon;
-              return (
-                <AccordionItem key={step.step} value={step.step} className="border-brand/15 border-dashed last:border-0">
-                  <AccordionTrigger className='cursor-pointer text-left text-[17px] font-semibold text-black hover:text-brand hover:no-underline transition-colors'>
-                    <div className="flex items-center gap-2 text-base text-black font-bold">
-                      <Icon className="size-4" />
-                      {step.title}
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="text-black/60">
-                    {step.description}
-                  </AccordionContent>
-                </AccordionItem>
-              );
-            })}
-          </Accordion>
+        <div className="bg-white rounded-4xl shadow-sm border border-black/5 p-6 md:p-10 lg:p-12">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
 
-          <div className="bg-background relative flex overflow-hidden rounded-3xl border p-2">
-            <div className="w-15 absolute inset-0 right-0 ml-auto border-l bg-[repeating-linear-gradient(-45deg,var(--color-border),var(--color-border)_1px,transparent_1px,transparent_8px)] text-black/5 dark:text-white/5 opacity-10"></div>
-            <div className="aspect-76/59 bg-brand-bg2 relative w-[calc(3/4*100%+3rem)] rounded-2xl">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={`${activeItem}-id`}
-                  initial={{ opacity: 0, y: 6, scale: 0.98 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                  transition={{ duration: 0.2 }}
-                  className="size-full overflow-hidden rounded-2xl border bg-white shadow-md flex items-center justify-center relative p-4">
-                  {visuals[activeStepContext.visual]}
-                </motion.div>
-              </AnimatePresence>
+            {/* Left: Accordion Steps */}
+            <Accordion
+              type="single"
+              value={activeItem}
+              onValueChange={(value) => value && setActiveItem(value)} // Prevent closing the active one
+              className="w-full space-y-2"
+            >
+              {steps.map((step) => {
+                const Icon = step.icon;
+                const isActive = activeItem === step.step;
+
+                return (
+                  <AccordionItem
+                    key={step.step}
+                    value={step.step}
+                    className={`border-none rounded-2xl px-5 transition-colors duration-300 ${isActive ? 'bg-brand/5' : 'hover:bg-gray-50'}`}
+                  >
+                    <AccordionTrigger className="cursor-pointer text-left py-5 hover:no-underline [&[data-state=open]>div>div>svg]:text-brand">
+                      <div className="flex items-center gap-4 text-base text-gray-900 font-bold">
+
+                        <div className="flex items-center gap-3">
+                          <Icon className={`w-5 h-5 transition-colors ${isActive ? 'text-brand' : 'text-gray-400'}`} />
+                          <span className={isActive ? 'text-brand' : ''}>{step.title}</span>
+                        </div>
+                      </div>
+                    </AccordionTrigger>
+
+                    <AccordionContent className="text-gray-600 pb-6 pl-12 pr-4">
+                      <p className="mb-5 leading-relaxed text-[15px]">{step.description}</p>
+
+                      {/* Render Bullets */}
+                      <ul className="space-y-3">
+                        {step.bullets.map((bullet, idx) => (
+                          <li key={idx} className="flex items-start gap-2.5 text-sm text-gray-700">
+                            <CheckCircle2 className="w-4 h-4 text-brand shrink-0 mt-0.5" />
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+                );
+              })}
+            </Accordion>
+
+            {/* Right: Dynamic Visual Canvas */}
+            <div className="relative flex overflow-hidden rounded-[2rem] border border-black/5 bg-[#F8FAFC] h-[380px] md:min-h-[400px] shadow-inner lg:h-[500px]">
+              {/* Subtle Grid Background */}
+              <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-50" />
+
+              <div className="w-full h-full relative z-10 p-6 md:p-8">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={`${activeItem}-visual`}
+                    initial={{ opacity: 0, y: 10, scale: 0.96 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.96 }}
+                    transition={{ duration: 0.3, ease: 'easeOut' }}
+                    className="w-full h-full flex items-center justify-center"
+                  >
+                    {visuals[activeStepContext.visual]}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Keep the border beam active */}
+              <BorderBeam
+                duration={10}
+                size={300}
+                colorFrom="#6594B1"
+                colorTo="#a8c8de"
+                borderWidth={2}
+              />
             </div>
-            <BorderBeam
-              duration={12}
-              size={250}
-              colorFrom="#6594B1"
-              colorTo="#a8c8de"
-              borderWidth={1.5}
-            />
+
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

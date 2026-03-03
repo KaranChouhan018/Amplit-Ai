@@ -2,7 +2,7 @@
 
 import { motion, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Shield, CheckCircle2, MapPin, Quote } from 'lucide-react';
+import { Shield, CheckCircle2, Quote, Activity, PhoneIncoming, CalendarCheck, Zap } from 'lucide-react';
 
 export default function AboutMission() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -11,17 +11,22 @@ export default function AboutMission() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.2 }
+      transition: { staggerChildren: 0.15 }
     }
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }
+    }
   };
 
   return (
-    <section className="relative bg-white overflow-hidden py-10 lg:py-14">
+    <section className="relative overflow-hidden py-10">
+
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
@@ -29,110 +34,137 @@ export default function AboutMission() {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="grid lg:grid-cols-12 gap-10 md:gap-12 lg:gap-20 items-start"
+          className="grid lg:grid-cols-12 gap-12 lg:gap-24 items-center"
         >
-
-          {/* Left Column: Narrative */}
+          {/* --- LEFT COLUMN: NARRATIVE --- */}
           <div className="lg:col-span-7">
-            <motion.div variants={itemVariants}>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand/10 text-brand text-xs sm:text-sm font-bold mb-4 sm:mb-6 tracking-wide uppercase">
+            <motion.div variants={itemVariants} className="space-y-8">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand/5 border border-brand/10 text-brand text-xs sm:text-sm font-bold tracking-widest uppercase">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-brand"></span>
                 </span>
-                Our Mission
+                Our Core Mission
               </div>
 
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-6 sm:mb-8 tracking-tight leading-[1.1]">
+              <div className="border-l-2 border-brand pl-6">
+                <p className="text-2xl sm:text-3xl font-semibold leading-snug text-black">
+                  We don’t replace your front desk.
+                  <br />
+                  <span className="text-brand ">We amplify it.</span>
+                </p>
+              </div>
+
+              {/* Main Heading */}
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black tracking-tight leading-[1.05]">
                 AI that works <br />
-                <span className="text-brand">behind the scenes.</span>
+                <span className="text-brand ">behind the scenes.</span>
               </h2>
 
-              <div className="space-y-4 sm:space-y-6 max-w-2xl">
-                <p className="text-base sm:text-lg text-black/60 leading-relaxed">
-                  Starting with dental practices, our mission is to create AI systems that work seamlessly in the background — improving efficiency without disrupting care.
+              {/* Quote */}
+
+
+              {/* Body Text */}
+              <div className="space-y-6 max-w-xl">
+                <p className="text-lg text-black/70 leading-relaxed">
+                  Starting with dental practices, our mission is to create AI systems that work seamlessly in the background — improving efficiency without disrupting the human touch.
                 </p>
-                <p className="text-base sm:text-lg text-black/60 leading-relaxed">
-                  Missed calls mean missed appointments. Missed appointments mean lost revenue. Amplit AI solves this — fully automated, 24/7, so your team can focus on the patient sitting right in front of them.
+                <p className="text-lg text-black/70 leading-relaxed">
+                  Missed calls mean missed appointments. Amplit AI solves this — fully automated, 24/7, so your team can focus on the patient in the chair.
                 </p>
-              </div>
-
-              <div className="mt-8 md:mt-12 relative p-6 md:p-10 bg-white border border-brand/10 shadow-2xl shadow-brand/5 rounded-3xl overflow-hidden group">
-                <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 text-brand opacity-[0.03] transform group-hover:scale-110 group-hover:-rotate-3 transition-all duration-700 pointer-events-none">
-                  <Quote className="w-32 h-32 md:w-48 md:h-48 rotate-12 fill-current" />
-                </div>
-
-                <div className="relative z-10">
-                  <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-6">
-                    <div className="bg-linear-to-br from-brand/20 to-brand/5 p-2.5 sm:p-3 rounded-2xl text-brand shadow-inner">
-                      <Quote className="w-5 h-5 sm:w-6 sm:h-6 fill-current" />
-                    </div>
-                    <div className="h-px bg-linear-to-r from-brand/20 to-transparent flex-1"></div>
-                  </div>
-
-                  <blockquote className="text-xl sm:text-2xl md:text-3xl font-bold text-black leading-tight tracking-tight">
-                    &ldquo;We don&apos;t replace your front desk.<br className="hidden xl:block" />
-                    <span className="text-brand sm:ml-2"> We amplify them.</span>&rdquo;
-                  </blockquote>
-                </div>
               </div>
             </motion.div>
           </div>
 
-          {/* Right Column: Identity Card */}
-          <motion.div
-            variants={itemVariants}
-            className="lg:col-span-5 lg:sticky lg:top-24 mt-4 lg:mt-0"
-          >
+          {/* --- RIGHT COLUMN: INTERACTIVE IDENTITY CARD --- */}
+          <motion.div variants={itemVariants} className="lg:col-span-5 relative">
             <div className="relative group">
-              {/* Card Glow Effect */}
 
-
-              <div className="relative rounded-4xl sm:rounded-[2.5rem] bg-white/60 backdrop-blur-xl border border-brand/12 p-6 sm:p-8 md:p-10">
-
-
-                <div
-
-                  className="absolute inset-0 pointer-events-none bg-ambient-glow"
-
-                />
-                <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8 text-black/60">
-                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-brand" />
-                  <span className="font-semibold uppercase tracking-widest text-[10px] sm:text-xs">Based in Plano, Texas</span>
+              <div className="relative bg-white/70  shadow-sm border border-black/5 p-8 rounded-[2.5rem] shadow-brand/10">
+                <div className="flex justify-between items-center mb-10">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-brand/10 rounded-lg">
+                      <Activity className="w-5 h-5 text-brand" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-black">Amplit AI</h3>
+                      <p className="text-[10px] text-brand font-mono tracking-tighter uppercase">Status: Operational</p>
+                    </div>
+                  </div>
+                  <Shield className="w-6 h-6 text-black/20" />
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-6">What Sets Us Apart</h3>
-                <p className="text-black/60 mb-6 sm:mb-8 text-base sm:text-lg">
-                  Unlike generic call systems, Amplit AI understands dental workflows:
-                </p>
+                {/* AI Activity Feed */}
+                <div className="relative h-[240px] overflow-hidden -mx-2 px-2">
+                  <div className="absolute top-0 left-0 right-0 h-10 bg-linear-to-b from-white to-transparent z-10 pointer-events-none" />
+                  <div className="absolute bottom-0 left-0 right-0 h-10 bg-linear-to-t from-white to-transparent z-10 pointer-events-none" />
 
-                <ul className="space-y-4 sm:space-y-5">
-                  {[
-                    'Knows dental procedures & patient queries',
-                    'Handles insurance-related questions',
-                    'Customizable for your clinic operations',
-                    'Designed with healthcare privacy in mind',
-                  ].map((item) => (
-                    <li key={item} className="flex items-start text-black/60 font-medium group">
-                      <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-brand mr-3 shrink-0" />
-                      <span className="text-base sm:text-lg">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                  <motion.div
+                    animate={{ y: ['0%', '-50%'] }}
+                    transition={{
+                      y: {
+                        repeat: Infinity,
+                        repeatType: 'loop',
+                        duration: 8,
+                        ease: 'linear',
+                      },
+                    }}
+                    className="flex flex-col gap-4 pt-4"
+                  >
+                    {[
+                      { label: "Patient Call Answered", time: "Now", icon: <PhoneIncoming className="w-4 h-4" />, color: "bg-emerald-500" },
+                      { label: "Cleaning Appt. Booked", time: "2m ago", icon: <CalendarCheck className="w-4 h-4" />, color: "bg-brand" },
+                      { label: "Follow-up Sent", time: "14m ago", icon: <CheckCircle2 className="w-4 h-4" />, color: "bg-brand" },
+                      { label: "Patient Call Answered", time: "Now", icon: <PhoneIncoming className="w-4 h-4" />, color: "bg-emerald-500" },
+                      { label: "Cleaning Appt. Booked", time: "2m ago", icon: <CalendarCheck className="w-4 h-4" />, color: "bg-brand" },
+                      { label: "Follow-up Sent", time: "14m ago", icon: <CheckCircle2 className="w-4 h-4" />, color: "bg-brand" },
+                    ].map((item, i) => (
+                      <div
+                        key={i}
+                        className="flex items-center justify-between p-4 bg-white/50 border border-black/[0.03] rounded-2xl hover:border-brand/20 transition-colors shrink-0"
+                      >
+                        <div className="flex items-center gap-4">
+                          <div className={`p-2 rounded-full text-white ${item.color} shadow-sm`}>
+                            {item.icon}
+                          </div>
+                          <span className="text-sm font-semibold text-black/80">{item.label}</span>
+                        </div>
+                        <span className="text-[10px] text-black/40 font-mono font-bold uppercase">{item.time}</span>
+                      </div>
+                    ))}
+                  </motion.div>
+                </div>
 
-                <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-gray-100">
-                  <div className="flex items-center p-3 sm:p-4 bg-brand/5 rounded-xl border border-brand/10 transition-colors hover:bg-brand/10">
-                    <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-brand mr-3 shrink-0" />
-                    <div>
-                      <p className="text-xs sm:text-sm font-bold text-black">Enterprise Security</p>
-                      <p className="text-[10px] sm:text-xs text-brand font-semibold uppercase tracking-wider mt-0.5 sm:mt-0">HIPAA Compliant • Encrypted</p>
-                    </div>
+                {/* Bottom Stats */}
+                <div className="mt-10 pt-8 border-t border-black/5 flex items-center justify-between">
+                  <div className="flex -space-x-3">
+                    {[1, 2, 3, 4].map(i => (
+                      <div key={i} className={`w-9 h-9 rounded-full border-4 border-white bg-slate-100 flex items-center justify-center text-[10px] font-bold text-black/40 shadow-sm`}>
+                        DR
+                      </div>
+                    ))}
+                  </div>
+                  <div className="text-right">
+                    <p className="text-xl font-bold text-black">98.4%</p>
+                    <p className="text-[10px] text-black/40 font-bold uppercase tracking-widest">Automation Rate</p>
                   </div>
                 </div>
               </div>
+
+              {/* Floating Element for Depth */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -bottom-6 -left-6 bg-black text-white px-6 py-4 rounded-2xl shadow-2xl hidden md:block"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-brand animate-ping" />
+                  <p className="text-xs font-bold tracking-tight">System processing active...</p>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
-
         </motion.div>
       </div>
     </section>

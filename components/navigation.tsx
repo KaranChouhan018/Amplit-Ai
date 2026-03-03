@@ -91,7 +91,7 @@ export default function Navigation() {
               target="_blank"
               className="px-6 py-2.5 text-sm font-medium text-white rounded-full bg-brand"
             >
-              Book a Free demo call now
+              Book a demo
             </Link>
           </div>
 

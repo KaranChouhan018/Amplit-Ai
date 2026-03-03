@@ -11,13 +11,7 @@ export default function AboutHero() {
 
   return (
     <section className="relative pt-32 pb-20 overflow-hidden min-h-[50vh] flex flex-col justify-center">
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          background:
-            "radial-gradient(125% 125% at 50% 90%, #ffffff 40%, #6594B1 100%)",
-        }}
-      />
+  
 
       <div className="relative max-w-7xl mx-auto px-6 text-center">
         <motion.div
@@ -34,7 +28,7 @@ export default function AboutHero() {
           </h1>
 
           <p className="text-base sm:text-lg text-black/60 max-w-2xl mx-auto leading-relaxed">
-            Amplit AI is a healthcare-focused AI company building intelligent solutions that reduce operational burden and improve patient engagement — starting with dental practices.
+            Amplit AI is a healthcare-focused AI company building intelligent solutions that reduce operational burden and improve patient engagement.
           </p>
         </motion.div>
       </div>

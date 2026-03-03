@@ -1,12 +1,12 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { CheckCircle, Target, Clock as ClockIcon } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 
 const benefits = [
-  'Reduce documentation burden by 70%',
-  'Improve clinical note accuracy',
-  'Enhance patient-provider interaction',
-  'Seamless EHR integration',
+  'Never miss another patient call',
+  'Automate appointment scheduling',
+  'Reduce front desk workload by 60%',
+  'Seamless PMS integration',
 ];
 
 export default function DentsiBenefits() {
@@ -14,14 +14,8 @@ export default function DentsiBenefits() {
   const benefitsInView = useInView(benefitsRef, { once: true });
 
   return (
-    <section className="bg-white py-10 md:py-14 relative overflow-hidden">
-      {/* Subtle Background Pattern / Gradient */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: "radial-gradient(ellipse at right top, rgba(101,148,177,0.06) 0%, transparent 50%), radial-gradient(ellipse at left bottom, rgba(101,148,177,0.04) 0%, transparent 50%)"
-        }}
-      />
+    <section className="py-10  relative overflow-hidden">
+
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
@@ -38,12 +32,12 @@ export default function DentsiBenefits() {
             </div>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-black mb-6 leading-[1.15] tracking-tight">
-              Focus entirely on<br className="hidden sm:block" />
-              <span className="text-brand"> patient care.</span>
+              Elevate your<br className="hidden sm:block" />
+              <span className="text-brand"> patient experience.</span>
             </h2>
 
             <p className="text-black/60 text-lg md:text-xl mb-10 leading-relaxed max-w-lg">
-              With AcuCogn Scribe seamlessly handling all documentation in the background, clinicians reclaim hours of their day to spend where it matters most.
+              With Amplit AI seamlessly handling patient calls and scheduling in the background, your front desk reclaims hours of their day to focus on in-clinic patients.
             </p>
 
             <ul className="space-y-5">
@@ -84,9 +78,9 @@ export default function DentsiBenefits() {
                   <div className="w-8 h-8 rounded-full mb-4 flex items-center justify-center bg-blue-50">
                     <div className="w-3 h-3 bg-blue-500 rounded-sm transform rotate-45"></div>
                   </div>
-                  <h3 className="text-[15px] font-semibold text-black mb-1.5">Accuracy</h3>
+                  <h3 className="text-[15px] font-semibold text-black mb-1.5">Natural Voice</h3>
                   <p className="text-[13px] text-gray-500 leading-snug">
-                    Our AI model achieves 99% accuracy in clinical note generation.
+                    Conversational AI that sounds natural and puts patients at ease.
                   </p>
                 </div>
 
@@ -101,7 +95,7 @@ export default function DentsiBenefits() {
                   </div>
                   <h3 className="text-[15px] font-semibold text-black mb-1.5">Availability</h3>
                   <p className="text-[13px] text-gray-500 leading-snug">
-                    Always on. AcuCogn is available 24/7/365 for your practice.
+                    Always on. Amplit AI is available 24/7/365 to answer calls.
                   </p>
                 </div>
 
@@ -110,9 +104,9 @@ export default function DentsiBenefits() {
                   <div className="w-8 h-8 rounded-full mb-4 flex items-center justify-center bg-pink-50 text-pink-500 font-bold italic font-serif">
                     A
                   </div>
-                  <h3 className="text-[15px] font-semibold text-black mb-1.5">Ambient Voice</h3>
+                  <h3 className="text-[15px] font-semibold text-black mb-1.5">Deep Knowledge</h3>
                   <p className="text-[13px] text-gray-500 leading-snug">
-                    Silently captures clinical conversations without interrupting flow.
+                    Pre-trained on dental procedures, codes, and patient queries.
                   </p>
                 </div>
 
@@ -134,7 +128,7 @@ export default function DentsiBenefits() {
                   </div>
                   <h3 className="text-[15px] font-semibold text-black mb-1.5">Time Savings</h3>
                   <p className="text-[13px] text-gray-500 leading-snug">
-                    Reduce documentation time by up to 70% per patient encounter.
+                    Save your front desk staff up to 15 hours a week on routine calls.
                   </p>
                 </div>
 
@@ -145,7 +139,7 @@ export default function DentsiBenefits() {
                   </div>
                   <h3 className="text-[15px] font-semibold text-black mb-1.5">Focus</h3>
                   <p className="text-[13px] text-gray-500 leading-snug">
-                    Clinicians can focus on the patient sitting in front of them.
+                    Your staff can focus entirely on the patient standing right in front of them.
                   </p>
                 </div>
 
