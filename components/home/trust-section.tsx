@@ -1,23 +1,28 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const PARTNER_LOGOS = [
   {
-    name: 'Modern Family Dental Care',
-    logo: '/hero-v3.png',
+    name: 'Appointment',
+    logo: '/trust-image/appointment.jpg',
   },
   {
-    name: 'SAMA',
-    logo: '/hero-v1.jpg',
+    name: 'Call',
+    logo: '/trust-image/call.jpg',
   },
   {
-    name: 'All Star Pediatric Dentistry',
-    logo: '/hero-v1.jpg',
+    name: 'Frustrated',
+    logo: '/trust-image/frusted.jpg',
   },
   {
-    name: 'DentalXcare',
-    logo: '/hero-v1.jpg',
+    name: 'Image',
+    logo: '/trust-image/image.jpg',
+  },
+  {
+    name: 'Time',
+    logo: '/trust-image/time.jpg',
   },
 ];
 
@@ -75,10 +80,12 @@ export default function TrustSection() {
                   key={`${partner.name}-${index}`}
                   className="w-24 sm:w-30 xl:w-36.25 shrink-0 flex bg-brand-bg1 items-center justify-center p-4 sm:p-6  rounded-xl sm:rounded-[20px] mx-1.5 sm:mx-2"
                 >
-                  <img
+                  <Image
                     src={partner.logo}
                     alt={partner.name}
-                    className="w-full h-auto max-h-10 sm:max-h-15 object-contain opacity-80 mix-blend-multiply"
+                    width={1920}
+                    height={1080}
+                    className="w-full h-auto max-h-18 md:max-h-20 object-contain  mix-blend-multiply"
                   />
                 </div>
               ))}
