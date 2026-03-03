@@ -5,16 +5,20 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Play, AudioLines, Pause } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 
-const VIDEO_URL = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1';
-const AUDIO_URL = 'https://a.tmp.audio/39w62q5.mp3'; // Changed to a more reliable sample audio of people talking/testing
+const VIDEO_URL = 'https://youtu.be/9rD7ETJALYE';
+const AUDIO_URL = '/harvard.wav';
 
 const CAPTIONS = [
-  { start: 0, end: 4, text: "🎵 (Upbeat hold music playing...)" },
-  { start: 4, end: 8, text: "Hello! Thank you for calling Amplit Dental." },
-  { start: 8, end: 12, text: "I am your AI receptionist. How can I help you today?" },
-  { start: 12, end: 16, text: "I can check your records, book a new appointment," },
-  { start: 16, end: 20, text: "or help you with billing questions directly." },
-  { start: 20, end: 30, text: "Feel free to tell me what you need! I'm here 24/7." },
+  { start: 0, end: 3.5, text: "The stale smell of old beer lingers." },
+  { start: 3.5, end: 7, text: "It takes heat to bring out the odor." },
+  { start: 7, end: 10.5, text: "A cold dip restores health and zest." },
+  { start: 10.5, end: 14, text: "A salt pickle tastes fine with ham." },
+  { start: 14, end: 17.5, text: "Tacos al pastor are my favorite." },
+  { start: 17.5, end: 21, text: "A zestful food is the hot cross bun." },
+  { start: 21, end: 25, text: "The birch canoe slid on the smooth planks." },
+  { start: 25, end: 29, text: "Glue the sheet to the dark blue background." },
+  { start: 29, end: 35, text: "It's easy to tell the depth of a well." },
+  { start: 35, end: 60, text: "🎧 Listening..." },
 ];
 
 export default function HeroSection() {
@@ -54,7 +58,7 @@ export default function HeroSection() {
   const currentCaption = CAPTIONS.find(c => currentTime >= c.start && currentTime <= c.end)?.text || "🎵 ...";
 
   return (
-    <section className="relative h-[70vh] mt-20 overflow-hidden flex flex-col">
+    <section className="relative h-[70vh] mt-10 md:mt-20 overflow-hidden flex flex-col">
       <div className="relative z-10 max-w-7xl mx-auto px-6 flex items-center flex-1">
         {/* Two-column layout */}
         <div className="flex flex-col md:flex-row items-center w-full gap-8">
