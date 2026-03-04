@@ -30,24 +30,17 @@ const steps = [
     step: '03',
     icon: BrainCircuit,
     title: 'Processes the Request',
-    description: 'The AI determines the patient\'s needs — whether scheduling a cleaning, asking about insurance, or an emergency.',
+    description: 'The AI determines the patient\'s needs — whether scheduling a cleaning, handling a general inquiry, or an emergency.',
     bullets: ['Intelligent intent recognition', 'HIPAA compliant data handling', 'Pre-screens for specific procedures'],
     visual: 'brain',
   },
+
   {
     step: '04',
-    icon: CalendarCheck,
-    title: 'Action Taken',
-    description: 'Amplit books the appointment directly into your practice management system, or routes emergencies to staff.',
-    bullets: ['Syncs with Dentrix, Eaglesoft, etc.', 'Updates patient records instantly', 'Sends appointment reminders'],
-    visual: 'calendar',
-  },
-  {
-    step: '05',
     icon: Bell,
     title: 'Updates Your System & Notifies Team',
-    description: 'Every interaction is logged. Your team gets notified instantly, and your PMS stays up to date — no manual entry required.',
-    bullets: ['Auto-updates your practice management system', 'Sends real-time notifications to staff', 'Complete call logs & transcripts available'],
+    description: 'Every interaction is logged. Your team gets notified instantly, and your calendar stays up to date — no manual entry required.',
+    bullets: ['Auto-updates your scheduling system', 'Sends real-time notifications to staff', 'Complete call logs & transcripts available'],
     visual: 'notify',
   },
 ];

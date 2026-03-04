@@ -41,7 +41,7 @@ export default function AboutFeatures() {
               <ul className="space-y-4 sm:space-y-5">
                 {[
                   "Knows dental procedures & patient queries",
-                  "Handles insurance-related questions",
+                  "Handles common patient questions",
                   "Customizable for your clinic operations",
                   "Designed with healthcare privacy in mind",
                 ].map((item) => (

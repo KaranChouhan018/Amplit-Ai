@@ -23,7 +23,7 @@ const highlights = [
   {
     icon: CalendarCheck,
     label: "Schedules appointments in real time",
-    detail: "Books directly into your practice management system",
+    detail: "Books directly into your scheduling system",
   },
   {
     icon: MessageSquare,

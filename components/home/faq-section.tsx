@@ -21,7 +21,7 @@ const faqItems = [
     id: 'item-3',
     question: 'Is it hard to set up?',
     answer:
-      'No, setup is simple and customized to your clinic. Most practices are fully live within a few days. Our onboarding team configures the AI to your custom scripts, protocols, and practice management system.',
+      'No, setup is simple and customized to your clinic. Most practices are fully live within a few days. Our onboarding team configures the AI to your custom scripts, protocols, and scheduling system.',
   },
   {
     id: 'item-4',

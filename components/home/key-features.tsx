@@ -16,7 +16,7 @@ const features = [
     icon: Target,
     title: "More Appointments",
     description:
-      "Convert more calls into bookings automatically with intelligent scheduling and real-time PMS sync.",
+      "Convert more calls into bookings automatically with intelligent scheduling and real-time calendar sync.",
     featured: false,
   },
   {

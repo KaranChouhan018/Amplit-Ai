@@ -18,11 +18,11 @@ export const metadata: Metadata = {
     template: '%s | Amplit AI',
   },
   description: 'Healthcare AI solutions that handle missed calls, scheduling, and repetitive tasks. Zero missed calls. Faster revenue. Better patient care.',
-  keywords: ['dental AI', 'AI voice agent', 'healthcare AI', 'dental practice management', 'automated scheduling', 'Dentsi'],
+  keywords: ['dental AI', 'AI voice agent', 'healthcare AI', 'dental automation', 'automated scheduling', 'Dentsi'],
   authors: [{ name: 'Amplit AI' }],
   openGraph: {
     title: 'Amplit AI - AI That Amplifies Care',
-    description: 'Healthcare AI solutions for smarter practice management.',
+    description: 'Healthcare AI solutions for smarter dental operations.',
     type: 'website',
   },
   twitter: {

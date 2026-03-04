@@ -24,13 +24,13 @@ const QA_DATA: QA[] = [
     {
         keywords: ['dentsi', 'what is dentsi'],
         answer:
-            'Dentsi is our flagship AI voice agent for dental practices. It answers every incoming call 24/7, books appointments in real time, handles rescheduling, and even collects insurance details — all in a natural, human-like conversation.',
+            'Dentsi is our flagship AI voice agent for dental practices. It answers every incoming call 24/7, books appointments in real time, handles rescheduling, and even collects patient details — all in a natural, human-like conversation.',
         followUps: ['How does it work?', 'Pricing', 'Integrations'],
     },
     {
         keywords: ['how does it work', 'how it works', 'process'],
         answer:
-            "It's simple: 1️⃣ We integrate with your existing phone system & PMS. 2️⃣ Dentsi answers calls your team can't get to. 3️⃣ It books, confirms, and manages appointments automatically. Setup takes less than a day with zero disruption.",
+            "It's simple: 1️⃣ We connect with your existing phone system & scheduling tools. 2️⃣ Dentsi answers calls your team can't get to. 3️⃣ It books, confirms, and manages appointments automatically. Setup takes less than a day with zero disruption.",
         followUps: ['Integrations', 'Pricing', 'Book a demo'],
     },
     {
@@ -48,13 +48,13 @@ const QA_DATA: QA[] = [
     {
         keywords: ['features', 'key features', 'what can it do', 'capabilities'],
         answer:
-            '✅ 24/7 call answering — zero missed calls\n✅ Real-time appointment booking & rescheduling\n✅ Insurance verification\n✅ Patient intake & follow-ups\n✅ Multi-language support\n✅ Seamless PMS integration\n✅ Detailed call analytics dashboard',
+            '✅ 24/7 call answering — zero missed calls\n✅ Real-time appointment booking & rescheduling\n✅ Patient pre-screening & intake\n✅ Automated follow-ups & reminders\n✅ Multi-language support\n✅ Seamless system integration\n✅ Detailed call analytics dashboard',
         followUps: ['Integrations', 'Pricing', 'Book a demo'],
     },
     {
-        keywords: ['integration', 'integrations', 'pms', 'software', 'compatible'],
+        keywords: ['integration', 'integrations', 'software', 'compatible'],
         answer:
-            'Dentsi integrates with major dental PMS platforms including Dentrix, Eaglesoft, Open Dental, and more. We also connect with popular VoIP providers and CRM tools. Custom integrations are available for enterprise practices.',
+            'Dentsi integrates with major dental practice platforms including Dentrix, Eaglesoft, Open Dental, and more. We also connect with popular VoIP providers and CRM tools. Custom integrations are available for enterprise practices.',
         followUps: ['How does it work?', 'Key features', 'Pricing'],
     },
     {

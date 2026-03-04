@@ -3,8 +3,8 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import {
-  CheckCircle2, Shield, BrainCircuit, CalendarCheck,
-  PhoneCall, HeartPulse, Settings, Globe, Clock
+  Shield, BrainCircuit, CalendarCheck,
+  PhoneCall, HeartPulse, Clock
 } from 'lucide-react';
 
 const features = [
@@ -15,8 +15,8 @@ const features = [
   },
   {
     icon: CalendarCheck,
-    title: "PMS Integration",
-    description: "Seamlessly syncs with major practice management systems like Dentrix, Eaglesoft, and Open Dental."
+    title: "More Appointments",
+    description: "Convert more calls into bookings automatically with intelligent scheduling and real-time calendar sync."
   },
   {
     icon: Shield,
@@ -55,7 +55,7 @@ export default function AboutFeatures() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center max-w-3xl mx-auto mb-10"
         >
-       
+
           <h2 className="text-3xl sm:text-4xl lg:text-3xl font-bold text-black tracking-tight leading-tight mb-6">
             Our Core Values
           </h2>

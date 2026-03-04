@@ -13,7 +13,7 @@ const capabilities = [
     description: 'Unlike generic call systems, Amplit AI understands dental workflows',
     features: [
       'Knows dental procedures & patient queries',
-      'Handles insurance-related questions',
+      'Handles common patient questions',
       'Customizable for your clinic operations',
     ],
   },
