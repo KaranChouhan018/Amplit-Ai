@@ -6,7 +6,6 @@ const benefits = [
   'Never miss another patient call',
   'Automate appointment scheduling',
   'Reduce front desk workload by 60%',
-  'Seamless PMS integration',
 ];
 
 export default function DentsiBenefits() {
@@ -37,7 +36,7 @@ export default function DentsiBenefits() {
             </h2>
 
             <p className="text-black/60 text-lg md:text-xl mb-10 leading-relaxed max-w-lg">
-              With Amplit AI seamlessly handling patient calls and scheduling in the background, your front desk reclaims hours of their day to focus on in-clinic patients.
+              With Our Front Desk - Dentsi seamlessly handling patient calls and scheduling in the background, your front desk reclaims hours of their day to focus on in-clinic patients.
             </p>
 
             <ul className="space-y-5">
@@ -95,7 +94,7 @@ export default function DentsiBenefits() {
                   </div>
                   <h3 className="text-[15px] font-semibold text-black mb-1.5">Availability</h3>
                   <p className="text-[13px] text-gray-500 leading-snug">
-                    Always on. Amplit AI is available 24/7/365 to answer calls.
+                    Always on. Our Front Desk - Dentsi is available 24/7/365 to answer calls.
                   </p>
                 </div>
 

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { MapPin, CheckCircle2, Shield } from "lucide-react";
 import { useInView } from "react-intersection-observer";
+import { BorderBeam } from "../ui/border-beam";
 
 export default function AboutFeatures() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -77,6 +78,8 @@ export default function AboutFeatures() {
             transition={{ duration: 0.8 }}
             className="space-y-8"
           >
+            <BorderBeam size={300} duration={12} delay={9} />
+
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand/5 border border-brand/10 text-brand text-xs sm:text-sm font-bold tracking-widest uppercase">
               The Amplit Advantage
             </div>

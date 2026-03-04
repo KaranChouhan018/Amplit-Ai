@@ -5,6 +5,7 @@ import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
 import LenisProvider from '@/components/lenis-provider';
 import BackgroundGradient from '@/components/layout/background-gradient';
+import Chatbot from '@/components/chatbot';
 
 export const dynamic = 'force-dynamic';
 
@@ -43,17 +44,18 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-        <body className={`${inter.className}  text-[#000000] antialiased`}>
-          <LenisProvider>
-            <Navigation />
-                    <BackgroundGradient>
+      <body className={`${inter.className}  text-[#000000] antialiased`}>
+        <LenisProvider>
+          <Navigation />
+          <BackgroundGradient>
             <main className="min-h-screen">
-                {children}
+              {children}
             </main>
-                        </BackgroundGradient>
-            <Footer />
-          </LenisProvider>
-        </body>
+          </BackgroundGradient>
+          <Footer />
+          <Chatbot />
+        </LenisProvider>
+      </body>
     </html>
   );
 }

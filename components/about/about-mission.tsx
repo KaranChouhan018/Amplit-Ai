@@ -3,6 +3,7 @@
 import { motion, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Shield, CheckCircle2,  Activity, PhoneIncoming, CalendarCheck, User } from 'lucide-react';
+import { BorderBeam } from '../ui/border-beam';
 
 export default function AboutMission() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -82,6 +83,13 @@ export default function AboutMission() {
             <div className="relative group">
 
               <div className="relative bg-white/70  shadow-sm border border-black/5 p-8 rounded-[2.5rem] shadow-brand/10">
+                <BorderBeam
+                              duration={10}
+                              size={300}
+                              colorFrom="#6594B1"
+                              colorTo="#a8c8de"
+                              borderWidth={2}
+                            />
                 <div className="flex justify-between items-center mb-10">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-brand/10 rounded-lg">

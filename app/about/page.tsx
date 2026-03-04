@@ -3,7 +3,6 @@
 import AboutCTA from "@/components/about/about-cta";
 import AboutHero from "@/components/about/about-hero";
 import AboutMission from "@/components/about/about-mission";
-import AboutFeatures from "@/components/about/about-features";
 import AboutValues from "@/components/about/about-values";
 import AboutQuote from "@/components/about/about-quote";
 
@@ -12,7 +11,6 @@ export default function AboutPage() {
     <>
       <AboutHero />
       <AboutMission />
-      <AboutFeatures />
       <AboutValues />
       <AboutQuote />
       <AboutCTA />

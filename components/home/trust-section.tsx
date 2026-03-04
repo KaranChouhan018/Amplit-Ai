@@ -13,10 +13,6 @@ const PARTNER_LOGOS = [
     logo: '/trust-image/call.jpg',
   },
   {
-    name: 'Frustrated',
-    logo: '/trust-image/frusted.jpg',
-  },
-  {
     name: 'Image',
     logo: '/trust-image/image.jpg',
   },
@@ -27,8 +23,6 @@ const PARTNER_LOGOS = [
 ];
 
 export default function TrustSection() {
-  // Duplicate logos for seamless infinite scroll
-  const duplicatedLogos = [...PARTNER_LOGOS, ...PARTNER_LOGOS];
 
   return (
     <section className="relative w-full ">
@@ -36,7 +30,6 @@ export default function TrustSection() {
 
         {/* Main Flex Container */}
         <div className="flex flex-col xl:flex-row bg-white rounded-4xl p-3 sm:p-4 items-stretch gap-3 lg:gap-4 h-auto xl:h-37.5">
-
 
           {/* Left: Trust Text */}
           <motion.div
@@ -46,7 +39,7 @@ export default function TrustSection() {
             transition={{ duration: 0.6 }}
             className="shrink-0 flex flex-col justify-center px-4 py-6 sm:px-6 sm:py-8 xl:px-8 rounded-xl sm:rounded-[20px] w-full xl:w-[45%]"
           >
-            <h3 className="text-xs sm:text-[13px] font-bold text-gray-900 tracking-wide uppercase mb-2 sm:mb-3">
+            <h3 className="text-md md:text-md font-bold text-gray-900 tracking-wide mb-2 sm:mb-3">
               Is your dental front desk <br className="hidden sm:block" /> overwhelmed with calls, scheduling, and daily tasks?
             </h3>
             <p className="text-sm sm:text-[15px] text-[#5A6475] leading-relaxed">
@@ -54,43 +47,27 @@ export default function TrustSection() {
             </p>
           </motion.div>
 
-          {/* Center: Partner Logos with Marquee */}
-          <div className="relative flex-1 overflow-hidden h-24 sm:h-full min-h-20 sm:min-h-25">
-            {/* Left gradient fade */}
-            <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-16 bg-linear-to-r from-white to-transparent z-10 pointer-events-none" />
-
-            {/* Right gradient fade */}
-            <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-16 bg-linear-to-l from-white to-transparent z-10 pointer-events-none" />
-
-            {/* Marquee container */}
-            <motion.div
-              className="flex items-center h-full"
-              animate={{ x: [0, '-50%'] }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: 'loop',
-                  duration: 20,
-                  ease: 'linear',
-                },
-              }}
-            >
-              {duplicatedLogos.map((partner, index) => (
-                <div
-                  key={`${partner.name}-${index}`}
-                  className="w-24 sm:w-30 xl:w-36.25 shrink-0 flex bg-brand-bg1 items-center justify-center p-4 sm:p-6  rounded-xl sm:rounded-[20px] mx-1.5 sm:mx-2"
-                >
-                  <Image
-                    src={partner.logo}
-                    alt={partner.name}
-                    width={1920}
-                    height={1080}
-                    className="w-full h-auto max-h-18 md:max-h-20 object-contain  mix-blend-multiply"
-                  />
-                </div>
-              ))}
-            </motion.div>
-          </div>
+          {/* Partner Images — all fade together */}
+          <motion.div
+            animate={{ opacity: [1, 0, 1] }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+            className="flex-1 flex items-center justify-center overflow-hidden gap-2 sm:gap-3 p-4 flex-wrap xl:flex-nowrap"
+          >
+            {PARTNER_LOGOS.map((partner) => (
+              <div
+                key={partner.name}
+                className="w-24 sm:w-30 xl:w-36.25 shrink-0 flex bg-brand-bg1 items-center justify-center rounded-xl sm:rounded-[20px]"
+              >
+                <Image
+                  src={partner.logo}
+                  alt={partner.name}
+                  width={1920}
+                  height={1080}
+                  className="w-full h-auto max-h-18 md:max-h-40 object-contain mix-blend-multiply"
+                />
+              </div>
+            ))}
+          </motion.div>
 
         </div>
       </div>
