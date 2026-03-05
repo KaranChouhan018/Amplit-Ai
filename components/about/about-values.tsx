@@ -56,10 +56,10 @@ export default function AboutFeatures() {
           className="text-center max-w-3xl mx-auto mb-10"
         >
 
-          <h2 className="text-3xl sm:text-4xl lg:text-3xl font-bold text-black tracking-tight leading-tight mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight mb-6">
             Our Core Values
           </h2>
-          <p className="text-[17px] text-black/60 leading-relaxed font-medium">
+          <p className="text-[15px] md:text-[17px] text-[#4e5157] font-medium leading-relaxed">
             The principles that guide our innovation, service, and commitment to dental and healthcare excellence.
           </p>
         </motion.div>
@@ -72,16 +72,19 @@ export default function AboutFeatures() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1.0, delay: 0.1 + i * 0.08, ease: "easeOut" }}
-              className="bg-white p-8 rounded-3xl border border-brand shadow-md flex flex-col items-start gap-5 hover:bg-gray-50/50 transition-colors duration-300 group"
+              className="bg-white relative overflow-hidden p-8 rounded-3xl border border-brand shadow-md flex flex-col items-start gap-5  transition-colors duration-300 group"
             >
-              <div className="w-12 h-12 rounded-xl bg-black/3 border border-black/5 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+              {/* Bottom gradient */}
+              <div className="absolute bottom-0 left-0 right-0 h-48 bg-linear-to-t from-brand/10 to-transparent pointer-events-none" />
+
+              <div className="relative z-10 w-12 h-12 rounded-xl bg-black/3 border border-black/5 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
                 <feature.icon className="w-5 h-5 text-brand" />
               </div>
-              <div>
-                <h3 className="text-xl font-bold text-black mb-3 tracking-tight">
+              <div className="relative z-10">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 tracking-tight">
                   {feature.title}
                 </h3>
-                <p className="text-[15px] sm:text-base text-black/60 leading-relaxed font-medium">
+                <p className="text-[15px] md:text-[17px] text-[#4e5157] font-medium leading-relaxed">
                   {feature.description}
                 </p>
               </div>

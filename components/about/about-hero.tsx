@@ -11,7 +11,7 @@ export default function AboutHero() {
 
   return (
     <section className="relative pt-32 pb-20 overflow-hidden min-h-[50vh] flex flex-col justify-center">
-  
+
 
       <div className="relative max-w-7xl mx-auto px-6 text-center">
         <motion.div
@@ -27,7 +27,7 @@ export default function AboutHero() {
             <span className="text-brand">Healthcare Intelligence.</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-black/60 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[15px] md:text-[17px] text-[#4e5157] font-medium max-w-2xl mx-auto leading-relaxed">
             Amplit AI is a healthcare-focused AI company building intelligent solutions that reduce operational burden and improve patient engagement.
           </p>
         </motion.div>

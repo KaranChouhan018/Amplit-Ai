@@ -1,11 +1,56 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, Mic, Clock, GraduationCap, ShieldCheck, Zap, Crosshair } from 'lucide-react';
 
 const benefits = [
   'Never miss another patient call',
   'Automate appointment scheduling',
   'Reduce front desk workload by 60%',
+];
+
+const features = [
+  {
+    icon: Mic,
+    title: 'Natural Voice',
+    description: 'Conversational AI that sounds natural and puts patients at ease.',
+    bgClass: 'bg-blue-50',
+    iconClass: 'text-blue-500'
+  },
+  {
+    icon: Clock,
+    title: 'Availability',
+    description: 'Always on. Our Front Desk - Dentsi is available 24/7/365 to answer calls.',
+    bgClass: 'bg-orange-50',
+    iconClass: 'text-orange-500'
+  },
+  {
+    icon: GraduationCap,
+    title: 'Deep Knowledge',
+    description: 'Pre-trained on dental procedures, codes, and patient queries.',
+    bgClass: 'bg-pink-50',
+    iconClass: 'text-pink-500'
+  },
+  {
+    icon: ShieldCheck,
+    title: 'HIPAA Ready',
+    description: 'Built from the ground up with healthcare-grade security.',
+    bgClass: 'bg-purple-50',
+    iconClass: 'text-purple-500'
+  },
+  {
+    icon: Zap,
+    title: 'Time Savings',
+    description: 'Save your front desk staff up to 15 hours a week on routine calls.',
+    bgClass: 'bg-blue-50',
+    iconClass: 'text-blue-500'
+  },
+  {
+    icon: Crosshair,
+    title: 'Focus',
+    description: 'Your staff can focus entirely on the patient standing right in front of them.',
+    bgClass: 'bg-red-50',
+    iconClass: 'text-red-500'
+  }
 ];
 
 export default function DentsiBenefits() {
@@ -30,12 +75,12 @@ export default function DentsiBenefits() {
               The Impact
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-black mb-6 leading-[1.15] tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-[1.15] tracking-tight">
               Elevate your<br className="hidden sm:block" />
               <span className="text-brand"> patient experience.</span>
             </h2>
 
-            <p className="text-black/60 text-lg md:text-xl mb-10 leading-relaxed max-w-lg">
+            <p className="text-[#4e5157] font-medium text-[15px] md:text-[17px] mb-10 leading-relaxed max-w-lg">
               With Our Front Desk - Dentsi seamlessly handling patient calls and scheduling in the background, your front desk reclaims hours of their day to focus on in-clinic patients.
             </p>
 
@@ -72,75 +117,17 @@ export default function DentsiBenefits() {
               {/* Grid of Cards */}
               <div className="grid grid-cols-2 gap-2 h-full p-4  pb-24 ">
 
-                {/* Feature 1 */}
-                <div className="flex flex-col items-start p-5 bg-white border border-gray-100 rounded-3xl transition-all duration-300">
-                  <div className="w-8 h-8 rounded-full mb-4 flex items-center justify-center bg-blue-50">
-                    <div className="w-3 h-3 bg-blue-500 rounded-sm transform rotate-45"></div>
-                  </div>
-                  <h3 className="text-[15px] font-semibold text-black mb-1.5">Natural Voice</h3>
-                  <p className="text-[13px] text-gray-500 leading-snug">
-                    Conversational AI that sounds natural and puts patients at ease.
-                  </p>
-                </div>
-
-                {/* Feature 2 */}
-                <div className="flex flex-col items-start p-5 bg-white border border-gray-100 rounded-3xl transition-all duration-300">
-                  <div className="w-8 h-8 rounded-full mb-4 flex items-center justify-center bg-orange-50">
-                    <div className="w-4 h-4 grid grid-cols-2 gap-0.5">
-                      <div className="bg-orange-500 rounded-sm"></div>
-                      <div className="bg-orange-500 rounded-sm"></div>
-                      <div className="col-span-2 bg-orange-500 rounded-sm h-[6px]"></div>
+                {features.map((feature, idx) => (
+                  <div key={idx} className="flex flex-col items-start p-5 bg-white border border-gray-100 rounded-3xl transition-all duration-300">
+                    <div className={`w-8 h-8 rounded-full mb-4 flex items-center justify-center ${feature.bgClass}`}>
+                      <feature.icon className={`w-4 h-4 ${feature.iconClass}`} />
                     </div>
+                    <h3 className="text-[15px] font-bold text-gray-900 mb-1.5">{feature.title}</h3>
+                    <p className="text-[13px] text-[#4e5157] font-medium leading-snug">
+                      {feature.description}
+                    </p>
                   </div>
-                  <h3 className="text-[15px] font-semibold text-black mb-1.5">Availability</h3>
-                  <p className="text-[13px] text-gray-500 leading-snug">
-                    Always on. Our Front Desk - Dentsi is available 24/7/365 to answer calls.
-                  </p>
-                </div>
-
-                {/* Feature 3 */}
-                <div className="flex flex-col items-start p-5 bg-white border border-gray-100 rounded-3xl transition-all duration-300">
-                  <div className="w-8 h-8 rounded-full mb-4 flex items-center justify-center bg-pink-50 text-pink-500 font-bold italic font-serif">
-                    A
-                  </div>
-                  <h3 className="text-[15px] font-semibold text-black mb-1.5">Deep Knowledge</h3>
-                  <p className="text-[13px] text-gray-500 leading-snug">
-                    Pre-trained on dental procedures, codes, and patient queries.
-                  </p>
-                </div>
-
-                {/* Feature 4 */}
-                <div className="flex flex-col items-start p-5 bg-white border border-gray-100 rounded-3xl transition-all duration-300">
-                  <div className="w-8 h-8 rounded-full mb-4 flex items-center justify-center bg-purple-50">
-                    <div className="font-serif italic text-purple-600 text-lg font-bold leading-none -mt-1">M</div>
-                  </div>
-                  <h3 className="text-[15px] font-semibold text-black mb-1.5">HIPAA Ready</h3>
-                  <p className="text-[13px] text-gray-500 leading-snug">
-                    Built from the ground up with healthcare-grade security.
-                  </p>
-                </div>
-
-                {/* Feature 5 */}
-                <div className="flex flex-col items-start p-5 bg-white border border-gray-100 rounded-3xl transition-all duration-300">
-                  <div className="w-8 h-8 rounded-full mb-4 flex items-center justify-center bg-blue-50">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
-                  </div>
-                  <h3 className="text-[15px] font-semibold text-black mb-1.5">Time Savings</h3>
-                  <p className="text-[13px] text-gray-500 leading-snug">
-                    Save your front desk staff up to 15 hours a week on routine calls.
-                  </p>
-                </div>
-
-                {/* Feature 6 */}
-                <div className="flex flex-col items-start p-5 bg-white border border-gray-100 rounded-3xl transition-all duration-300">
-                  <div className="w-8 h-8 rounded-full mb-4 flex items-center justify-center bg-red-50">
-                    <div className="w-3 h-3 rounded-full border-2 border-red-500 relative"><div className="absolute top-0 right-0 w-1 h-1 bg-red-500 rounded-full"></div></div>
-                  </div>
-                  <h3 className="text-[15px] font-semibold text-black mb-1.5">Focus</h3>
-                  <p className="text-[13px] text-gray-500 leading-snug">
-                    Your staff can focus entirely on the patient standing right in front of them.
-                  </p>
-                </div>
+                ))}
 
               </div>
 

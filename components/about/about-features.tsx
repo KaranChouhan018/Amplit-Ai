@@ -23,17 +23,17 @@ export default function AboutFeatures() {
             className="relative group"
           >
             <div className="relative rounded-4xl sm:rounded-[2.5rem] bg-white shadow-sm border border-black/5 p-6 sm:p-8 md:p-10">
-              <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8 text-black/60">
+              <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8 text-[#4e5157] font-medium">
                 <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-brand" />
                 <span className="font-semibold uppercase tracking-widest text-[10px] sm:text-xs">
                   Based in Dallas, Texas
                 </span>
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-4 sm:mb-6">
                 What Sets Us Apart
               </h3>
-              <p className="text-black/60 mb-6 sm:mb-8 text-base sm:text-lg">
+              <p className="text-[#4e5157] font-medium mb-6 sm:mb-8 text-[15px] md:text-[17px]">
                 Unlike generic call systems, Amplit AI understands dental
                 workflows:
               </p>
@@ -47,7 +47,7 @@ export default function AboutFeatures() {
                 ].map((item) => (
                   <li
                     key={item}
-                    className="flex items-start text-black/60 font-medium group"
+                    className="flex items-start text-[15px] md:text-[17px] text-[#4e5157] font-medium group"
                   >
                     <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-brand mr-3 shrink-0" />
                     <span className="text-base sm:text-lg">{item}</span>
@@ -84,7 +84,7 @@ export default function AboutFeatures() {
               The Amplit Advantage
             </div>
 
-            <h2 className="text-4xl sm:text-5xl font-bold text-black tracking-tight leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight mb-6">
               Purpose-built for <br />
               <span className="text-brand">healthcare operations.</span>
             </h2>

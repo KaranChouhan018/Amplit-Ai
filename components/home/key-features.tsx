@@ -68,10 +68,10 @@ export default function KeyFeatures() {
           className="text-center "
         >
 
-          <h2 className="text-3xl font-bold text-black leading-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-4">
             Stop losing revenue to missed <br /> calls.  Amplit AI transforms every patient interaction <br /> into an opportunity.
           </h2>
-          <p className="text-black/60 text-base md:text-md max-w-2xl mb-10 mx-auto leading-relaxed">
+          <p className="text-[#4e5157] font-medium text-[15px] md:text-[17px] max-w-2xl mb-10 mx-auto leading-relaxed">
             Missed calls = missed appointments. Missed appointments = lost revenue. Lost revenue = slow growth. Amplit AI solves this — fully automated, 24/7.
 
           </p>
@@ -84,16 +84,18 @@ export default function KeyFeatures() {
               initial={{ opacity: 0, y: 28 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1.0, delay: 0.05 + i * 0.08, ease: "easeOut" }}
-              className="group relative rounded-4xl bg-brand/20 border border-brand/60 p-8 flex flex-col gap-6 "
+              className="group relative rounded-4xl bg-white  border border-brand/60 overflow-hidden p-8 flex flex-col gap-6 "
             >
+              {/* Bottom gradient */}
+              <div className="absolute bottom-0 left-0 right-0 h-48 bg-linear-to-t from-brand/10 to-transparent pointer-events-none" />
               <div className="w-14 h-14 rounded-2xl bg-brand/10 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                <f.icon className="w-6 h-6 text-brand" />
+                <f.icon className="w-6 h-6 text-black" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-black/80 mb-3 tracking-tight">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 tracking-tight">
                   {f.title}
                 </h3>
-                <p className="text-[15px] sm:text-base text-black/60 leading-relaxed">
+                <p className="text-[15px] md:text-[17px] text-[#4e5157] font-medium leading-relaxed">
                   {f.description}
                 </p>
               </div>

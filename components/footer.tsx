@@ -22,7 +22,7 @@ export default function Footer() {
                 />
               </div>
             </Link>
-            <p className="text-black/60 text-base leading-relaxed max-w-md">
+            <p className="text-[#4e5157] font-medium text-base leading-relaxed max-w-md">
               Amplit AI is a healthcare-focused AI company building intelligent
               solutions that reduce operational burden and improve patient
               engagement.
@@ -36,7 +36,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/"
-                  className="text-black/60 text-sm hover:text-brand transition-colors"
+                  className="text-[#4e5157] font-medium text-sm hover:text-brand transition-colors"
                 >
                   Home
                 </Link>
@@ -44,7 +44,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/dentsi"
-                  className="text-black/60 text-sm hover:text-brand transition-colors"
+                  className="text-[#4e5157] font-medium text-sm hover:text-brand transition-colors"
                 >
                   Product
                 </Link>
@@ -52,7 +52,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/about"
-                  className="text-black/60 text-sm hover:text-brand transition-colors"
+                  className="text-[#4e5157] font-medium text-sm hover:text-brand transition-colors"
                 >
                   About Us
                 </Link>
@@ -69,7 +69,7 @@ export default function Footer() {
                 <Mail className="w-5 h-5 text-brand shrink-0 mt-0.5" />
                 <a
                   href={`mailto:${CONTACT_INFO.email}`}
-                  className="text-black/60 text-sm hover:text-brand transition-colors"
+                  className="text-[#4e5157] font-medium text-sm hover:text-brand transition-colors"
                 >
                   {CONTACT_INFO.email}
                 </a>
@@ -78,14 +78,14 @@ export default function Footer() {
                 <Phone className="w-5 h-5 text-brand shrink-0 mt-0.5" />
                 <a
                   href={`tel:${CONTACT_INFO.phone}`}
-                  className="text-black/60 text-sm hover:text-brand transition-colors"
+                  className="text-[#4e5157] font-medium text-sm hover:text-brand transition-colors"
                 >
                   {CONTACT_INFO.phone}
                 </a>
               </li>
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-brand shrink-0 mt-0.5" />
-                <span className="text-black/60 text-sm">
+                <span className="text-[#4e5157] font-medium text-sm">
                   {CONTACT_INFO.address}
                 </span>
               </li>
@@ -96,10 +96,10 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-brand/15">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-black/60 text-sm">
+            <p className="text-[#4e5157] font-medium text-sm">
               © {new Date().getFullYear()} Amplit AI. All rights reserved.
             </p>
-            <p className="text-black/60 text-sm">
+            <p className="text-[#4e5157] font-medium text-sm">
               Healthcare AI Solutions | Dallas, Texas
             </p>
           </div>

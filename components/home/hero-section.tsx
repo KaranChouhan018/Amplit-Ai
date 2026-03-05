@@ -70,7 +70,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
-              className="text-[2.5rem] sm:text-3xl md:text-5xl font-bold text-black leading-[1.1] mb-5 sm:mb-6 tracking-tight"
+              className="text-[2.5rem] sm:text-3xl md:text-5xl font-bold text-gray-900 leading-[1.1] mb-5 sm:mb-6 tracking-tight"
             >
               Amplifying <br />
               <span className="text-brand"> Healthcare Intelligence</span>
@@ -81,7 +81,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-              className="text-[17px] sm:text-lg text-black/60 mb-8 md:mb-10 max-w-lg mx-auto md:mx-0 leading-relaxed font-light"
+              className="text-[#4e5157] font-medium text-[15px] md:text-[17px] mb-8 md:mb-10 max-w-lg mx-auto md:mx-0 leading-relaxed"
             >
               Your AI-powered dental front desk answers every call, books appointments, and works 24/7 — so you never miss an oppourtunity again.
             </motion.p>
@@ -111,7 +111,7 @@ export default function HeroSection() {
               <Dialog>
                 <DialogTrigger asChild>
                   <button
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-transparent border border-black/5 text-black/70 font-medium text-sm rounded-full hover:bg-black/5 hover:text-black transition-all group"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-transparent border border-black/5 text-[#4e5157] font-medium text-sm rounded-full hover:bg-black/5 hover:text-gray-900 transition-all group"
                   >
                     <span className="w-8 h-8 rounded-full bg-black/5 flex items-center justify-center shrink-0 group-hover:bg-black/10 transition-colors">
                       <Play className="w-3.5 h-3.5 text-black/60 fill-current ml-0.5 group-hover:text-black transition-colors" />
@@ -143,7 +143,7 @@ export default function HeroSection() {
                 height="50"
                 viewBox="0 0 60 50"
                 fill="none"
-                className="text-black/50 -mb-1"
+                className="text-gray-400 -mb-1"
               >
                 <path
                   d="M10 5 Q20 30 45 38"
@@ -161,7 +161,7 @@ export default function HeroSection() {
                   strokeLinejoin="round"
                 />
               </svg>
-              <span className="text-sm text-black/40 font-medium ml-8">Talk with Amplit Ai</span>
+              <span className="text-sm text-gray-400 font-medium ml-8">Talk with Amplit Ai</span>
             </motion.div>
           </div>
 
@@ -173,7 +173,7 @@ export default function HeroSection() {
             className="hidden md:flex flex-1 items-center justify-center relative"
           >
             <video
-              src="/hero-video.mp4"
+              src="/hero-video-v1.mp4"
               autoPlay
               loop
               muted

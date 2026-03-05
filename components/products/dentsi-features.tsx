@@ -150,7 +150,7 @@ function NotifyVisual() {
           </div>
           <div>
             <p className="text-sm font-semibold">{n.label}</p>
-            <p className={`text-[11px] mt-0.5 ${i === 0 ? 'text-white/80' : 'text-gray-500'}`}>{n.sub}</p>
+            <p className={`text-[11px] mt-0.5 ${i === 0 ? 'text-white/80' : 'text-[#4e5157] font-medium'}`}>{n.sub}</p>
           </div>
         </motion.div>
       ))}
@@ -198,7 +198,7 @@ export default function DentsiFeatures() {
       <div className="mx-auto max-w-7xl  px-4 sm:px-6">
 
 
-        <div className="bg-white rounded-4xl shadow-sm border border-black/5 p-6 md:p-10 lg:p-12">
+        <div className="bg-white rounded-4xl shadow-sm border border-brand/60 p-6 md:p-10 lg:p-12">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
 
             {/* Left: Accordion Steps */}

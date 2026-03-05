@@ -17,7 +17,7 @@ const steps = [
     title: 'Patient Calls Your Clinic',
     description: 'A patient dials your practice number — during office hours, after hours, or on weekends.',
     bullets: ['Works 24/7 including holidays', 'Handles multiple calls simultaneously', 'Zero hold time for patients'],
-    video: '/videos/step-02.mp4',
+    video: '/videos/step-01.mp4',
   },
   {
     step: '02',
@@ -25,7 +25,7 @@ const steps = [
     title: 'Amplit AI Answers',
     description: 'Our natural voice AI answers immediately, understanding dental terminology and clinic protocols.',
     bullets: ['Human-like conversational voice', 'Custom trained on your workflows', 'Can answer FAQs and triage'],
-    video: '/videos/step-01.mp4',
+    video: '/videos/step-02.mp4',
   },
   {
     step: '03',
@@ -33,7 +33,7 @@ const steps = [
     title: 'Processes the Request',
     description: 'The AI determines the patient\'s needs — whether scheduling a cleaning, handling a general inquiry, or an emergency.',
     bullets: ['Intelligent intent recognition', 'HIPAA compliant data handling', 'Pre-screens for specific procedures'],
-    video: '/videos/step-01.mp4',
+    video: '/videos/step-03.mp4',
   },
   {
     step: '04',
@@ -41,7 +41,7 @@ const steps = [
     title: 'Updates Your System & Notifies Team',
     description: 'Every interaction is logged. Your team gets notified instantly, and your calendar stays up to date — no manual entry required.',
     bullets: ['Auto-updates your scheduling system', 'Sends real-time notifications to staff', 'Complete call logs & transcripts available'],
-    video: '/videos/step-02.mp4',
+    video: '/videos/step-04.mp4',
   },
 ];
 
@@ -65,10 +65,10 @@ export default function HowItWorks() {
 
         <div className="text-center">
           <p className="text-brand font-medium text-base mb-4 max-w-2xl  mx-auto leading-relaxed">Let's understand How it works</p>
-          <h2 className="text-3xl font-bold text-black leading-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-4">
             Free your team from constant interruptions and create a smoother, <br /> more focused patient experience, Because your front desk should feel in control—not overwhelmed.
           </h2>
-          <p className="text-black/60 text-base md:text-md mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[#4e5157] font-medium text-[15px] md:text-[17px] mb-10 max-w-2xl mx-auto leading-relaxed">
             Let Amplit AI handle the front desk—so your team can focus on care
           </p>
         </div>
@@ -102,11 +102,11 @@ export default function HowItWorks() {
                       </div>
                     </AccordionTrigger>
 
-                    <AccordionContent className="text-gray-600 pb-6 pl-12 pr-4">
+                    <AccordionContent className="text-[#4e5157] font-medium text-[15px] md:text-[17px] pb-6 pl-12 pr-4">
                       <p className="mb-5 leading-relaxed text-[15px]">{step.description}</p>
                       <ul className="space-y-3">
                         {step.bullets.map((bullet, idx) => (
-                          <li key={idx} className="flex items-start gap-2.5 text-sm text-gray-700">
+                          <li key={idx} className="flex items-start gap-2.5 text-[15px] md:text-[17px] text-[#4e5157] font-medium">
                             <CheckCircle2 className="w-4 h-4 text-brand shrink-0 mt-0.5" />
                             <span>{bullet}</span>
                           </li>
@@ -119,28 +119,57 @@ export default function HowItWorks() {
             </Accordion>
 
             {/* Right: Step Video */}
-            <div className="relative overflow-hidden shadow-md rounded-4xl h-[380px] md:min-h-[400px] lg:h-[500px]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeStep.step}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="absolute inset-0" 
+            <div
+              className="relative overflow-hidden rounded-4xl flex items-center justify-center h-[380px] md:min-h-[400px] lg:h-[500px]"
+              style={{ backgroundColor: '#ecf5fe' }}
+            >
+              {/* Radial gradient decoration */}
+              <div
+                className="absolute pointer-events-none"
+                style={{
+                  width: '80%',
+                  height: '80%',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  background: 'radial-gradient(circle, rgba(101,148,177,0.55) 0%, rgba(101,148,177,0.2) 40%, transparent 70%)',
+                  borderRadius: '50%',
+                }}
+              />
+
+              {/* Frosted glass video wrapper */}
+              <div
+                className="relative z-10 w-[90%] h-[85%]"
+                style={{ backgroundColor: 'rgba(255, 255, 255, 0.4)', borderRadius: 32, padding: 12 }}
+              >
+                <div
+                  className="relative overflow-hidden w-full h-full"
+                  style={{ backdropFilter: 'blur(8px)', borderRadius: 20 }}
                 >
-                  <video
-                    ref={videoRef}
-                    key={activeStep.video}
-                    src={activeStep.video}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-contain"
-                  />
-                </motion.div>
-              </AnimatePresence>
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeStep.step}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="w-full h-full"
+                    >
+                      <video
+                        ref={videoRef}
+                        key={activeStep.video}
+                        src={activeStep.video}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                        style={{ borderRadius: 'inherit' }}
+                      />
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
+              </div>
 
               {/* Border beam */}
               <BorderBeam

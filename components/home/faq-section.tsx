@@ -54,7 +54,7 @@ export default function FAQSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.0, delay: 0.1, ease: "easeOut" }}
-            className="text-3xl font-medium text-black/80 sm:text-4xl lg:text-5xl leading-tight tracking-tight"
+            className="text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl leading-tight tracking-tight"
           >
             Frequently Asked Questions
           </motion.h2>
@@ -63,7 +63,7 @@ export default function FAQSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="text-black/60 mt-4 text-base leading-relaxed"
+            className="text-[#4e5157] font-medium mt-4 text-[15px] md:text-[17px] leading-relaxed"
           >
             Everything you need to know about Amplit AI and how it works for your dental practice.
           </motion.p>
@@ -83,18 +83,18 @@ export default function FAQSection() {
             className="w-full bg-transparent px-2"
           >
             {faqItems.map((item) => (
-              <AccordionItem key={item.id} value={item.id} className="border-b border-black/5 last:border-0 py-2">
-                <AccordionTrigger className="cursor-pointer text-left text-lg font-medium text-black/80 hover:text-brand hover:no-underline transition-colors py-4">
+              <AccordionItem key={item.id} value={item.id} className="border-b border-brand/10 last:border-0 py-2">
+                <AccordionTrigger className="cursor-pointer text-left text-lg font-bold text-gray-900 hover:text-brand hover:no-underline transition-colors py-4">
                   {item.question}
                 </AccordionTrigger>
                 <AccordionContent>
-                  <p className="text-[15px] text-black/60 leading-relaxed pb-4 pr-8">{item.answer}</p>
+                  <p className="text-[15px] md:text-[17px] text-[#4e5157] font-medium leading-relaxed pb-4 pr-8">{item.answer}</p>
                 </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
 
-          <p className="text-black/60 mt-6 px-4 sm:px-8 text-sm">
+          <p className="text-[#4e5157] font-medium mt-6 px-4 sm:px-8 text-sm">
             Still have questions?{' '}
             <Link href="/contact" className="text-brand font-medium hover:underline">
               Contact our team

@@ -111,7 +111,7 @@ export default function CoreCapabilities() {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="relative  bg-white shadow-sm border border-black/5 rounded-4xl  overflow-hidden"
+          className="relative  bg-white shadow-sm border border-brand/60 rounded-4xl  overflow-hidden"
         >
 
           <BorderBeam size={300} duration={10} colorFrom="#6594B1" colorTo="#a8c8de" borderWidth={2} />
@@ -126,7 +126,7 @@ export default function CoreCapabilities() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-2xl sm:text-3xl md:text-4xl font-bold text-black leading-tight mb-4"
+                  className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-4"
                 >
                   What Sets Us Apart
                 </motion.h2>
@@ -134,7 +134,7 @@ export default function CoreCapabilities() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.35 }}
-                  className="text-black/60 text-base leading-relaxed font-medium max-w-xs"
+                  className="text-[#4e5157] font-medium text-[15px] md:text-[17px] leading-relaxed max-w-xs"
                 >
                   Amplit AI doesn&apos;t just answer calls — it shows you exactly how those calls impact your revenue. You get full visibility into what your front desk might be missing.
                 </motion.p>
@@ -157,14 +157,14 @@ export default function CoreCapabilities() {
                   >
                     <div className="flex items-start gap-4">
                       <div className="w-10 h-10 rounded-xl bg-[#6594B1]/15 border border-[#6594B1]/30 flex items-center justify-center shrink-0 mt-0.5">
-                        <cap.icon className="w-5 h-5 text-black" strokeWidth={1.8} />
+                        <cap.icon className="w-5 h-5 text-gray-900" strokeWidth={1.8} />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-xl font-semibold text-black mb-1">{cap.title}</h3>
-                        <p className="text-black/60 text-[15px] mb-3">{cap.description}</p>
+                        <h3 className="text-xl font-bold text-gray-900 mb-1">{cap.title}</h3>
+                        <p className="text-[#4e5157] font-medium text-[15px] md:text-[17px] mb-3">{cap.description}</p>
                         <ul className="space-y-1.5">
                           {cap.features.map((feature) => (
-                            <li key={feature} className="flex items-start text-sm text-black/60">
+                            <li key={feature} className="flex items-start text-[15px] md:text-[17px] text-[#4e5157] font-medium">
                               <span className="mr-2 mt-2 w-1 h-1 rounded-full bg-[#6594B1] shrink-0" />
                               {feature}
                             </li>

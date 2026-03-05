@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { PhoneCall, CalendarCheck, HelpCircle, Moon, ArrowUpDown, Zap,  } from "lucide-react";
+import { PhoneCall, CalendarCheck, HelpCircle, Moon, ArrowUpDown, Zap, } from "lucide-react";
 import Image from "next/image";
 
 const capabilities = [
@@ -50,26 +50,36 @@ export default function WhyAmplit() {
             className="lg:col-span-7 relative overflow-hidden rounded-3xl bg-white border border-brand/60 flex flex-col pt-10"
             style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 4px 24px rgba(0,0,0,0.03)" }}
           >
-            <div className="px-8 sm:px-10 mb-8">
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 tracking-tight leading-snug">
+            {/* Bottom gradient */}
+            <div className="absolute bottom-0 left-0 right-0 h-48 bg-linear-to-t from-brand/10 to-transparent pointer-events-none" />
+            <div className="px-8 sm:px-10 ">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 tracking-tight leading-snug">
                 Intelligent call handler
               </h3>
-              <p className="text-gray-500 text-[16px] leading-relaxed max-w-sm">
+              <p className="text-[#4e5157] font-medium text-[15px] md:text-[17px] leading-relaxed max-w-sm">
                 Amplit AI answers every call instantly, understands patient needs, and books appointments seamlessly into your calendar.
               </p>
             </div>
 
-            <div className="flex-1 w-full flex items-end justify-center px-8 sm:px-10 relative">
-              {/* Bottom fade gradient */}
-              <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-brand/20 to-transparent z-20 pointer-events-none" />
-              <div className="relative z-10 w-full max-w-md mx-auto">
-                <Image
-                  src="/Dashboard.png"
-                  alt=""
-                  width={1920}
-                  height={1080}
-                  className="w-full scale-100 md:scale-150 rounded-t-3xl h-auto"
-                />
+            <div className="flex-1 w-full flex items-end justify-center px-8 sm:px-10 pb-10 relative">
+              {/* Image Background — frosted layered wrapper */}
+              <div
+                className="relative z-10 w-full "
+                style={{ backgroundColor: 'rgba(255, 255, 255, 0.4)', borderRadius: 32 }}
+              >
+                <div
+                  className="relative overflow-hidden w-full h-full pt-4"
+                  style={{ backdropFilter: 'blur(8px)', borderRadius: 20 }}
+                >
+                  <Image
+                    src="/DASHBOARD.png"
+                    alt="Da/shboard"
+                    width={1920}
+                    height={1080}
+                    className="w-full h-100 drop-shadow-md rounded-t-lg"
+                    style={{ borderRadius: 'inherit' }}
+                  />
+                </div>
               </div>
             </div>
           </motion.div>
@@ -83,13 +93,15 @@ export default function WhyAmplit() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.08, ease: "easeOut" }}
-              className="relative overflow-hidden rounded-3xl bg-brand/20  border border-brand/60 p-8 sm:p-9 flex-1 flex flex-col"
+              className="relative overflow-hidden rounded-3xl bg-white border border-brand/60 p-8 sm:p-9 flex-1 flex flex-col"
               style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 4px 24px rgba(0,0,0,0.03)" }}
             >
+              {/* Bottom gradient */}
+              <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-brand/10 to-transparent pointer-events-none" />
               <h3 className="text-xl font-bold text-gray-900 mb-2 tracking-tight">
                 Key Capabilities
               </h3>
-              <p className="text-gray-500 text-[14px] mb-7 leading-relaxed">
+              <p className="text-[#4e5157] font-medium text-[15px] md:text-[17px] mb-7 leading-relaxed">
                 Everything your front desk does — automated 24/7.
               </p>
 
@@ -129,10 +141,12 @@ export default function WhyAmplit() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.15 + i * 0.08, ease: "easeOut" }}
-                  className="rounded-3xl bg-brand/20  border border-brand/60 p-6 sm:p-7 flex flex-col justify-between min-h-[180px]"
+                  className="rounded-3xl relative overflow-hidden bg-white border border-brand/60 p-6 sm:p-7 flex flex-col justify-between min-h-[180px]"
                   style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 4px 24px rgba(0,0,0,0.03)" }}
                 >
-                  <div className="w-10 h-10 rounded-xl bg-brand/[0.06] flex items-center justify-center mb-auto">
+                  {/* Bottom gradient */}
+                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-brand/10 to-transparent pointer-events-none" />
+                  <div className="w-10 h-10 rounded-xl text-white bg-brand/[0.06] flex items-center justify-center mb-auto">
                     {stat.icon}
                   </div>
                   <div className="mt-6">
@@ -142,7 +156,7 @@ export default function WhyAmplit() {
                     <p className="text-black text-[13px] font-semibold mb-1">
                       {stat.label}
                     </p>
-                    <p className="text-gray-400 text-[12px] leading-relaxed">
+                    <p className="text-[#4e5157] font-medium text-[15px] md:text-[17px] leading-relaxed">
                       {stat.description}
                     </p>
                   </div>

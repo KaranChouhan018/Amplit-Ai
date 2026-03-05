@@ -2,7 +2,7 @@
 
 import { motion, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Shield, CheckCircle2,  Activity, PhoneIncoming, CalendarCheck, User } from 'lucide-react';
+import { Shield, CheckCircle2, Activity, PhoneIncoming, CalendarCheck, User } from 'lucide-react';
 import { BorderBeam } from '../ui/border-beam';
 
 export default function AboutMission() {
@@ -58,7 +58,7 @@ export default function AboutMission() {
               </div>
 
               {/* Main Heading */}
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black tracking-tight leading-[1.05]">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-[1.05] mb-6">
                 AI that works <br />
                 <span className="text-brand ">behind the scenes.</span>
               </h2>
@@ -68,10 +68,10 @@ export default function AboutMission() {
 
               {/* Body Text */}
               <div className="space-y-6 max-w-xl">
-                <p className="text-lg text-black/70 leading-relaxed">
+                <p className="text-lg text-[#4e5157] font-medium leading-relaxed">
                   Starting with dental practices, our mission is to create AI systems that work seamlessly in the background — improving efficiency without disrupting the human touch.
                 </p>
-                <p className="text-lg text-black/70 leading-relaxed">
+                <p className="text-lg text-[#4e5157] font-medium leading-relaxed">
                   Missed calls mean missed appointments. Amplit AI solves this — fully automated, 24/7, so your team can focus on the patient in the chair.
                 </p>
               </div>
@@ -84,19 +84,19 @@ export default function AboutMission() {
 
               <div className="relative bg-white/70  shadow-sm border border-black/5 p-8 rounded-[2.5rem] shadow-brand/10">
                 <BorderBeam
-                              duration={10}
-                              size={300}
-                              colorFrom="#6594B1"
-                              colorTo="#a8c8de"
-                              borderWidth={2}
-                            />
+                  duration={10}
+                  size={300}
+                  colorFrom="#6594B1"
+                  colorTo="#a8c8de"
+                  borderWidth={2}
+                />
                 <div className="flex justify-between items-center mb-10">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-brand/10 rounded-lg">
                       <Activity className="w-5 h-5 text-brand" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-black">Amplit AI</h3>
+                      <h3 className="text-xl font-bold text-gray-900">Amplit AI</h3>
                       <p className="text-[10px] text-brand font-mono tracking-tighter uppercase">Status: Operational</p>
                     </div>
                   </div>

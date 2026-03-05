@@ -51,11 +51,11 @@ export default function ProductsSection() {
           transition={{ duration: 1.0, ease: "easeOut" }}
           className="text-center mb-16 md:mb-20"
         >
-          <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-black/80 tracking-tight leading-tight mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight mb-6">
             Your AI-Powered{" "}
             <span className="text-brand">Dental Front Desk</span>
           </h2>
-          <p className="text-black/60 text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[#4e5157] font-medium text-[15px] md:text-[17px] max-w-2xl mx-auto leading-relaxed">
             Answers every call, books appointments, and works 24/7 — so you never miss revenue again.
           </p>
         </motion.div>
@@ -90,13 +90,13 @@ export default function ProductsSection() {
             transition={{ duration: 1.0, delay: 0.35, ease: "easeOut" }}
             className="flex flex-col"
           >
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-black/80 tracking-tight mb-3">
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-3">
               Dentsi
             </h3>
             <p className="text-brand text-lg font-medium mb-4">
               AI Voice Agent for Dental Practices
             </p>
-            <p className="text-black/60 text-base leading-relaxed mb-8 max-w-lg font-light">
+            <p className="text-[#4e5157] font-medium text-[15px] md:text-[17px] leading-relaxed mb-8 max-w-lg">
               Dentsi answers every call instantly, understands patient needs,
               and books appointments - just like a trained front desk staff
               member.
@@ -114,13 +114,13 @@ export default function ProductsSection() {
                     delay: 0.45 + i * 0.1,
                     ease: "easeOut",
                   }}
-                  className="flex items-center gap-4 p-4 rounded-xl bg-gray-50/50 border border-black/5"
+                  className="flex items-center gap-4 p-4 rounded-xl bg-gray-50/50 border border-brand/10"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shrink-0 border border-black/5">
+                  <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shrink-0 border border-brand/10">
                     <Icon className="w-4 h-4 text-brand" />
                   </div>
                   <div>
-                    <p className="text-[14px] font-medium text-black/80 leading-tight">
+                    <p className="text-[14px] font-medium text-gray-900 leading-tight">
                       {label}
                     </p>
                     {/* <p className="text-xs text-black/50 mt-0.5 leading-snug">

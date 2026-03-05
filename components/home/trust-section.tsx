@@ -12,6 +12,14 @@ const PARTNER_LOGOS = [
     name: 'Call',
     logo: '/trust-image/call.jpg',
   },
+  {
+    name: 'Book',
+    logo: '/trust-image/Book.png',
+  },
+  {
+    name: 'Patient ',
+    logo: '/trust-image/patient.png',
+  },
 
 ];
 
@@ -46,13 +54,10 @@ export default function TrustSection() {
               overwhelmed with calls, scheduling, and daily tasks?
             </h3>
 
-            <p className="text-[15px] sm:text-[17px] text-gray-500 leading-relaxed max-w-md">
+            <p className="text-[15px] md:text-[17px] text-[#4e5157] font-medium leading-relaxed max-w-md">
               With Amplit AI, every call is answered, every appointment is managed, and your practice stays supported around the clock.
             </p>
           </motion.div>
-
-          {/* Right — Vertical Marquee in 2-col grid */}
-          {/* Right — Horizontal Marquee */}
           <div
             className="flex-1 relative overflow-hidden flex items-center"
             style={{
@@ -82,11 +87,11 @@ export default function TrustSection() {
                     alt={partner.name}
                     width={1920}
                     height={1080}
-                    className="w-full h-full object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-[1.05]"
+                    className="w-full h-full object-contain grayscale-100 mix-blend-multiply transition-transform duration-500 group-hover:scale-[1.05]"
                   />
 
                   {/* Label chip on hover */}
-                  <span className="absolute bottom-2 left-2 text-[11px] font-semibold text-brand bg-white/80 backdrop-blur-sm px-2.5 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                  <span className="absolute bottom-2 left-2 text-[11px] font-semibold text-brand bg-white/80 backdrop-blur-sm px-2.5 py-1 rounded-lg opacity-100 transition-opacity duration-300 z-20">
                     {partner.name}
                   </span>
                 </div>

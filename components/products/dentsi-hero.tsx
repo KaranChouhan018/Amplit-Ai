@@ -81,7 +81,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-              className="text-[17px] sm:text-lg text-black/60 mb-8 md:mb-10 max-w-lg mx-auto md:mx-0 leading-relaxed font-medium"
+              className="text-[#4e5157] font-medium mb-8 md:mb-10 max-w-lg mx-auto md:mx-0 leading-relaxed text-[15px] md:text-[17px]"
             >
               Dentsi answers every call instantly, understands patient needs, and books appointments — just like a trained front desk staff member.
             </motion.p>
@@ -166,19 +166,24 @@ export default function HeroSection() {
           </div>
 
           {/* Right: Hero image — hidden on small, visible md+ */}
-          <motion.div
+           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, delay: 0.2, ease: "easeOut" }}
             className="hidden md:flex flex-1 items-center justify-center relative"
           >
-            <Image
-              src={"/hero-v3.png"}
-              alt={"Dashboard"}
-              width={1920}
-              height={1080}
-              className="w-full h-auto "
-            />
+            <video
+              src="/Dentsi-video.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full object-cover scale-110 opacity-90"
+              style={{
+                WebkitMaskImage: 'radial-gradient(circle, black 35%, transparent 60%)',
+                maskImage: 'radial-gradient(circle, black 35%, transparent 60%)'
+              }}
+            ></video>
           </motion.div>
 
         </div>
