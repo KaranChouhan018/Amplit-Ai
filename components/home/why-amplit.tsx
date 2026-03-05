@@ -61,27 +61,41 @@ export default function WhyAmplit() {
               </p>
             </div>
 
-            <div className="flex-1 w-full flex items-end justify-center px-8 sm:px-10 pb-10 relative">
-              {/* Image Background — frosted layered wrapper */}
-              <div
-                className="relative z-10 w-full "
-                style={{ backgroundColor: 'rgba(255, 255, 255, 0.4)', borderRadius: 32 }}
-              >
-                <div
-                  className="relative overflow-hidden w-full h-full pt-4"
-                  style={{ backdropFilter: 'blur(8px)', borderRadius: 20 }}
-                >
-                  <Image
-                    src="./Dashboard.png"
-                    alt="Dashboard"
-                    width={1920}
-                    height={1080}
-                    className="w-full h-auto md:h-100 drop-shadow-md rounded-t-lg"
-                    style={{ borderRadius: 'inherit' }}
-                  />
-                </div>
-              </div>
-            </div>
+            <div className="flex-1 w-full flex items-end justify-center px-4 sm:px-8 lg:px-10 pb-6 sm:pb-10 relative">
+
+  {/* Frosted container */}
+  <div
+    className="relative z-10 w-full max-w-6xl"
+    style={{
+      backgroundColor: "rgba(255,255,255,0.4)",
+      borderRadius: 24,
+    }}
+  >
+
+    {/* Blur wrapper */}
+    <div
+      className="relative overflow-hidden w-full aspect-[16/9] sm:aspect-[16/10]"
+      style={{
+        backdropFilter: "blur(8px)",
+        borderRadius: 20,
+      }}
+    >
+
+      <Image
+        src="/Dashboard.png"
+        alt="Dashboard"
+        fill
+        priority
+        sizes="(max-width: 640px) 100vw,
+               (max-width: 1024px) 90vw,
+               1200px"
+        className="object-cover rounded-t-lg drop-shadow-md"
+      />
+
+    </div>
+
+  </div>
+</div>
           </motion.div>
 
           {/* Right Column */}
