@@ -76,7 +76,7 @@ export default function WhyAmplit() {
                     alt="Dashboard"
                     width={1920}
                     height={1080}
-                    className="w-full h-100 drop-shadow-md rounded-t-lg"
+                    className="w-full h-auto md:h-100 drop-shadow-md rounded-t-lg"
                     style={{ borderRadius: 'inherit' }}
                   />
                 </div>
