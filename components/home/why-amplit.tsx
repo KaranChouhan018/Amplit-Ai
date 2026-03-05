@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { PhoneCall, CalendarCheck, HelpCircle, Moon, ArrowUpDown, Zap, CheckCircle2 } from "lucide-react";
-import { CONTACT_INFO } from "@/lib/constants";
+import { PhoneCall, CalendarCheck, HelpCircle, Moon, ArrowUpDown, Zap,  } from "lucide-react";
 import Image from "next/image";
 
 const capabilities = [
