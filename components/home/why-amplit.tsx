@@ -55,21 +55,21 @@ export default function WhyAmplit() {
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 tracking-tight leading-snug">
                 Intelligent call handler
               </h3>
-              <p className="text-gray-500 text-[15px] leading-relaxed max-w-sm">
+              <p className="text-gray-500 text-[16px] leading-relaxed max-w-sm">
                 Amplit AI answers every call instantly, understands patient needs, and books appointments seamlessly into your calendar.
               </p>
             </div>
 
             <div className="flex-1 w-full flex items-end justify-center px-8 sm:px-10 relative">
               {/* Bottom fade gradient */}
-              <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-white to-transparent z-20 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-brand/20 to-transparent z-20 pointer-events-none" />
               <div className="relative z-10 w-full max-w-md mx-auto">
                 <Image
                   src="/Dashboard.png"
                   alt=""
                   width={1920}
                   height={1080}
-                  className="w-full scale-150 rounded-t-3xl h-auto"
+                  className="w-full scale-100 md:scale-150 rounded-t-3xl h-auto"
                 />
               </div>
             </div>
@@ -84,7 +84,7 @@ export default function WhyAmplit() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.08, ease: "easeOut" }}
-              className="relative overflow-hidden rounded-3xl bg-white  border border-brand/60 p-8 sm:p-9 flex-1 flex flex-col"
+              className="relative overflow-hidden rounded-3xl bg-brand/20  border border-brand/60 p-8 sm:p-9 flex-1 flex flex-col"
               style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 4px 24px rgba(0,0,0,0.03)" }}
             >
               <h3 className="text-xl font-bold text-gray-900 mb-2 tracking-tight">
@@ -112,7 +112,7 @@ export default function WhyAmplit() {
                       <div className="w-8 h-8 rounded-xl bg-brand/6 flex items-center justify-center shrink-0 group-hover:bg-brand/10 transition-colors duration-200">
                         <cap.icon className="w-4 h-4 text-brand" />
                       </div>
-                      <span className="text-[14px] text-gray-600 group-hover:text-gray-900 transition-colors duration-200">
+                      <span className="text-[14px] text-gray-600 font-bold group-hover:text-brand transition-colors duration-200">
                         {cap.label}
                       </span>
                     </div>
@@ -130,17 +130,17 @@ export default function WhyAmplit() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.15 + i * 0.08, ease: "easeOut" }}
-                  className="rounded-3xl bg-white  border border-brand/60 p-6 sm:p-7 flex flex-col justify-between min-h-[180px]"
+                  className="rounded-3xl bg-brand/20  border border-brand/60 p-6 sm:p-7 flex flex-col justify-between min-h-[180px]"
                   style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 4px 24px rgba(0,0,0,0.03)" }}
                 >
                   <div className="w-10 h-10 rounded-xl bg-brand/[0.06] flex items-center justify-center mb-auto">
                     {stat.icon}
                   </div>
                   <div className="mt-6">
-                    <p className="text-3xl sm:text-[34px] font-bold text-brand tracking-tight leading-none mb-2">
+                    <p className="text-3xl sm:text-[34px] font-bold text-black tracking-tight leading-none mb-2">
                       {stat.value}
                     </p>
-                    <p className="text-gray-900 text-[13px] font-semibold mb-1">
+                    <p className="text-black text-[13px] font-semibold mb-1">
                       {stat.label}
                     </p>
                     <p className="text-gray-400 text-[12px] leading-relaxed">

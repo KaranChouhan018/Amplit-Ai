@@ -17,7 +17,7 @@ const steps = [
     title: 'Patient Calls Your Clinic',
     description: 'A patient dials your practice number — during office hours, after hours, or on weekends.',
     bullets: ['Works 24/7 including holidays', 'Handles multiple calls simultaneously', 'Zero hold time for patients'],
-    video: '/videos/step-01.mp4',
+    video: '/videos/step-02.mp4',
   },
   {
     step: '02',
@@ -25,7 +25,7 @@ const steps = [
     title: 'Amplit AI Answers',
     description: 'Our natural voice AI answers immediately, understanding dental terminology and clinic protocols.',
     bullets: ['Human-like conversational voice', 'Custom trained on your workflows', 'Can answer FAQs and triage'],
-    video: '/videos/step-02.mp4',
+    video: '/videos/step-01.mp4',
   },
   {
     step: '03',
@@ -33,7 +33,7 @@ const steps = [
     title: 'Processes the Request',
     description: 'The AI determines the patient\'s needs — whether scheduling a cleaning, handling a general inquiry, or an emergency.',
     bullets: ['Intelligent intent recognition', 'HIPAA compliant data handling', 'Pre-screens for specific procedures'],
-    video: '/videos/step-03.mp4',
+    video: '/videos/step-01.mp4',
   },
   {
     step: '04',
@@ -41,7 +41,7 @@ const steps = [
     title: 'Updates Your System & Notifies Team',
     description: 'Every interaction is logged. Your team gets notified instantly, and your calendar stays up to date — no manual entry required.',
     bullets: ['Auto-updates your scheduling system', 'Sends real-time notifications to staff', 'Complete call logs & transcripts available'],
-    video: '/videos/step-04.mp4',
+    video: '/videos/step-02.mp4',
   },
 ];
 
@@ -119,7 +119,7 @@ export default function HowItWorks() {
             </Accordion>
 
             {/* Right: Step Video */}
-            <div className="relative overflow-hidden rounded-4xl border border-black/5 bg-black h-[380px] md:min-h-[400px] lg:h-[500px]">
+            <div className="relative overflow-hidden shadow-md rounded-4xl h-[380px] md:min-h-[400px] lg:h-[500px]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeStep.step}
@@ -127,7 +127,7 @@ export default function HowItWorks() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="absolute inset-0"
+                  className="absolute inset-0" 
                 >
                   <video
                     ref={videoRef}
@@ -137,7 +137,7 @@ export default function HowItWorks() {
                     loop
                     muted
                     playsInline
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </motion.div>
               </AnimatePresence>

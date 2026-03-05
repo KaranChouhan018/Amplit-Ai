@@ -12,62 +12,87 @@ const PARTNER_LOGOS = [
     name: 'Call',
     logo: '/trust-image/call.jpg',
   },
-  {
-    name: 'Image',
-    logo: '/trust-image/image.jpg',
-  },
-  {
-    name: 'Time',
-    logo: '/trust-image/time.jpg',
-  },
+
 ];
 
+// Duplicate for seamless vertical loop
+const MARQUEE_ITEMS = [...PARTNER_LOGOS, ...PARTNER_LOGOS];
+
 export default function TrustSection() {
-
   return (
-    <section className="relative w-full ">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 ">
+    <section className="relative w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
-        {/* Main Flex Container */}
-        <div className="flex flex-col xl:flex-row bg-white rounded-4xl p-3 sm:p-4 items-stretch gap-3 lg:gap-4 h-auto xl:h-37.5">
+        {/* Main Card */}
+        <div
+          className="flex flex-col xl:flex-row bg-white rounded-3xl p-5 sm:p-7 lg:p-8 items-stretch gap-6 lg:gap-8 border border-brand/60"
+          style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 4px 24px rgba(0,0,0,0.03)' }}
+        >
 
-          {/* Left: Trust Text */}
+          {/* Left — Text Content */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="shrink-0 flex flex-col justify-center px-4 py-6 sm:px-6 sm:py-8 xl:px-8 rounded-xl sm:rounded-[20px] w-full xl:w-[45%]"
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            className="shrink-0 flex flex-col justify-center w-full xl:w-[42%]"
           >
-            <h3 className="text-md md:text-md font-bold text-gray-900 tracking-wide mb-2 sm:mb-3">
-              Is your dental front desk <br className="hidden sm:block" /> overwhelmed with calls, scheduling, and daily tasks?
+            {/* Brand accent bar */}
+            <div className="w-10 h-1 rounded-full bg-brand mb-5" />
+
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 tracking-tight leading-snug mb-3">
+              Is your dental front desk{' '}
+              <br className="hidden sm:block" />
+              overwhelmed with calls, scheduling, and daily tasks?
             </h3>
-            <p className="text-sm sm:text-[15px] text-[#5A6475] leading-relaxed">
+
+            <p className="text-[15px] sm:text-[17px] text-gray-500 leading-relaxed max-w-md">
               With Amplit AI, every call is answered, every appointment is managed, and your practice stays supported around the clock.
             </p>
           </motion.div>
 
-          {/* Partner Images — all fade together */}
-          <motion.div
-            animate={{ opacity: [1, 0, 1] }}
-            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-            className="flex-1 flex items-center justify-center overflow-hidden gap-2 sm:gap-3 p-4 flex-wrap xl:flex-nowrap"
+          {/* Right — Vertical Marquee in 2-col grid */}
+          {/* Right — Horizontal Marquee */}
+          <div
+            className="flex-1 relative overflow-hidden flex items-center"
+            style={{
+              maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+            }}
           >
-            {PARTNER_LOGOS.map((partner) => (
-              <div
-                key={partner.name}
-                className="w-24 sm:w-30 xl:w-36.25 shrink-0 flex bg-brand-bg1 items-center justify-center rounded-xl sm:rounded-[20px]"
-              >
-                <Image
-                  src={partner.logo}
-                  alt={partner.name}
-                  width={1920}
-                  height={1080}
-                  className="w-full h-auto max-h-18 md:max-h-40 object-contain mix-blend-multiply"
-                />
-              </div>
-            ))}
-          </motion.div>
+            <motion.div
+              className="flex gap-10 sm:gap-5 shrink-0"
+              animate={{ x: ['0%', '-50%'] }}
+              transition={{
+                x: {
+                  duration: 12,
+                  repeat: Infinity,
+                  ease: 'linear',
+                },
+              }}
+            >
+              {MARQUEE_ITEMS.map((partner, i) => (
+                <div
+                  key={`${partner.name}-${i}`}
+                  className="group relative overflow-hidden rounded-2xl bg-brand-bg1 border border-brand/10 flex items-center justify-center cursor-default shrink-0 w-56 h-40 sm:w-72 sm:h-48"
+                  style={{ boxShadow: '0 2px 8px rgba(101,148,177,0.08)' }}
+                >
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    width={1920}
+                    height={1080}
+                    className="w-full h-full object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-[1.05]"
+                  />
+
+                  {/* Label chip on hover */}
+                  <span className="absolute bottom-2 left-2 text-[11px] font-semibold text-brand bg-white/80 backdrop-blur-sm px-2.5 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                    {partner.name}
+                  </span>
+                </div>
+              ))}
+            </motion.div>
+          </div>
 
         </div>
       </div>

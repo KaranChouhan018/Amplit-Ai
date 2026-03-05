@@ -84,7 +84,7 @@ export default function KeyFeatures() {
               initial={{ opacity: 0, y: 28 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1.0, delay: 0.05 + i * 0.08, ease: "easeOut" }}
-              className="group relative rounded-4xl bg-white border border-brand/60 p-8 flex flex-col gap-6 "
+              className="group relative rounded-4xl bg-brand/20 border border-brand/60 p-8 flex flex-col gap-6 "
             >
               <div className="w-14 h-14 rounded-2xl bg-brand/10 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                 <f.icon className="w-6 h-6 text-brand" />
