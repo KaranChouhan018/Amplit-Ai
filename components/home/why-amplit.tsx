@@ -4,6 +4,19 @@ import { motion } from "framer-motion";
 import { PhoneCall, CalendarCheck, HelpCircle, Moon, ArrowUpDown, Zap, } from "lucide-react";
 import Image from "next/image";
 
+const MAIN_CARD = {
+  title: 'Intelligent call handler',
+  description:
+    'Amplit AI answers every call instantly, understands patient needs, and books appointments seamlessly into your calendar.',
+  image: '/images/Dashboard.png',
+  imageAlt: 'Dashboard',
+};
+
+const CAPABILITIES_CARD = {
+  title: 'Key Capabilities',
+  description: 'Everything your front desk does \u2014 automated 24/7.',
+};
+
 const capabilities = [
   { icon: PhoneCall, label: "Answers every incoming call" },
   { icon: CalendarCheck, label: "Schedules appointments in real time" },
@@ -54,10 +67,10 @@ export default function WhyAmplit() {
             <div className="absolute bottom-0 left-0 right-0 h-48 bg-linear-to-t from-brand/10 to-transparent pointer-events-none" />
             <div className="px-8 sm:px-10 ">
               <h3 className="text-xl font-bold text-gray-900 mb-3 tracking-tight leading-snug">
-                Intelligent call handler
+                {MAIN_CARD.title}
               </h3>
               <p className="text-[#4e5157] font-medium text-[15px] md:text-[17px] leading-relaxed max-w-sm">
-                Amplit AI answers every call instantly, understands patient needs, and books appointments seamlessly into your calendar.
+                {MAIN_CARD.description}
               </p>
             </div>
 
@@ -82,8 +95,8 @@ export default function WhyAmplit() {
                 >
 
                   <Image
-                    src="/Dashboard.png"
-                    alt="Dashboard"
+                    src={MAIN_CARD.image}
+                    alt={MAIN_CARD.imageAlt}
                     fill
                     priority
                     sizes="(max-width: 640px) 100vw,
@@ -113,10 +126,10 @@ export default function WhyAmplit() {
               {/* Bottom gradient */}
               <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-brand/10 to-transparent pointer-events-none" />
               <h3 className="text-xl font-bold text-gray-900 mb-2 tracking-tight">
-                Key Capabilities
+                {CAPABILITIES_CARD.title}
               </h3>
               <p className="text-[#4e5157] font-medium text-[15px] md:text-[17px] mb-7 leading-relaxed">
-                Everything your front desk does — automated 24/7.
+                {CAPABILITIES_CARD.description}
               </p>
 
               <div

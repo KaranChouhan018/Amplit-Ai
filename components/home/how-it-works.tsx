@@ -9,6 +9,12 @@ import { motion, AnimatePresence, useInView } from 'motion/react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { BorderBeam } from '@/components/ui/border-beam';
 
+const SECTION_CONTENT = {
+  badge: "Let's understand How it works",
+  headline:
+    'Free your team from constant interruptions and create a smoother, more focused patient experience, Because your front desk should feel in control\u2014not overwhelmed.',
+  description: 'Let Amplit AI handle the front desk\u2014so your team can focus on care',
+};
 
 const steps = [
   {
@@ -64,12 +70,12 @@ export default function HowItWorks() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
 
         <div className="text-center">
-          <p className="text-brand font-medium text-base mb-4 max-w-2xl  mx-auto leading-relaxed">Let's understand How it works</p>
+          <p className="text-brand font-medium text-base mb-4 max-w-2xl  mx-auto leading-relaxed">{SECTION_CONTENT.badge}</p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-4">
-            Free your team from constant interruptions and create a smoother, <br /> more focused patient experience, Because your front desk should feel in control—not overwhelmed.
+            {SECTION_CONTENT.headline}
           </h2>
           <p className="text-[#4e5157] font-medium text-[15px] md:text-[17px] mb-10 max-w-2xl mx-auto leading-relaxed">
-            Let Amplit AI handle the front desk—so your team can focus on care
+            {SECTION_CONTENT.description}
           </p>
         </div>
 

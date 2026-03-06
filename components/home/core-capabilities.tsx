@@ -6,6 +6,14 @@ import { Brain, ScanText, Users, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { BorderBeam } from '@/components/ui/border-beam';
 
+const SECTION_CONTENT = {
+  headline: 'What Sets Us Apart',
+  description:
+    "Amplit AI doesn\u2019t just answer calls \u2014 it shows you exactly how those calls impact your revenue. You get full visibility into what your front desk might be missing.",
+  ctaText: 'Explore',
+  ctaHref: '/about',
+};
+
 const capabilities = [
   {
     icon: Brain,
@@ -128,7 +136,7 @@ export default function CoreCapabilities() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-4"
                 >
-                  What Sets Us Apart
+                  {SECTION_CONTENT.headline}
                 </motion.h2>
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
@@ -136,7 +144,7 @@ export default function CoreCapabilities() {
                   transition={{ duration: 0.6, delay: 0.35 }}
                   className="text-[#4e5157] font-medium text-[15px] md:text-[17px] leading-relaxed max-w-xs"
                 >
-                  Amplit AI doesn&apos;t just answer calls — it shows you exactly how those calls impact your revenue. You get full visibility into what your front desk might be missing.
+                  {SECTION_CONTENT.description}
                 </motion.p>
               </div>
             </div>
@@ -184,10 +192,10 @@ export default function CoreCapabilities() {
                 className="mt-8 flex justify-end"
               >
                 <Link
-                  href="/about"
+                  href={SECTION_CONTENT.ctaHref}
                   className="inline-flex items-center gap-2 text-white font-semibold text-sm bg-[#6594B1] border border-[#6594B1] rounded-full px-5 py-2.5  transition-all duration-200 group"
                 >
-                  Explore
+                  {SECTION_CONTENT.ctaText}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </motion.div>

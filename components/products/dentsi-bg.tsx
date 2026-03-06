@@ -2,6 +2,11 @@
 
 import Image from "next/image";
 
+const BG_CONTENT = {
+  image: '/Dashboard-bg.png',
+  imageAlt: 'Dentsi dashboard preview',
+};
+
 export function DentsiBg() {
   return (
     <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -14,8 +19,8 @@ export function DentsiBg() {
           <div className="relative w-full aspect-video overflow-hidden rounded-2xl">
 
             <Image
-              src="/Dashboard-bg.png"
-              alt="Dentsi dashboard preview"
+              src={BG_CONTENT.image}
+              alt={BG_CONTENT.imageAlt}
               fill
               priority
               sizes="(max-width: 640px) 100vw,

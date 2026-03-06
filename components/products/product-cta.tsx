@@ -7,6 +7,14 @@ import { Calendar, ArrowRight } from 'lucide-react';
 import { BorderBeam } from '@/components/ui/border-beam';
 import { ContactDialog } from '@/components/contact-dialog';
 import { CONTACT_INFO } from '@/lib/constants';
+
+const CTA_CONTENT = {
+  headlineTemplate: 'Ready to Experience',
+  descriptionTemplate: 'Book a personalized demo and see how {product} can transform your practice. Limitless possibilities await at every click and command.',
+  primaryButton: 'Book a Demo',
+  secondaryButton: 'Enquire Now',
+};
+
 interface ProductCTAProps {
   productName?: string;
 }
@@ -51,10 +59,10 @@ export default function ProductCTA({ productName = 'our product' }: ProductCTAPr
 
           <div className="relative z-10 max-w-xl">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-5">
-              Ready to Experience {productName}?
+              {CTA_CONTENT.headlineTemplate} {productName}?
             </h2>
             <p className="text-[#4e5157] font-medium text-[15px] md:text-[17px] mb-10 leading-relaxed">
-              Book a personalized demo and see how {productName} can transform your practice. Limitless possibilities await at every click and command.
+              {CTA_CONTENT.descriptionTemplate.replace('{product}', productName)}
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
@@ -63,13 +71,13 @@ export default function ProductCTA({ productName = 'our product' }: ProductCTAPr
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center mt-4  gap-2 px-7 py-3.5 bg-brand text-white rounded-full font-semibold hover:opacity-90 transition-opacity whitespace-nowrap"
               >
-                Book a Demo
+                {CTA_CONTENT.primaryButton}
               </Link>
               <ContactDialog>
                 <button
                   className="inline-flex items-center justify-center mt-4 md:ml-4 gap-2 px-7 py-3.5 bg-transparent border border-black/5 text-black/70 font-medium text-sm rounded-full hover:bg-black/5 hover:text-black transition-all group whitespace-nowrap"
                 >
-                  Enquire Now
+                  {CTA_CONTENT.secondaryButton}
                   <ArrowRight size={20} />
                 </button>
               </ContactDialog>

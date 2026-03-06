@@ -3,6 +3,13 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
+const TRUST_CONTENT = {
+  headline:
+    'Is your dental front desk overwhelmed with calls, scheduling, and daily tasks?',
+  description:
+    'With Dentsi, every call is answered, every appointment is managed, and your practice stays supported around the clock.',
+};
+
 const PARTNER_LOGOS = [
      {
     name: 'Appointment',
@@ -49,13 +56,11 @@ export default function DentsiTrust() {
                         <div className="w-10 h-1 rounded-full bg-brand mb-5" />
 
                         <h3 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-snug mb-3">
-                            Is your dental front desk{' '}
-                            <br className="hidden sm:block" />
-                            overwhelmed with calls, scheduling, and daily tasks?
+                            {TRUST_CONTENT.headline}
                         </h3>
 
                         <p className="text-[15px] md:text-[17px] text-[#4e5157] font-medium leading-relaxed max-w-md">
-                            With Dentsi, every call is answered, every appointment is managed, and your practice stays supported around the clock.
+                            {TRUST_CONTENT.description}
                         </p>
                     </motion.div>
                     <div

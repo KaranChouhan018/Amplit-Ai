@@ -3,6 +3,13 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
+const TRUST_CONTENT = {
+  headline:
+    'Is your dental front desk overwhelmed with calls, scheduling, and daily tasks?',
+  description:
+    'With Amplit AI, every call is answered, every appointment is managed, and your practice stays supported around the clock.',
+};
+
 const PARTNER_LOGOS = [
   {
     name: 'Appointment',
@@ -31,13 +38,12 @@ export default function TrustSection() {
     <section className="relative w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
-        {/* Main Card */}
+
         <div
           className="flex flex-col xl:flex-row bg-white rounded-3xl p-5 sm:p-7 lg:p-8 items-stretch gap-6 lg:gap-8 border border-brand/60"
           style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 4px 24px rgba(0,0,0,0.03)' }}
         >
 
-          {/* Left — Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -45,17 +51,15 @@ export default function TrustSection() {
             transition={{ duration: 0.7, ease: 'easeOut' }}
             className="shrink-0 flex flex-col justify-center w-full xl:w-[42%]"
           >
-            {/* Brand accent bar */}
+
             <div className="w-10 h-1 rounded-full bg-brand mb-5" />
 
             <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 tracking-tight leading-snug mb-3">
-              Is your dental front desk{' '}
-              <br className="hidden sm:block" />
-              overwhelmed with calls, scheduling, and daily tasks?
+              {TRUST_CONTENT.headline}
             </h3>
 
             <p className="text-[15px] md:text-[17px] text-[#4e5157] font-medium leading-relaxed max-w-md">
-              With Amplit AI, every call is answered, every appointment is managed, and your practice stays supported around the clock.
+              {TRUST_CONTENT.description}
             </p>
           </motion.div>
           <div
@@ -90,7 +94,6 @@ export default function TrustSection() {
                     className="w-full h-full object-contain grayscale-100 mix-blend-multiply transition-transform duration-500 group-hover:scale-[1.05]"
                   />
 
-                  {/* Label chip on hover */}
                   <span className="absolute bottom-2 left-2 text-[11px] font-semibold text-brand bg-white/80 backdrop-blur-sm px-2.5 py-1 rounded-lg opacity-100 transition-opacity duration-300 z-20">
                     {partner.name}
                   </span>

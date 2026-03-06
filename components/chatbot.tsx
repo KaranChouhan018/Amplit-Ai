@@ -4,9 +4,6 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, Bot } from 'lucide-react';
 
-/* ------------------------------------------------------------------ */
-/*  Predefined Q&A knowledge base                                     */
-/* ------------------------------------------------------------------ */
 
 interface QA {
     keywords: string[];
@@ -98,19 +95,12 @@ function findAnswer(input: string): { answer: string; followUps: string[] } {
     return { answer: FALLBACK_ANSWER, followUps: FALLBACK_FOLLOWUPS };
 }
 
-/* ------------------------------------------------------------------ */
-/*  Types                                                              */
-/* ------------------------------------------------------------------ */
-
 interface Message {
     id: string;
     role: 'user' | 'bot';
     text: string;
 }
 
-/* ------------------------------------------------------------------ */
-/*  Component                                                          */
-/* ------------------------------------------------------------------ */
 
 export default function Chatbot() {
     const [isOpen, setIsOpen] = useState(false);

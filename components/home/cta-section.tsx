@@ -8,6 +8,15 @@ import { ContactDialog } from '@/components/contact-dialog';
 import { CONTACT_INFO } from '@/lib/constants';
 import { BorderBeam } from '../ui/border-beam';
 
+const CTA_CONTENT = {
+  headline: 'Meet Your 24/7 AI Front Desk Assistant -',
+  headlineHighlight: 'Dentsi',
+  description:
+    'Dentsi answers every call instantly, understands patient needs, and books appointments \u2014 just like a trained front desk staff member. Start capturing every opportunity today.',
+  primaryButton: 'Book a Demo',
+  secondaryButton: 'Enquire Now',
+};
+
 export default function CTASection() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
@@ -41,10 +50,10 @@ export default function CTASection() {
           {/* Content */}
           <div className="relative z-10 max-w-xl">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-5">
-              Meet Your 24/7 AI Front Desk Assistant - <span className='text-brand'>Dentsi</span>
+              {CTA_CONTENT.headline} <span className='text-brand'>{CTA_CONTENT.headlineHighlight}</span>
             </h2>
             <p className="text-[#4e5157] font-medium text-[15px] md:text-[17px] mb-8 sm:mb-10 leading-relaxed">
-              Dentsi answers every call instantly, understands patient needs, and books appointments — just like a trained front desk staff member. Start capturing every opportunity today.
+              {CTA_CONTENT.description}
             </p>
             <Link
               href={CONTACT_INFO.calendly}
@@ -52,7 +61,7 @@ export default function CTASection() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center mt-4 md:ml-4 gap-2 px-7 py-3.5 bg-brand text-white rounded-full font-semibold hover:opacity-90 transition-opacity whitespace-nowrap"
             >
-              Book a Demo
+              {CTA_CONTENT.primaryButton}
             </Link>
 
 
@@ -60,7 +69,7 @@ export default function CTASection() {
               <button
                 className="inline-flex items-center justify-center mt-4 md:ml-4 gap-2 px-7 py-3.5 bg-transparent border border-brand/10 text-[#4e5157] font-medium text-sm rounded-full hover:bg-black/5 hover:text-gray-900 transition-all group whitespace-nowrap"
               >
-                Enquire Now
+                {CTA_CONTENT.secondaryButton}
                 <ArrowRight size={20} />
               </button>
             </ContactDialog>

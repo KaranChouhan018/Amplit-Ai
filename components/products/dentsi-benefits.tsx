@@ -2,6 +2,14 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { CheckCircle, Mic, Clock, GraduationCap, ShieldCheck, Zap, Crosshair } from 'lucide-react';
 
+const BENEFITS_CONTENT = {
+  badge: 'The Impact',
+  headline: 'Elevate your',
+  headlineHighlight: 'patient experience.',
+  description:
+    'With Our Front Desk - Dentsi seamlessly handling patient calls and scheduling in the background, your front desk reclaims hours of their day to focus on in-clinic patients.',
+};
+
 const benefits = [
   'Never miss another patient call',
   'Automate appointment scheduling',
@@ -72,16 +80,16 @@ export default function DentsiBenefits() {
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand/10 text-brand text-xs font-bold mb-6 tracking-widest uppercase">
-              The Impact
+              {BENEFITS_CONTENT.badge}
             </div>
 
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-[1.15] tracking-tight">
-              Elevate your<br className="hidden sm:block" />
-              <span className="text-brand"> patient experience.</span>
+              {BENEFITS_CONTENT.headline}<br className="hidden sm:block" />
+              <span className="text-brand"> {BENEFITS_CONTENT.headlineHighlight}</span>
             </h2>
 
             <p className="text-[#4e5157] font-medium text-[15px] md:text-[17px] mb-10 leading-relaxed max-w-lg">
-              With Our Front Desk - Dentsi seamlessly handling patient calls and scheduling in the background, your front desk reclaims hours of their day to focus on in-clinic patients.
+              {BENEFITS_CONTENT.description}
             </p>
 
             <ul className="space-y-5">

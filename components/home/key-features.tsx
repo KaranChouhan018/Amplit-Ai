@@ -51,6 +51,13 @@ const features = [
 /* Stripes for the featured card */
 const stripeCount = Array.from({ length: 20 }, (_, i) => i);
 
+const SECTION_CONTENT = {
+  headline:
+    'Stop losing revenue to missed calls. Amplit AI transforms every patient interaction into an opportunity.',
+  description:
+    'Missed calls = missed appointments. Missed appointments = lost revenue. Lost revenue = slow growth. Amplit AI solves this \u2014 fully automated, 24/7.',
+};
+
 export default function KeyFeatures() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
@@ -69,11 +76,10 @@ export default function KeyFeatures() {
         >
 
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-4">
-            Stop losing revenue to missed <br /> calls.  Amplit AI transforms every patient interaction <br /> into an opportunity.
+            {SECTION_CONTENT.headline}
           </h2>
           <p className="text-[#4e5157] font-medium text-[15px] md:text-[17px] max-w-2xl mb-10 mx-auto leading-relaxed">
-            Missed calls = missed appointments. Missed appointments = lost revenue. Lost revenue = slow growth. Amplit AI solves this — fully automated, 24/7.
-
+            {SECTION_CONTENT.description}
           </p>
         </motion.div>
 

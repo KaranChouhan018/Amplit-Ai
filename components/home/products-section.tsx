@@ -13,6 +13,18 @@ import {
 import { IMAGES } from "@/lib/constants";
 import Image from "next/image";
 
+const PRODUCTS_CONTENT = {
+  headline: 'Your AI-Powered',
+  headlineHighlight: 'Dental Front Desk',
+  description:
+    'Answers every call, books appointments, and works 24/7 \u2014 so you never miss revenue again.',
+  productName: 'Dentsi',
+  productTagline: 'AI Voice Agent for Dental Practices',
+  productDescription:
+    'Dentsi answers every call instantly, understands patient needs, and books appointments - just like a trained front desk staff member.',
+  ctaText: 'Explore Dentsi',
+  ctaHref: '/dentsi',
+};
 
 const highlights = [
   {
@@ -43,7 +55,7 @@ export default function ProductsSection() {
   return (
     <section className="bg-white py-10  relative overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Header */}
+
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -52,17 +64,17 @@ export default function ProductsSection() {
           className="text-center mb-16 md:mb-20"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight mb-6">
-            Your AI-Powered{" "}
-            <span className="text-brand">Dental Front Desk</span>
+            {PRODUCTS_CONTENT.headline}{" "}
+            <span className="text-brand">{PRODUCTS_CONTENT.headlineHighlight}</span>
           </h2>
           <p className="text-[#4e5157] font-medium text-[15px] md:text-[17px] max-w-2xl mx-auto leading-relaxed">
-            Answers every call, books appointments, and works 24/7 — so you never miss revenue again.
+            {PRODUCTS_CONTENT.description}
           </p>
         </motion.div>
 
-        {/* Product Spotlight */}
+ 
         <div className="grid lg:grid-cols-2 gap-12 xl:gap-16 items-center">
-          {/* Mockup — left */}
+
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -83,7 +95,6 @@ export default function ProductsSection() {
             </div>
           </motion.div>
 
-          {/* Content — right */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -91,15 +102,13 @@ export default function ProductsSection() {
             className="flex flex-col"
           >
             <h3 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-3">
-              Dentsi
+              {PRODUCTS_CONTENT.productName}
             </h3>
             <p className="text-brand text-lg font-medium mb-4">
-              AI Voice Agent for Dental Practices
+              {PRODUCTS_CONTENT.productTagline}
             </p>
             <p className="text-[#4e5157] font-medium text-[15px] md:text-[17px] leading-relaxed mb-8 max-w-lg">
-              Dentsi answers every call instantly, understands patient needs,
-              and books appointments - just like a trained front desk staff
-              member.
+              {PRODUCTS_CONTENT.productDescription}
             </p>
 
             {/* Highlight grid */}
@@ -133,10 +142,10 @@ export default function ProductsSection() {
 
             <div>
               <Link
-                href="/dentsi"
+                href={PRODUCTS_CONTENT.ctaHref}
                 className="inline-flex items-center gap-2 text-white font-medium text-sm bg-brand rounded-full px-6 py-3 shadow-[0_4px_14px_rgba(var(--brand-rgb),0.2)] hover:shadow-[0_6px_20px_rgba(var(--brand-rgb),0.25)] transition-all duration-300 group mt-4"
               >
-                Explore Dentsi
+                {PRODUCTS_CONTENT.ctaText}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>

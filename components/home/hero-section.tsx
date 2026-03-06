@@ -8,6 +8,18 @@ import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 const VIDEO_URL = 'https://youtu.be/9rD7ETJALYE';
 const AUDIO_URL = '/harvard.wav';
 
+const HERO_CONTENT = {
+  headline: 'Amplifying',
+  headlineHighlight: 'Healthcare Intelligence',
+  subtitle:
+    'Your AI-powered dental front desk answers every call, books appointments, and works 24/7 — so you never miss an oppourtunity again.',
+  ctaPrimary: 'See In Action',
+  ctaPrimaryActive: 'Pause Demo',
+  ctaSecondary: 'Watch Demo',
+  annotation: 'Talk with Amplit Ai',
+  captionLabel: 'Amplit AI is speaking',
+};
+
 const CAPTIONS = [
   { start: 0, end: 3.5, text: "The stale smell of old beer lingers." },
   { start: 3.5, end: 7, text: "It takes heat to bring out the odor." },
@@ -72,8 +84,8 @@ export default function HeroSection() {
               transition={{ duration: 1.2, ease: "easeOut" }}
               className="text-[2.5rem] sm:text-3xl md:text-5xl font-bold text-gray-900 leading-[1.1] mb-5 sm:mb-6 tracking-tight"
             >
-              Amplifying <br />
-              <span className="text-brand"> Healthcare Intelligence</span>
+              {HERO_CONTENT.headline} <br />
+              <span className="text-brand"> {HERO_CONTENT.headlineHighlight}</span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -83,7 +95,7 @@ export default function HeroSection() {
               transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
               className="text-[#4e5157] font-medium text-[15px] md:text-[17px] mb-8 md:mb-10 max-w-lg mx-auto md:mx-0 leading-relaxed"
             >
-              Your AI-powered dental front desk answers every call, books appointments, and works 24/7 — so you never miss an oppourtunity again.
+              {HERO_CONTENT.subtitle}
             </motion.p>
 
             {/* CTA + annotation */}
@@ -105,7 +117,7 @@ export default function HeroSection() {
                     <AudioLines className="w-3.5 h-3.5 text-white ml-0.5" />
                   )}
                 </span>
-                {isPlaying ? 'Pause Demo' : 'See In Action'}
+                {isPlaying ? HERO_CONTENT.ctaPrimaryActive : HERO_CONTENT.ctaPrimary}
               </button>
 
               <Dialog>
@@ -116,7 +128,7 @@ export default function HeroSection() {
                     <span className="w-8 h-8 rounded-full bg-black/5 flex items-center justify-center shrink-0 group-hover:bg-black/10 transition-colors">
                       <Play className="w-3.5 h-3.5 text-black/60 fill-current ml-0.5 group-hover:text-black transition-colors" />
                     </span>
-                    Watch Demo
+                    {HERO_CONTENT.ctaSecondary}
                   </button>
                 </DialogTrigger>
                 <DialogContent className="max-w-4xl p-0 overflow-hidden bg-transparent border-none shadow-2xl">
@@ -161,7 +173,7 @@ export default function HeroSection() {
                   strokeLinejoin="round"
                 />
               </svg>
-              <span className="text-sm text-gray-400 font-medium ml-8">Talk with Amplit Ai</span>
+              <span className="text-sm text-gray-400 font-medium ml-8">{HERO_CONTENT.annotation}</span>
             </motion.div>
           </div>
 
@@ -173,7 +185,7 @@ export default function HeroSection() {
             className="hidden md:flex flex-1 items-center justify-center relative"
           >
             <video
-              src="/hero-video-v1.mp4"
+              src="/videos/hero-video-v1.mp4"
               autoPlay
               loop
               muted
@@ -210,7 +222,7 @@ export default function HeroSection() {
             className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-2xl bg-white/90 backdrop-blur-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] rounded-2xl border border-black/5 p-5 flex items-center gap-6"
           >
             <div className="flex-1">
-              <p className="text-xs font-semibold text-brand/80 uppercase tracking-wider mb-1.5">Amplit AI is speaking</p>
+              <p className="text-xs font-semibold text-brand/80 uppercase tracking-wider mb-1.5">{HERO_CONTENT.captionLabel}</p>
               <p className="text-lg md:text-xl font-medium text-black/80 leading-snug">
                 {currentCaption}
               </p>
