@@ -63,39 +63,39 @@ export default function WhyAmplit() {
 
             <div className="flex-1 w-full flex items-end justify-center px-4 sm:px-8 lg:px-10 pb-6 sm:pb-10 relative">
 
-  {/* Frosted container */}
-  <div
-    className="relative z-10 w-full max-w-6xl"
-    style={{
-      backgroundColor: "rgba(255,255,255,0.4)",
-      borderRadius: 24,
-    }}
-  >
+              {/* Frosted container */}
+              <div
+                className="relative z-10 w-full max-w-6xl"
+                style={{
+                  backgroundColor: "rgba(255,255,255,0.4)",
+                  borderRadius: 24,
+                }}
+              >
 
-    {/* Blur wrapper */}
-    <div
-      className="relative overflow-hidden w-full aspect-[16/9] sm:aspect-[16/10]"
-      style={{
-        backdropFilter: "blur(8px)",
-        borderRadius: 20,
-      }}
-    >
+                {/* Blur wrapper */}
+                <div
+                  className="relative overflow-hidden w-full aspect-video sm:aspect-16/10"
+                  style={{
+                    backdropFilter: "blur(8px)",
+                    borderRadius: 20,
+                  }}
+                >
 
-      <Image
-        src="/Dashboard.png"
-        alt="Dashboard"
-        fill
-        priority
-        sizes="(max-width: 640px) 100vw,
+                  <Image
+                    src="/Dashboard.png"
+                    alt="Dashboard"
+                    fill
+                    priority
+                    sizes="(max-width: 640px) 100vw,
                (max-width: 1024px) 90vw,
                1200px"
-        className="object-cover rounded-t-lg drop-shadow-md"
-      />
+                    className="object-cover rounded-t-lg drop-shadow-md"
+                  />
 
-    </div>
+                </div>
 
-  </div>
-</div>
+              </div>
+            </div>
           </motion.div>
 
           {/* Right Column */}
@@ -160,7 +160,7 @@ export default function WhyAmplit() {
                 >
                   {/* Bottom gradient */}
                   <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-brand/10 to-transparent pointer-events-none" />
-                  <div className="w-10 h-10 rounded-xl text-white bg-brand/[0.06] flex items-center justify-center mb-auto">
+                  <div className="w-10 h-10 rounded-xl text-white bg-brand/6 flex items-center justify-center mb-auto">
                     {stat.icon}
                   </div>
                   <div className="mt-6">

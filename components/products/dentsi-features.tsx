@@ -247,9 +247,9 @@ export default function DentsiFeatures() {
             </Accordion>
 
             {/* Right: Dynamic Visual Canvas */}
-            <div className="relative flex overflow-hidden rounded-[2rem] border border-black/5 bg-[#F8FAFC] h-[380px] md:min-h-[400px] shadow-inner lg:h-[500px]">
+            <div className="relative flex overflow-hidden rounded-4xl border border-black/5 bg-[#F8FAFC] h-[380px] md:min-h-[400px] shadow-inner lg:h-[500px]">
               {/* Subtle Grid Background */}
-              <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-50" />
+              <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-size-[16px_16px] opacity-50" />
 
               <div className="w-full h-full relative z-10 p-6 md:p-8">
                 <AnimatePresence mode="wait">

@@ -78,7 +78,7 @@ export default function ProductsSection() {
                   height={1000}
                   className="rounded-2xl object-cover w-full h-auto"
                 />
-                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white via-white/80 to-transparent rounded-b-2xl pointer-events-none" />
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-white via-white/80 to-transparent rounded-b-2xl pointer-events-none" />
               </div>
             </div>
           </motion.div>
@@ -104,7 +104,7 @@ export default function ProductsSection() {
 
             {/* Highlight grid */}
             <div className="grid grid-cols-2 gap-4 mb-10">
-              {highlights.map(({ icon: Icon, label, detail }, i) => (
+              {highlights.map(({ icon: Icon, label }, i) => (
                 <motion.div
                   key={label}
                   initial={{ opacity: 0, y: 16 }}

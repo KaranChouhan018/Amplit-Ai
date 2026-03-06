@@ -184,7 +184,7 @@ export default function Chatbot() {
                         whileTap={{ scale: 0.95 }}
                         transition={{ type: 'spring', stiffness: 400, damping: 20 }}
                         onClick={() => setIsOpen(true)}
-                        className="fixed bottom-6 right-6 z-[9999] w-14 h-14 rounded-full bg-brand text-white shadow-lg shadow-brand/30 flex items-center justify-center chatbot-pulse cursor-pointer"
+                        className="fixed bottom-6 right-6 z-9999 w-14 h-14 rounded-full bg-brand text-white shadow-lg shadow-brand/30 flex items-center justify-center chatbot-pulse cursor-pointer"
                         aria-label="Open chat"
                     >
                         <MessageCircle className="w-6 h-6" />
@@ -201,10 +201,10 @@ export default function Chatbot() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 24, scale: 0.95 }}
                         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                        className="fixed bottom-6 right-6 z-[9999] w-[370px] max-w-[calc(100vw-2rem)] h-[560px] max-h-[calc(100vh-3rem)] flex flex-col rounded-2xl overflow-hidden shadow-2xl shadow-black/10 border border-black/[0.06] bg-white"
+                        className="fixed bottom-6 right-6 z-9999 w-[370px] max-w-[calc(100vw-2rem)] h-[560px] max-h-[calc(100vh-3rem)] flex flex-col rounded-2xl overflow-hidden shadow-2xl shadow-black/10 border border-black/6 bg-white"
                     >
                         {/* Header */}
-                        <div className="flex items-center gap-3 px-5 py-4 border-b border-black/[0.06] bg-gradient-to-r from-brand/5 to-transparent shrink-0">
+                        <div className="flex items-center gap-3 px-5 py-4 border-b border-black/6 bg-linear-to-r from-brand/5 to-transparent shrink-0">
                             <div className="w-9 h-9 rounded-full bg-brand/10 flex items-center justify-center">
                                 <Bot className="w-5 h-5 text-brand" />
                             </div>
@@ -243,7 +243,7 @@ export default function Chatbot() {
                                     <div
                                         className={`max-w-[82%] px-4 py-2.5 text-[13.5px] leading-relaxed rounded-2xl whitespace-pre-line ${msg.role === 'user'
                                             ? 'bg-brand text-white rounded-br-md'
-                                            : 'bg-black/[0.04] text-black/80 rounded-bl-md'
+                                            : 'bg-black/4 text-black/80 rounded-bl-md'
                                             }`}
                                     >
                                         {msg.text}
@@ -260,7 +260,7 @@ export default function Chatbot() {
                                         exit={{ opacity: 0, y: -4 }}
                                         className="flex justify-start"
                                     >
-                                        <div className="flex items-center gap-1.5 px-4 py-3 bg-black/[0.04] rounded-2xl rounded-bl-md">
+                                        <div className="flex items-center gap-1.5 px-4 py-3 bg-black/4 rounded-2xl rounded-bl-md">
                                             <span className="w-2 h-2 rounded-full bg-brand/50 typing-dot" style={{ animationDelay: '0ms' }} />
                                             <span className="w-2 h-2 rounded-full bg-brand/50 typing-dot" style={{ animationDelay: '200ms' }} />
                                             <span className="w-2 h-2 rounded-full bg-brand/50 typing-dot" style={{ animationDelay: '400ms' }} />
@@ -295,7 +295,7 @@ export default function Chatbot() {
                         </AnimatePresence>
 
                         {/* Input Area */}
-                        <div className="flex items-center gap-2 px-4 py-3 border-t border-black/[0.06] bg-white shrink-0">
+                        <div className="flex items-center gap-2 px-4 py-3 border-t border-black/6 bg-white shrink-0">
                             <input
                                 ref={inputRef}
                                 type="text"
@@ -309,7 +309,7 @@ export default function Chatbot() {
                                 }}
                                 placeholder="Type a message…"
                                 disabled={isTyping}
-                                className="flex-1 min-w-0 px-4 py-2.5 text-sm text-black placeholder:text-black/30 bg-black/[0.03] rounded-full border-none outline-none focus:ring-2 focus:ring-brand/20 transition disabled:opacity-50"
+                                className="flex-1 min-w-0 px-4 py-2.5 text-sm text-black placeholder:text-black/30 bg-black/3 rounded-full border-none outline-none focus:ring-2 focus:ring-brand/20 transition disabled:opacity-50"
                             />
                             <button
                                 onClick={() => handleSend()}
