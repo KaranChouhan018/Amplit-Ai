@@ -4,22 +4,22 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const PARTNER_LOGOS = [
-    {
-        name: 'Appointment',
-        logo: '/trust-image/appointment.jpg',
-    },
-    {
-        name: 'Call',
-        logo: '/trust-image/call.jpg',
-    },
-    {
-        name: 'Book',
-        logo: '/trust-image/Book.png',
-    },
-    {
-        name: 'Patient ',
-        logo: '/trust-image/patient.png',
-    },
+     {
+    name: 'Appointment',
+    logo: '/trust-image/multi.png',
+  },
+  {
+    name: 'Call',
+    logo: '/trust-image/call.png',
+  },
+  {
+    name: 'Book',
+    logo: '/trust-image/Book.png',
+  },
+  {
+    name: 'Patient ',
+    logo: '/trust-image/patient.png',
+  },
 
 ];
 

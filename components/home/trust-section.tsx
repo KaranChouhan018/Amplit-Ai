@@ -6,11 +6,11 @@ import Image from 'next/image';
 const PARTNER_LOGOS = [
   {
     name: 'Appointment',
-    logo: '/trust-image/appointment.jpg',
+    logo: '/trust-image/multi.png',
   },
   {
     name: 'Call',
-    logo: '/trust-image/call.jpg',
+    logo: '/trust-image/call.png',
   },
   {
     name: 'Book',
