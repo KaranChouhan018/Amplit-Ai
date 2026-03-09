@@ -1,29 +1,59 @@
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
-const transporter = nodemailer.createTransport({
-  host: 'smtpout.secureserver.net',
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.GODADDY_EMAIL,
-    pass: process.env.GODADDY_EMAIL_PASSWORD,
-  },
-});
+if (!process.env.RESEND_API_KEY) {
+  throw new Error('RESEND_API_KEY environment variable is not set');
+}
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+// In-memory rate limiter: max 3 submissions per IP per 15 minutes
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+const RATE_LIMIT = 3;
+const RATE_WINDOW_MS = 15 * 60 * 1000;
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+  if (!entry || now > entry.resetAt) {
+    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_WINDOW_MS });
+    return true;
+  }
+  if (entry.count >= RATE_LIMIT) return false;
+  entry.count++;
+  return true;
+}
 
 export async function POST(request: NextRequest) {
+  // Rate limiting
+  const ip = request.headers.get('x-forwarded-for')?.split(',')[0].trim() ?? 'unknown';
+  if (!checkRateLimit(ip)) {
+    return NextResponse.json(
+      { error: 'Too many requests. Please try again later.' },
+      { status: 429 }
+    );
+  }
+
+  // Parse body — return 400 for malformed JSON, not 500
+  let raw: Record<string, unknown>;
   try {
     const body = await request.json();
-    let { name, email, company, phone, chairs, interestedIn, message } = body;
+    if (!body || typeof body !== 'object' || Array.isArray(body)) {
+      return NextResponse.json({ error: 'Invalid request body' }, { status: 400 });
+    }
+    raw = body as Record<string, unknown>;
+  } catch {
+    return NextResponse.json({ error: 'Invalid request body' }, { status: 400 });
+  }
 
-    // Sanitize: trim all string fields
-    name = typeof name === 'string' ? name.trim() : '';
-    email = typeof email === 'string' ? email.trim() : '';
-    company = typeof company === 'string' ? company.trim() : '';
-    phone = typeof phone === 'string' ? phone.trim() : '';
-    chairs = typeof chairs === 'string' ? chairs.trim() : '';
-    interestedIn = typeof interestedIn === 'string' ? interestedIn.trim() : '';
-    message = typeof message === 'string' ? message.trim() : '';
+  try {
+    const name = typeof raw.name === 'string' ? raw.name.trim() : '';
+    const email = typeof raw.email === 'string' ? raw.email.trim() : '';
+    const company = typeof raw.company === 'string' ? raw.company.trim() : '';
+    const phone = typeof raw.phone === 'string' ? raw.phone.trim() : '';
+    const chairs = typeof raw.chairs === 'string' ? raw.chairs.trim() : '';
+    const interestedIn = typeof raw.interestedIn === 'string' ? raw.interestedIn.trim() : '';
+    const message = typeof raw.message === 'string' ? raw.message.trim() : '';
 
     // Required fields
     if (!name || !email || !company || !chairs || !interestedIn || !message) {
@@ -33,9 +63,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Length limits
-    if (name.length > 100 || email.length > 254 || company.length > 150 ||
-        phone.length > 20 || interestedIn.length > 200 || message.length > 2000) {
+    // Length limits (chairs included)
+    if (
+      name.length > 100 || email.length > 254 || company.length > 150 ||
+      phone.length > 20 || chairs.length > 50 || interestedIn.length > 200 ||
+      message.length > 2000
+    ) {
       return NextResponse.json(
         { error: 'One or more fields exceed the maximum allowed length' },
         { status: 400 }
@@ -51,8 +84,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return NextResponse.json(
         { error: 'Invalid email address' },
         { status: 400 }
@@ -72,6 +104,17 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { error: 'Message must be at least 10 characters' },
         { status: 400 }
+      );
+    }
+
+    // Env var check before doing any work
+    const recipientEmail = process.env.CONTACT_RECIPIENT_EMAIL;
+    const fromEmail = process.env.RESEND_FROM_EMAIL;
+    if (!recipientEmail || !fromEmail) {
+      console.error('Missing required env vars: CONTACT_RECIPIENT_EMAIL or RESEND_FROM_EMAIL');
+      return NextResponse.json(
+        { error: 'Server configuration error. Please try again later.' },
+        { status: 500 }
       );
     }
 
@@ -117,13 +160,21 @@ export async function POST(request: NextRequest) {
       </div>
     `;
 
-    await transporter.sendMail({
-      from: `"Amplit AI" <${process.env.GODADDY_EMAIL}>`,
-      to: process.env.CONTACT_RECIPIENT_EMAIL || process.env.GODADDY_EMAIL,
+    const { error: sendError } = await resend.emails.send({
+      from: fromEmail,
+      to: recipientEmail,
       replyTo: email,
       subject: `New Inquiry from ${name}${company ? ` — ${company}` : ''}`,
       html: htmlBody,
     });
+
+    if (sendError) {
+      console.error('Resend send error:', sendError);
+      return NextResponse.json(
+        { error: 'Failed to send message. Please try again later.' },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json(
       { success: true, message: 'Message sent successfully' },
