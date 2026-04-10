@@ -6,11 +6,11 @@ import { Play } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 
 // Replace this with your actual YouTube video ID or video URL
-const VIDEO_URL = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1';
+const VIDEO_URL = 'https://youtu.be/gJXAg87tQrY';
 
 const VIDEO_CONTENT = {
   thumbnailSrc:
-    'https://framerusercontent.com/images/2FuaEXnm34juefdUMjtBnks3EEU.png?scale-down-to=2048',
+    'https://youtu.be/gJXAg87tQrY,
   thumbnailAlt: 'Video preview',
   videoTitle: 'Product demo video',
   playLabel: 'Play video',
