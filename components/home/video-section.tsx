@@ -6,8 +6,7 @@ import { Play } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 
 // Replace this with your actual YouTube video ID or video URL
-const VIDEO_URL = '
-  'https://www.youtube.com/embed/gJXAg87tQrY?rel=0&modestbranding=1&origin=http://localhost:3000';
+const VIDEO_URL = ' https://www.youtube.com/embed/gJXAg87tQrY?rel=0&modestbranding=1&origin=http://localhost:3000';
 
 const VIDEO_CONTENT = {
   thumbnailSrc:
