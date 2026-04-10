@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Play, AudioLines, Pause } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 
-const VIDEO_URL = 'https://youtu.be/9rD7ETJALYE';
+const VIDEO_URL = 'https://www.youtube.com/embed/gJXAg87tQrY';
 const AUDIO_URL = '/harvard.wav';
 
 const HERO_CONTENT = {
